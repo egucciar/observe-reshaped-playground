@@ -9,7 +9,7 @@ import { TextField } from '../components/TextField'
 import { Checkbox } from '../components/Checkbox'
 import { Link } from '../components/Link'
 import { Divider } from '../components/Divider'
-import { LogIn, Mail, Lock, Github } from 'lucide-react'
+import { LogIn, Mail, Github } from 'lucide-react'
 
 export function LoginBlockPage() {
   const [email, setEmail] = useState('')
@@ -60,7 +60,7 @@ export function LoginBlockPage() {
             {/* Social Login Buttons */}
             <View gap={2}>
               <Button
-                variant="outlined"
+                variant="outline"
                 fullWidth
                 onClick={() => handleSocialLogin('Google')}
               >
@@ -70,7 +70,7 @@ export function LoginBlockPage() {
                 </View>
               </Button>
               <Button
-                variant="outlined"
+                variant="outline"
                 fullWidth
                 onClick={() => handleSocialLogin('GitHub')}
               >
@@ -97,11 +97,10 @@ export function LoginBlockPage() {
                   Email
                 </Text>
                 <TextField
+                  name="email"
                   value={email}
-                  onChange={(e) => setEmail(e.currentTarget.value)}
+                  onChange={(e) => setEmail(e.value)}
                   placeholder="name@example.com"
-                  startSlot={<Mail size={16} />}
-                  fullWidth
                 />
               </View>
 
@@ -115,19 +114,18 @@ export function LoginBlockPage() {
                   </Link>
                 </View>
                 <TextField
-                  type="password"
+                  name="password"
+                  inputAttributes={{ type: 'password' }}
                   value={password}
-                  onChange={(e) => setPassword(e.currentTarget.value)}
+                  onChange={(e) => setPassword(e.value)}
                   placeholder="Enter your password"
-                  startSlot={<Lock size={16} />}
-                  fullWidth
                 />
               </View>
 
               <View direction="row" align="center" gap={2}>
                 <Checkbox
-                  selected={rememberMe}
-                  onChange={(e) => setRememberMe(e.selected)}
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(!!e.value)}
                 />
                 <Text variant="body-2">Remember me for 30 days</Text>
               </View>
@@ -173,15 +171,15 @@ export function LoginBlockPage() {
               <View gap={3}>
                 <Text variant="title-5">Minimal Login</Text>
                 <TextField
+                  name="email-minimal"
                   placeholder="Email"
-                  fullWidth
                 />
                 <TextField
-                  type="password"
+                  name="password-minimal"
+                  inputAttributes={{ type: 'password' }}
                   placeholder="Password"
-                  fullWidth
                 />
-                <Button variant="solid" fullWidth>
+                <Button variant="solid">
                   Login
                 </Button>
               </View>
@@ -197,15 +195,15 @@ export function LoginBlockPage() {
                   </Text>
                 </View>
                 <TextField
+                  name="email-secure"
                   placeholder="Email"
-                  fullWidth
                 />
                 <TextField
-                  type="password"
+                  name="password-secure"
+                  inputAttributes={{ type: 'password' }}
                   placeholder="Password"
-                  fullWidth
                 />
-                <Button variant="solid" color="primary" fullWidth>
+                <Button variant="solid" color="primary">
                   Access Account
                 </Button>
               </View>

@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { View } from '../components/View'
 import { Timeline } from '../components/Timeline'
 import { Card } from '../components/Card'
@@ -12,8 +11,6 @@ import { Icon } from '../components/Icon'
 import { Activity, CheckCircle, Clock, Package, Truck, MapPin } from 'lucide-react'
 
 export function TimelinePage() {
-  const [selectedEvent, setSelectedEvent] = useState<number | null>(null)
-
   return (
     <View padding={4} gap={4}>
       <Text variant="title-1" className="text-2xl font-bold">Timeline Component</Text>

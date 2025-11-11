@@ -24,7 +24,7 @@ export function ContainerPage() {
                 <View
                   className="bg-blue-100 rounded"
                   padding={4}
-                  style={{ height: '80px' }}
+                  height="80px"
                 >
                   <p className="text-center">
                     Container with default settings
@@ -49,7 +49,7 @@ export function ContainerPage() {
                 <View
                   className="bg-green-100 rounded"
                   padding={4}
-                  style={{ height: '80px' }}
+                  height="80px"
                 >
                   <p className="text-center">Container with width=&quot;600px&quot;</p>
                 </View>
@@ -60,7 +60,7 @@ export function ContainerPage() {
                 <View
                   className="bg-purple-100 rounded"
                   padding={4}
-                  style={{ height: '80px' }}
+                  height="80px"
                 >
                   <p className="text-center">Container with width=&quot;80%&quot;</p>
                 </View>
@@ -71,7 +71,7 @@ export function ContainerPage() {
                 <View
                   className="bg-yellow-100 rounded"
                   padding={4}
-                  style={{ height: '80px' }}
+                  height="80px"
                 >
                   <p className="text-center">
                     Container with width={'{50}'} (50 x1 units)
@@ -95,7 +95,7 @@ export function ContainerPage() {
                 <View
                   className="bg-red-100 rounded"
                   padding={4}
-                  style={{ height: '100%' }}
+                  height="100%"
                 >
                   <p className="text-center">
                     Container with height=&quot;150px&quot;
@@ -108,7 +108,7 @@ export function ContainerPage() {
                 <View
                   className="bg-orange-100 rounded"
                   padding={4}
-                  style={{ height: '100%' }}
+                  height="100%"
                 >
                   <p className="text-center">
                     Container with height=&quot;200px&quot; maxHeight=&quot;50%&quot;
@@ -132,7 +132,7 @@ export function ContainerPage() {
                 <View
                   className="bg-pink-100 rounded"
                   padding={4}
-                  style={{ height: '80px' }}
+                  height="80px"
                 >
                   <p className="text-center">
                     Container with padding={'{0}'} (no padding)
@@ -145,7 +145,7 @@ export function ContainerPage() {
                 <View
                   className="bg-teal-100 rounded"
                   padding={4}
-                  style={{ height: '80px' }}
+                  height="80px"
                 >
                   <p className="text-center">
                     Container with padding={'{2}'} (x2 units)
@@ -158,7 +158,7 @@ export function ContainerPage() {
                 <View
                   className="bg-indigo-100 rounded"
                   padding={4}
-                  style={{ height: '80px' }}
+                  height="80px"
                 >
                   <p className="text-center">
                     Container with padding={'{8}'} (x8 units)

@@ -124,7 +124,7 @@ export function DashboardBlockPage() {
                   You have {tableData.length} transactions this month
                 </Text>
               </View>
-              <Button variant="outlined" size="small">
+              <Button variant="outline" size="small">
                 View All
               </Button>
             </View>
@@ -143,9 +143,8 @@ export function DashboardBlockPage() {
                   {tableData.map((row) => (
                     <Table.Row
                       key={row.id}
-                      selected={selectedRow === row.id}
                       onClick={() => setSelectedRow(row.id)}
-                      className="cursor-pointer"
+                      className={selectedRow === row.id ? "cursor-pointer bg-blue-50" : "cursor-pointer"}
                     >
                       <Table.Cell>
                         <Text variant="body-2" weight="medium">

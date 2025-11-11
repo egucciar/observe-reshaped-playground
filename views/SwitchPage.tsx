@@ -6,7 +6,6 @@ import { Text } from '../components/Text'
 import { Switch } from '../components/Switch'
 import { Card } from '../components/Card'
 import { Badge } from '../components/Badge'
-import { Wifi, Bell, Moon, Volume2, Bluetooth } from 'lucide-react'
 
 export function SwitchPage() {
   const [wifiEnabled, setWifiEnabled] = useState(false)
@@ -44,21 +43,21 @@ export function SwitchPage() {
               <Switch
                 name="wifi-controlled"
                 checked={wifiEnabled}
-                onChange={({ value }) => setWifiEnabled(value)}
+                onChange={({ value }) => setWifiEnabled(!!value)}
               >
                 Wi-Fi Connection
               </Switch>
               <Switch
                 name="notifications-controlled"
                 checked={notifications}
-                onChange={({ value }) => setNotifications(value)}
+                onChange={({ value }) => setNotifications(!!value)}
               >
                 Notifications
               </Switch>
               <Switch
                 name="dark-mode"
                 checked={darkMode}
-                onChange={({ value }) => setDarkMode(value)}
+                onChange={({ value }) => setDarkMode(!!value)}
               >
                 Dark Mode
               </Switch>
@@ -167,7 +166,7 @@ export function SwitchPage() {
               <Switch
                 name="sound"
                 checked={soundEnabled}
-                onChange={({ value }) => setSoundEnabled(value)}
+                onChange={({ value }) => setSoundEnabled(!!value)}
               >
                 Sound effects
               </Switch>

@@ -222,6 +222,15 @@ import { Text } from '../components/Text'
   <Text variant="body-1">Left</Text>
   <Text variant="body-1">Right</Text>
 </View>
+
+// View supports native height, width, minHeight, maxHeight, minWidth, maxWidth
+<View height="80px" padding={4}>
+  <Text variant="body-1">Fixed height container</Text>
+</View>
+
+<View height="100%" width="50%">
+  <Text variant="body-1">Responsive sizing</Text>
+</View>
 ```
 
 ### Cards

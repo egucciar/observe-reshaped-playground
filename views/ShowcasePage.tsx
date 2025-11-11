@@ -194,7 +194,7 @@ export function ShowcasePage() {
       <Card padding={4}>
         <View gap={2}>
           <Text variant="title-3" className="font-semibold">Checkbox</Text>
-          <Checkbox checked={checkboxValue} onChange={(e) => setCheckboxValue(e.value)}>
+          <Checkbox checked={checkboxValue} onChange={(e) => setCheckboxValue(!!e.value)}>
             Check me
           </Checkbox>
         </View>

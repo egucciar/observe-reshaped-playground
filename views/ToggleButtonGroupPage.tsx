@@ -170,22 +170,12 @@ export function ToggleButtonGroupPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Sizes</Text>
+        <Text variant="title-2" className="text-xl font-semibold">Default Size</Text>
         <View gap={2}>
-          <ToggleButtonGroup defaultValue={['option2']} size="small">
-            <ToggleButton value="option1">Small 1</ToggleButton>
-            <ToggleButton value="option2">Small 2</ToggleButton>
-            <ToggleButton value="option3">Small 3</ToggleButton>
-          </ToggleButtonGroup>
-          <ToggleButtonGroup defaultValue={['option2']} size="medium">
-            <ToggleButton value="option1">Medium 1</ToggleButton>
-            <ToggleButton value="option2">Medium 2</ToggleButton>
-            <ToggleButton value="option3">Medium 3</ToggleButton>
-          </ToggleButtonGroup>
-          <ToggleButtonGroup defaultValue={['option2']} size="large">
-            <ToggleButton value="option1">Large 1</ToggleButton>
-            <ToggleButton value="option2">Large 2</ToggleButton>
-            <ToggleButton value="option3">Large 3</ToggleButton>
+          <ToggleButtonGroup defaultValue={['option2']}>
+            <ToggleButton value="option1">Option 1</ToggleButton>
+            <ToggleButton value="option2">Option 2</ToggleButton>
+            <ToggleButton value="option3">Option 3</ToggleButton>
           </ToggleButtonGroup>
         </View>
       </View>
@@ -221,7 +211,6 @@ export function ToggleButtonGroupPage() {
                 value={viewMode}
                 onChange={(e) => setViewMode(e.value)}
                 selectedColor="primary"
-                size="small"
               >
                 <ToggleButton
                   value="list"

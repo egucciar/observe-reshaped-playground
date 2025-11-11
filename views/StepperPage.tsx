@@ -6,7 +6,6 @@ import { Stepper } from '../components/Stepper'
 import { Card } from '../components/Card'
 import { Button } from '../components/Button'
 import { Badge } from '../components/Badge'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 export function StepperPage() {
   const [activeStep, setActiveStep] = useState(0)
@@ -63,7 +62,6 @@ export function StepperPage() {
                 size="small"
                 onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
                 disabled={activeStep === 0}
-                startSlot={<ChevronLeft size={16} />}
               >
                 Previous
               </Button>
@@ -72,7 +70,6 @@ export function StepperPage() {
                 size="small"
                 onClick={() => setActiveStep(Math.min(3, activeStep + 1))}
                 disabled={activeStep === 3}
-                endSlot={<ChevronRight size={16} />}
               >
                 Next
               </Button>
@@ -113,8 +110,7 @@ export function StepperPage() {
                       color="primary"
                       size="small"
                       onClick={() => setFormStep(1)}
-                      endSlot={<ChevronRight size={16} />}
-                    >
+                          >
                       Continue
                     </Button>
                   </View>
@@ -137,8 +133,7 @@ export function StepperPage() {
                       variant="outline"
                       size="small"
                       onClick={() => setFormStep(0)}
-                      startSlot={<ChevronLeft size={16} />}
-                    >
+                          >
                       Back
                     </Button>
                     <Button
@@ -146,8 +141,7 @@ export function StepperPage() {
                       color="primary"
                       size="small"
                       onClick={() => setFormStep(2)}
-                      endSlot={<ChevronRight size={16} />}
-                    >
+                          >
                       Continue
                     </Button>
                   </View>
@@ -172,8 +166,7 @@ export function StepperPage() {
                       variant="outline"
                       size="small"
                       onClick={() => setFormStep(1)}
-                      startSlot={<ChevronLeft size={16} />}
-                    >
+                          >
                       Back
                     </Button>
                     <Button
@@ -238,7 +231,6 @@ export function StepperPage() {
                 size="small"
                 onClick={() => setCheckoutStep(Math.max(0, checkoutStep - 1))}
                 disabled={checkoutStep === 0}
-                startSlot={<ChevronLeft size={16} />}
               >
                 Back
               </Button>
@@ -248,7 +240,6 @@ export function StepperPage() {
                 size="small"
                 onClick={() => setCheckoutStep(Math.min(3, checkoutStep + 1))}
                 disabled={checkoutStep === 3}
-                endSlot={<ChevronRight size={16} />}
               >
                 {checkoutStep === 3 ? 'Finish' : 'Continue'}
               </Button>

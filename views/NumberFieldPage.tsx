@@ -40,7 +40,9 @@ export function NumberFieldPage() {
             </View>
           </View>
 
-          <Text variant="body-2" weight="medium" paddingTop={2}>Special Implementation: Pseudo-Element Borders</Text>
+          <View paddingTop={2}>
+            <Text variant="body-2" weight="medium">Special Implementation: Pseudo-Element Borders</Text>
+          </View>
           <View gap={2}>
             <View direction="row" gap={2} align="start">
               <Text variant="body-2">•</Text>
@@ -76,7 +78,9 @@ export function NumberFieldPage() {
             </View>
           </View>
 
-          <Text variant="body-2" weight="medium" paddingTop={2}>Enhanced Hover State</Text>
+          <View paddingTop={2}>
+            <Text variant="body-2" weight="medium">Enhanced Hover State</Text>
+          </View>
           <View gap={2}>
             <View direction="row" gap={2} align="start">
               <Text variant="body-2">•</Text>

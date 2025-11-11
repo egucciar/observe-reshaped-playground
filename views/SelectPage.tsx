@@ -72,7 +72,9 @@ export function SelectPage() {
             </View>
           </View>
 
-          <Text variant="body-2" weight="medium" paddingTop={2}>Default Size Strategy</Text>
+          <View paddingTop={2}>
+            <Text variant="body-2" weight="medium">Default Size Strategy</Text>
+          </View>
           <View gap={2}>
             <View direction="row" gap={2} align="start">
               <Text variant="body-2">•</Text>
@@ -100,7 +102,9 @@ export function SelectPage() {
             </View>
           </View>
 
-          <Text variant="body-2" weight="medium" paddingTop={2}>Enhanced Hover State</Text>
+          <View paddingTop={2}>
+            <Text variant="body-2" weight="medium">Enhanced Hover State</Text>
+          </View>
           <View gap={2}>
             <View direction="row" gap={2} align="start">
               <Text variant="body-2">•</Text>

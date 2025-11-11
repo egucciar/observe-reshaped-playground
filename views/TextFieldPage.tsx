@@ -106,7 +106,6 @@ export function TextFieldPage() {
               <TextField
                 name="error-example"
                 placeholder="This field has an error"
-                validationHint="Please enter a valid value"
                 hasError
               />
             </View>

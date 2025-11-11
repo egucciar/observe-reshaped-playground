@@ -7,7 +7,7 @@ import { Text } from '../components/Text'
 import { Card } from '../components/Card'
 import { Badge } from '../components/Badge'
 import { Button } from '../components/Button'
-import { X, AlertCircle, Info, CheckCircle } from 'lucide-react'
+import { AlertCircle, Info, CheckCircle } from 'lucide-react'
 
 export function DismissiblePage() {
   const [banner1Visible, setBanner1Visible] = useState(true)
@@ -177,7 +177,7 @@ export function DismissiblePage() {
                 closeAriaLabel="Close image"
                 onClose={() => setBanner5Visible(false)}
               >
-                <View className="relative" style={{ aspectRatio: '16/9' }}>
+                <View className="relative" attributes={{ style: { aspectRatio: '16/9' } }}>
                   <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 rounded flex items-center justify-center">
                     <p className="text-white text-lg font-semibold">
                       Media Content (16:9)
@@ -255,7 +255,7 @@ export function DismissiblePage() {
                       the header!
                     </p>
                   </View>
-                  <Button variant="outlined" size="small">
+                  <Button variant="outline" size="small">
                     Learn More
                   </Button>
                 </View>

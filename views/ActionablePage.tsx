@@ -32,8 +32,10 @@ export function ActionablePage() {
               </Actionable>
               <Actionable
                 onClick={() => {}}
-                onFocus={() => setFocusedItem('focus-button')}
-                onBlur={() => setFocusedItem(null)}
+                attributes={{
+                  onFocus: () => setFocusedItem('focus-button'),
+                  onBlur: () => setFocusedItem(null),
+                }}
                 className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
               >
                 Focus me
