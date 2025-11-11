@@ -6,10 +6,11 @@ import {
 } from 'reshaped'
 import styles from './Card.module.css'
 
-export interface CardProps extends ReshapedCardProps {}
+export type CardProps = ReshapedCardProps
 
-const Card = ({ className, ...props }: CardProps) => {
-  return <ReshapedCard {...props} className={classNames(styles.root, className)} />
+const Card = ({ className, ...rest }: CardProps) => {
+  const combinedClassName = classNames(styles.root, className)
+  return <ReshapedCard {...(rest as any)} className={combinedClassName} />
 }
 
 export { Card }
