@@ -6,6 +6,7 @@ import { Resizable } from '../components/Resizable'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { Accordion } from '../components/Accordion'
 import { MenuItem } from '../components/MenuItem'
+import { Sparkles } from 'lucide-react'
 import { AccordionPage } from '../views/AccordionPage'
 import { ActionBarPage } from '../views/ActionBarPage'
 import { ActionablePage } from '../views/ActionablePage'
@@ -150,7 +151,7 @@ const reshapedComponents = [
   { key: 'avatar', label: 'Avatar', component: AvatarPage },
   { key: 'badge', label: 'Badge', component: BadgePage },
   { key: 'breadcrumbs', label: 'Breadcrumbs', component: BreadcrumbsPage },
-  { key: 'button', label: 'Button', component: ButtonPage },
+  { key: 'button', label: (<span className="flex items-center gap-1">Button <Sparkles size={14} /></span>), component: ButtonPage },
   { key: 'card', label: 'Card', component: CardPage },
   { key: 'checkbox', label: 'Checkbox', component: CheckboxPage },
   { key: 'container', label: 'Container', component: ContainerPage },

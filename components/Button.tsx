@@ -1,10 +1,65 @@
-import { Button as ReshapedButton } from 'reshaped'
+import React from 'react'
+import {
+  Button as ReshapedButton,
+  type ButtonProps as ReshapedButtonProps,
+} from 'reshaped'
+import { Tooltip, type TooltipProps } from './Tooltip'
+import { Actionable } from './Actionable'
 
-const Button = ({ size = "small", ...restProps }: React.ComponentProps<typeof ReshapedButton>) => {
-  return <ReshapedButton size={size} {...restProps} />
+export interface ButtonProps extends ReshapedButtonProps {
+  /**
+   * Tooltip content and configuration
+   * Can be a simple string or full tooltip configuration object
+   */
+  tooltip?: string | Omit<TooltipProps, 'children'>
 }
 
-Object.assign(Button, ReshapedButton)
+// Internal component that renders the actual button
+const ButtonWithAttributes = ({
+  size = 'small',
+  tooltipAttributes,
+  ...props
+}: ButtonProps & { tooltipAttributes?: ButtonProps['attributes'] }) => {
+  return (
+    <ReshapedButton
+      size={size}
+      {...props}
+      attributes={{
+        ...props.attributes,
+        ...tooltipAttributes,
+      }}
+    />
+  )
+}
+
+const Button = ({ tooltip, ...props }: ButtonProps) => {
+  if (!tooltip) {
+    return <ButtonWithAttributes {...props} />
+  }
+
+  const tooltipConfig: Omit<TooltipProps, 'children'> =
+    typeof tooltip === 'string' ? { text: tooltip } : tooltip
+
+  return (
+    <Tooltip {...tooltipConfig}>
+      {tooltipAttributes => {
+        // For disabled buttons, we need to wrap in Actionable to enable tooltip hover
+        // since disabled buttons don't receive mouse events
+        if (props.disabled) {
+          return (
+            <Actionable attributes={tooltipAttributes} as="div">
+              <ButtonWithAttributes {...props} />
+            </Actionable>
+          )
+        }
+
+        // For enabled buttons, pass tooltip attributes directly to the button
+        return <ButtonWithAttributes {...props} tooltipAttributes={tooltipAttributes} />
+      }}
+    </Tooltip>
+  )
+}
+
+Button.Group = ReshapedButton.Group
 
 export { Button }
-export type { ButtonProps } from 'reshaped'

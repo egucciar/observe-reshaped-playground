@@ -82,6 +82,8 @@ import { View } from '../components/View'
 
 ### Text Component Variants
 
+**CRITICAL: NEVER use Tailwind classes for typography styling (text-xl, font-bold, etc.). Always use the Text component's variant and props API.**
+
 The Text component supports multiple variants for different typography needs:
 
 - `title-1` - Largest heading (replaces `<h1>`)
@@ -99,15 +101,34 @@ The Text component supports multiple variants for different typography needs:
 - `featured-2` - Medium featured text
 - `featured-3` - Small featured text
 
+**Text Component Props for Styling:**
+
+- `variant` - Controls the text size and style
+- `weight` - Controls font weight (e.g., `"regular"`, `"medium"`, `"bold"`)
+- `color` - Controls text color (e.g., `"neutral-faded"` for muted text)
+- `align` - Controls text alignment (e.g., `"start"`, `"center"`, `"end"`)
+
 **Example Usage:**
 
 ```tsx
 import { Text } from '../components/Text'
 import { View } from '../components/View'
-;<View gap={3}>
+
+// ❌ WRONG - Don't use Tailwind classes
+<Text variant="title-1" className="text-2xl font-bold">Title</Text>
+<Text variant="body-1" className="opacity-70">Muted text</Text>
+
+// ✅ CORRECT - Use Text component props
+<Text variant="title-1">Title</Text>
+<Text variant="title-1" weight="bold">Bold Title</Text>
+<Text variant="body-1" color="neutral-faded">Muted text</Text>
+<Text variant="body-2" align="center">Centered text</Text>
+
+<View gap={3}>
   <Text variant="title-1">Main Page Title</Text>
   <Text variant="title-2">Section Heading</Text>
   <Text variant="body-1">This is regular paragraph text.</Text>
+  <Text variant="body-2" color="neutral-faded">This is muted helper text.</Text>
   <Text variant="caption-1">This is a caption or helper text.</Text>
 </View>
 ```
@@ -229,6 +250,39 @@ import { Trash2 } from 'lucide-react'
 />
 ```
 
+### Buttons with Tooltips
+
+The `Button` component has built-in tooltip support. Simply pass a `tooltip` prop with either a string or a tooltip configuration object. This is especially useful for disabled buttons, which normally don't receive mouse events.
+
+```tsx
+import { Button } from '../components/Button'
+
+// Simple string tooltip
+<Button color="primary" tooltip="This will submit the form">
+  Submit
+</Button>
+
+// Tooltip on disabled button (the key benefit!)
+<Button disabled tooltip="This action is not available">
+  Disabled Action
+</Button>
+
+// Tooltip with configuration object
+<Button
+  tooltip={{
+    text: "Save your changes",
+    position: "top"
+  }}
+>
+  Save
+</Button>
+```
+
+**Why use the built-in tooltip prop instead of wrapping with `<Tooltip>`?**
+- Disabled buttons don't receive mouse events, so tooltips won't work
+- The Button component handles this automatically by wrapping disabled buttons in an `Actionable` component
+- Simpler API - no need to manually wire up render props and attributes
+
 ## Documentation References
 
 For detailed component documentation, refer to:
@@ -276,6 +330,10 @@ Component APIs in this codebase can be inconsistent. Before using any component:
 - **Render props pattern**: Some components like `Tooltip` and `DropdownMenu.Trigger` use render props with `attributes`
   - Example: `<Tooltip text="...">{(attributes) => <Button attributes={attributes}>Text</Button>}</Tooltip>`
   - Example: `<DropdownMenu.Trigger>{(attributes) => <Button attributes={attributes}>Menu</Button>}</DropdownMenu.Trigger>`
+- **Built-in tooltip support**: Some components automatically have the ability to work with tooltip without manually wiring the attributes and children render function
+  - Example: `Button` has built-in tooltip support via the `tooltip` prop
+  - Instead of: `<Tooltip text="..."><Button>Text</Button></Tooltip>` (won't work for disabled buttons)
+  - Use: `<Button tooltip="...">Text</Button>` (works for both enabled and disabled buttons)
 
 ### When in Doubt
 
