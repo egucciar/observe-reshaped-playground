@@ -1,0 +1,30 @@
+{
+  "name": "nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run build:theme && next build",
+    "build:theme": "reshaped theming --output public",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fluentui/react-icons": "^2.0.313",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/node": "22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "class-variance-authority": "0.7.1",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.5.1",
+    "lucide-react": "0.471.1",
+    "next": "15.1.4",
+    "postcss": "8.5.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "reshaped": "^3.8.8",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.2"
+  }
+}
