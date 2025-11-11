@@ -36,7 +36,7 @@ import {
   Calendar,
   Clock,
   Flag,
-  Upload
+  Upload,
 } from 'lucide-react'
 
 export function MenuItemPage() {
@@ -49,36 +49,30 @@ export function MenuItemPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">MenuItem Component</h1>
+      <h1>MenuItem Component</h1>
 
       {lastAction && (
         <Card padding={3}>
-          <span className="text-sm">Last action: <strong>{lastAction}</strong></span>
+          <span className="text-sm">
+            Last action: <strong>{lastAction}</strong>
+          </span>
         </Card>
       )}
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Menu Items</h2>
+        <h2>Basic Menu Items</h2>
         <Card padding={4}>
           <View gap={1}>
-            <MenuItem onClick={() => handleAction('Edit profile')}>
-              Edit profile
-            </MenuItem>
-            <MenuItem onClick={() => handleAction('Settings')}>
-              Settings
-            </MenuItem>
-            <MenuItem onClick={() => handleAction('Help')}>
-              Help
-            </MenuItem>
-            <MenuItem onClick={() => handleAction('Logout')}>
-              Logout
-            </MenuItem>
+            <MenuItem onClick={() => handleAction('Edit profile')}>Edit profile</MenuItem>
+            <MenuItem onClick={() => handleAction('Settings')}>Settings</MenuItem>
+            <MenuItem onClick={() => handleAction('Help')}>Help</MenuItem>
+            <MenuItem onClick={() => handleAction('Logout')}>Logout</MenuItem>
           </View>
         </Card>
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu Items with Icons</h2>
+        <h2>Menu Items with Icons</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem icon={User} onClick={() => handleAction('Profile')}>
@@ -98,16 +92,24 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu Item Colors</h2>
+        <h2>Menu Item Colors</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem color="neutral" icon={Edit} onClick={() => handleAction('Edit')}>
               Edit item
             </MenuItem>
-            <MenuItem color="primary" icon={Download} onClick={() => handleAction('Download')}>
+            <MenuItem
+              color="primary"
+              icon={Download}
+              onClick={() => handleAction('Download')}
+            >
               Download
             </MenuItem>
-            <MenuItem color="critical" icon={Trash2} onClick={() => handleAction('Delete')}>
+            <MenuItem
+              color="critical"
+              icon={Trash2}
+              onClick={() => handleAction('Delete')}
+            >
               Delete item
             </MenuItem>
           </View>
@@ -115,15 +117,23 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu Item Sizes</h2>
+        <h2>Menu Item Sizes</h2>
         <View direction="row" gap={3}>
           <Card padding={4}>
             <View gap={1}>
               <span className="text-sm font-semibold">Small</span>
-              <MenuItem size="small" icon={User} onClick={() => handleAction('Small item')}>
+              <MenuItem
+                size="small"
+                icon={User}
+                onClick={() => handleAction('Small item')}
+              >
                 Small menu item
               </MenuItem>
-              <MenuItem size="small" icon={Settings} onClick={() => handleAction('Small settings')}>
+              <MenuItem
+                size="small"
+                icon={Settings}
+                onClick={() => handleAction('Small settings')}
+              >
                 Settings
               </MenuItem>
             </View>
@@ -131,10 +141,18 @@ export function MenuItemPage() {
           <Card padding={4}>
             <View gap={1}>
               <span className="text-sm font-semibold">Medium (default)</span>
-              <MenuItem size="medium" icon={User} onClick={() => handleAction('Medium item')}>
+              <MenuItem
+                size="medium"
+                icon={User}
+                onClick={() => handleAction('Medium item')}
+              >
                 Medium menu item
               </MenuItem>
-              <MenuItem size="medium" icon={Settings} onClick={() => handleAction('Medium settings')}>
+              <MenuItem
+                size="medium"
+                icon={Settings}
+                onClick={() => handleAction('Medium settings')}
+              >
                 Settings
               </MenuItem>
             </View>
@@ -142,10 +160,18 @@ export function MenuItemPage() {
           <Card padding={4}>
             <View gap={1}>
               <span className="text-sm font-semibold">Large</span>
-              <MenuItem size="large" icon={User} onClick={() => handleAction('Large item')}>
+              <MenuItem
+                size="large"
+                icon={User}
+                onClick={() => handleAction('Large item')}
+              >
                 Large menu item
               </MenuItem>
-              <MenuItem size="large" icon={Settings} onClick={() => handleAction('Large settings')}>
+              <MenuItem
+                size="large"
+                icon={Settings}
+                onClick={() => handleAction('Large settings')}
+              >
                 Settings
               </MenuItem>
             </View>
@@ -154,7 +180,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Selected State</h2>
+        <h2>Selected State</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem
@@ -190,7 +216,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Disabled Menu Items</h2>
+        <h2>Disabled Menu Items</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem icon={Edit} onClick={() => handleAction('Edit')}>
@@ -210,19 +236,27 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu Items with Badges</h2>
+        <h2>Menu Items with Badges</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem
               icon={Bell}
-              endSlot={<Badge size="small" color="critical">5</Badge>}
+              endSlot={
+                <Badge size="small" color="critical">
+                  5
+                </Badge>
+              }
               onClick={() => handleAction('Notifications')}
             >
               Notifications
             </MenuItem>
             <MenuItem
               icon={MessageSquare}
-              endSlot={<Badge size="small" color="primary">12</Badge>}
+              endSlot={
+                <Badge size="small" color="primary">
+                  12
+                </Badge>
+              }
               onClick={() => handleAction('Messages')}
             >
               Messages
@@ -239,7 +273,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu Items with Avatars</h2>
+        <h2>Menu Items with Avatars</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem
@@ -265,7 +299,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Action Menu</h2>
+        <h2>Action Menu</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem icon={Eye} onClick={() => handleAction('View')}>
@@ -288,7 +322,11 @@ export function MenuItemPage() {
               Archive
             </MenuItem>
             <Divider />
-            <MenuItem icon={Trash2} color="critical" onClick={() => handleAction('Delete')}>
+            <MenuItem
+              icon={Trash2}
+              color="critical"
+              onClick={() => handleAction('Delete')}
+            >
               Delete
             </MenuItem>
           </View>
@@ -296,7 +334,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">File Browser Menu</h2>
+        <h2>File Browser Menu</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem icon={Folder} onClick={() => handleAction('Documents')}>
@@ -319,31 +357,19 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu Items with Links</h2>
+        <h2>Menu Items with Links</h2>
         <Card padding={4}>
           <View gap={1}>
-            <MenuItem
-              icon={Home}
-              href="/"
-            >
+            <MenuItem icon={Home} href="/">
               Home
             </MenuItem>
-            <MenuItem
-              icon={FileText}
-              href="/docs"
-            >
+            <MenuItem icon={FileText} href="/docs">
               Documentation
             </MenuItem>
-            <MenuItem
-              icon={User}
-              href="/profile"
-            >
+            <MenuItem icon={User} href="/profile">
               Profile
             </MenuItem>
-            <MenuItem
-              icon={Settings}
-              href="/settings"
-            >
+            <MenuItem icon={Settings} href="/settings">
               Settings
             </MenuItem>
           </View>
@@ -351,7 +377,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">External Links</h2>
+        <h2>External Links</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem
@@ -380,25 +406,16 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Contact Menu</h2>
+        <h2>Contact Menu</h2>
         <Card padding={4}>
           <View gap={1}>
-            <MenuItem
-              icon={Mail}
-              href="mailto:hello@example.com"
-            >
+            <MenuItem icon={Mail} href="mailto:hello@example.com">
               Email us
             </MenuItem>
-            <MenuItem
-              icon={Phone}
-              href="tel:+1234567890"
-            >
+            <MenuItem icon={Phone} href="tel:+1234567890">
               Call us
             </MenuItem>
-            <MenuItem
-              icon={MapPin}
-              onClick={() => handleAction('View location')}
-            >
+            <MenuItem icon={MapPin} onClick={() => handleAction('View location')}>
               View location
             </MenuItem>
           </View>
@@ -406,7 +423,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Quick Actions</h2>
+        <h2>Quick Actions</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem
@@ -416,16 +433,10 @@ export function MenuItemPage() {
             >
               New document
             </MenuItem>
-            <MenuItem
-              icon={Upload}
-              onClick={() => handleAction('Upload file')}
-            >
+            <MenuItem icon={Upload} onClick={() => handleAction('Upload file')}>
               Upload file
             </MenuItem>
-            <MenuItem
-              icon={Folder}
-              onClick={() => handleAction('New folder')}
-            >
+            <MenuItem icon={Folder} onClick={() => handleAction('New folder')}>
               New folder
             </MenuItem>
           </View>
@@ -433,7 +444,7 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Post Actions Menu</h2>
+        <h2>Post Actions Menu</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem
@@ -457,10 +468,7 @@ export function MenuItemPage() {
             >
               Share
             </MenuItem>
-            <MenuItem
-              icon={Star}
-              onClick={() => handleAction('Save')}
-            >
+            <MenuItem icon={Star} onClick={() => handleAction('Save')}>
               Save
             </MenuItem>
           </View>
@@ -468,13 +476,10 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Calendar Menu</h2>
+        <h2>Calendar Menu</h2>
         <Card padding={4}>
           <View gap={1}>
-            <MenuItem
-              icon={Calendar}
-              onClick={() => handleAction('View calendar')}
-            >
+            <MenuItem icon={Calendar} onClick={() => handleAction('View calendar')}>
               View calendar
             </MenuItem>
             <MenuItem
@@ -492,10 +497,7 @@ export function MenuItemPage() {
               Upcoming events
             </MenuItem>
             <Divider />
-            <MenuItem
-              icon={Settings}
-              onClick={() => handleAction('Calendar settings')}
-            >
+            <MenuItem icon={Settings} onClick={() => handleAction('Calendar settings')}>
               Calendar settings
             </MenuItem>
           </View>
@@ -503,26 +505,38 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Complex Menu with Status</h2>
+        <h2>Complex Menu with Status</h2>
         <Card padding={4}>
           <View gap={1}>
             <MenuItem
               icon={Check}
-              endSlot={<Badge size="small" color="positive">Done</Badge>}
+              endSlot={
+                <Badge size="small" color="positive">
+                  Done
+                </Badge>
+              }
               onClick={() => handleAction('Completed')}
             >
               Completed tasks
             </MenuItem>
             <MenuItem
               icon={Clock}
-              endSlot={<Badge size="small" color="warning">Pending</Badge>}
+              endSlot={
+                <Badge size="small" color="warning">
+                  Pending
+                </Badge>
+              }
               onClick={() => handleAction('Pending')}
             >
               Pending tasks
             </MenuItem>
             <MenuItem
               icon={Flag}
-              endSlot={<Badge size="small" color="critical">Urgent</Badge>}
+              endSlot={
+                <Badge size="small" color="critical">
+                  Urgent
+                </Badge>
+              }
               onClick={() => handleAction('Urgent')}
             >
               Urgent tasks
@@ -532,33 +546,28 @@ export function MenuItemPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Mixed Menu (Actions + Navigation)</h2>
+        <h2>Mixed Menu (Actions + Navigation)</h2>
         <Card padding={4}>
           <View gap={1}>
-            <MenuItem
-              icon={User}
-              href="/profile"
-            >
+            <MenuItem icon={User} href="/profile">
               View profile
             </MenuItem>
-            <MenuItem
-              icon={Edit}
-              onClick={() => handleAction('Edit profile')}
-            >
+            <MenuItem icon={Edit} onClick={() => handleAction('Edit profile')}>
               Edit profile
             </MenuItem>
             <Divider />
             <MenuItem
               icon={Bell}
               href="/notifications"
-              endSlot={<Badge size="small" color="critical">3</Badge>}
+              endSlot={
+                <Badge size="small" color="critical">
+                  3
+                </Badge>
+              }
             >
               Notifications
             </MenuItem>
-            <MenuItem
-              icon={Settings}
-              href="/settings"
-            >
+            <MenuItem icon={Settings} href="/settings">
               Settings
             </MenuItem>
             <Divider />

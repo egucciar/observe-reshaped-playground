@@ -1,6 +1,7 @@
 'use client'
 
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Badge } from '../components/Badge'
 import { Avatar } from '../components/Avatar'
 import { Star, Heart, CheckCircle, AlertCircle, Info, ChevronRight, Bell, Mail } from 'lucide-react'
@@ -8,10 +9,10 @@ import { Star, Heart, CheckCircle, AlertCircle, Info, ChevronRight, Bell, Mail }
 export function BadgePage() {
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Badge Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Badge Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Badges</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Basic Badges</Text>
         <View direction="row" gap={3} align="center" wrap>
           <Badge>Default</Badge>
           <Badge color="positive">Positive</Badge>
@@ -22,7 +23,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Badge Sizes</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Badge Sizes</Text>
         <View direction="row" gap={3} align="center">
           <Badge size="small">Small</Badge>
           <Badge size="medium">Medium</Badge>
@@ -31,7 +32,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Faded Variant</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Faded Variant</Text>
         <View direction="row" gap={3} align="center" wrap>
           <Badge variant="faded">Neutral</Badge>
           <Badge variant="faded" color="positive">Positive</Badge>
@@ -42,7 +43,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Outline Variant</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Outline Variant</Text>
         <View direction="row" gap={3} align="center" wrap>
           <Badge variant="outline">Neutral</Badge>
           <Badge variant="outline" color="positive">Positive</Badge>
@@ -53,7 +54,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Start Icon</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Start Icon</Text>
         <View direction="row" gap={3} align="center" wrap>
           <Badge icon={CheckCircle} color="positive">Verified</Badge>
           <Badge icon={Star} color="warning">Featured</Badge>
@@ -64,7 +65,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With End Icon</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With End Icon</Text>
         <View direction="row" gap={3} align="center" wrap>
           <Badge endIcon={ChevronRight} color="primary">View details</Badge>
           <Badge endIcon={ChevronRight} color="positive">Continue</Badge>
@@ -73,7 +74,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Rounded (Notification Style)</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Rounded (Notification Style)</Text>
         <View direction="row" gap={3} align="center">
           <Badge color="critical" size="small" rounded>5</Badge>
           <Badge color="critical" size="small" rounded>99+</Badge>
@@ -83,7 +84,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Status Badges</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Status Badges</Text>
         <View gap={2}>
           <View direction="row" gap={2} align="center">
             <Badge icon={CheckCircle} color="positive" variant="faded">Active</Badge>
@@ -101,7 +102,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Badge with Container (Positioned)</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Badge with Container (Positioned)</Text>
         <View direction="row" gap={4} align="center">
           <Badge.Container>
             <Badge color="critical" size="small" rounded>5</Badge>
@@ -126,7 +127,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Category Tags</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Category Tags</Text>
         <View direction="row" gap={2} align="center" wrap>
           <Badge variant="outline">Technology</Badge>
           <Badge variant="outline">Design</Badge>
@@ -138,7 +139,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Priority Labels</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Priority Labels</Text>
         <View direction="row" gap={3} align="center" wrap>
           <Badge color="critical" icon={AlertCircle}>High Priority</Badge>
           <Badge color="warning" icon={AlertCircle}>Medium Priority</Badge>
@@ -147,7 +148,7 @@ export function BadgePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Combined Variants</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Combined Variants</Text>
         <View gap={2}>
           <View direction="row" gap={2} align="center" wrap>
             <Badge size="small" icon={Star} color="warning">Pro</Badge>

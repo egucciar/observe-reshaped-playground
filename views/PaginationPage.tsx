@@ -21,15 +21,15 @@ export function PaginationPage() {
   const tableData = Array.from({ length: itemsPerPage }, (_, i) => ({
     id: (tablePage - 1) * itemsPerPage + i + 1,
     name: `Item ${(tablePage - 1) * itemsPerPage + i + 1}`,
-    status: i % 3 === 0 ? 'Active' : i % 3 === 1 ? 'Pending' : 'Inactive'
+    status: i % 3 === 0 ? 'Active' : i % 3 === 1 ? 'Pending' : 'Inactive',
   }))
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Pagination Component</h1>
+      <h1>Pagination Component</h1>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Pagination</h2>
+        <h2>Basic Pagination</h2>
         <Card padding={4}>
           <View gap={3} align="center">
             <Pagination
@@ -43,7 +43,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Different Page Counts</h2>
+        <h2>Different Page Counts</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -95,7 +95,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Starting at Different Pages</h2>
+        <h2>Starting at Different Pages</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -147,7 +147,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Controlled Pagination</h2>
+        <h2>Controlled Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center" justify="center">
@@ -160,7 +160,7 @@ export function PaginationPage() {
                 page={currentPage}
                 previousAriaLabel="Previous page"
                 nextAriaLabel="Next page"
-                onChange={(args) => setCurrentPage(args.page)}
+                onChange={args => setCurrentPage(args.page)}
               />
             </View>
             <View direction="row" gap={2} justify="center" wrap>
@@ -179,7 +179,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Data Table with Pagination</h2>
+        <h2>Data Table with Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <View className="border rounded overflow-hidden">
@@ -192,7 +192,7 @@ export function PaginationPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {tableData.map((item) => (
+                  {tableData.map(item => (
                     <tr key={item.id} className="border-b last:border-b-0">
                       <td className="px-4 py-3 text-sm">{item.id}</td>
                       <td className="px-4 py-3 text-sm">{item.name}</td>
@@ -216,14 +216,15 @@ export function PaginationPage() {
             </View>
             <View direction="row" justify="space-between" align="center">
               <span className="text-sm opacity-70">
-                Showing {(tablePage - 1) * itemsPerPage + 1} - {Math.min(tablePage * itemsPerPage, totalItems)} of {totalItems} items
+                Showing {(tablePage - 1) * itemsPerPage + 1} -{' '}
+                {Math.min(tablePage * itemsPerPage, totalItems)} of {totalItems} items
               </span>
               <Pagination
                 total={totalPages}
                 page={tablePage}
                 previousAriaLabel="Previous page"
                 nextAriaLabel="Next page"
-                onChange={(args) => setTablePage(args.page)}
+                onChange={args => setTablePage(args.page)}
               />
             </View>
           </View>
@@ -231,7 +232,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Search Results with Pagination</h2>
+        <h2>Search Results with Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={1}>
@@ -248,7 +249,8 @@ export function PaginationPage() {
                     https://example.com/page/{(searchPage - 1) * 5 + i + 1}
                   </span>
                   <span className="text-sm">
-                    This is a sample search result description that provides context about the page content...
+                    This is a sample search result description that provides context about
+                    the page content...
                   </span>
                 </View>
               ))}
@@ -259,7 +261,7 @@ export function PaginationPage() {
                 page={searchPage}
                 previousAriaLabel="Previous page"
                 nextAriaLabel="Next page"
-                onChange={(args) => setSearchPage(args.page)}
+                onChange={args => setSearchPage(args.page)}
               />
             </View>
           </View>
@@ -267,7 +269,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Image Gallery with Pagination</h2>
+        <h2>Image Gallery with Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <View className="grid grid-cols-3 gap-3">
@@ -288,7 +290,7 @@ export function PaginationPage() {
                 page={galleryPage}
                 previousAriaLabel="Previous page"
                 nextAriaLabel="Next page"
-                onChange={(args) => setGalleryPage(args.page)}
+                onChange={args => setGalleryPage(args.page)}
               />
             </View>
           </View>
@@ -296,7 +298,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Blog Posts with Pagination</h2>
+        <h2>Blog Posts with Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={4}>
@@ -309,7 +311,9 @@ export function PaginationPage() {
                     Posted on January {(blogPage - 1) * 3 + i + 1}, 2024
                   </span>
                   <p className="text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris...
                   </p>
                   <Button variant="outline" size="small">
                     Read More
@@ -323,7 +327,7 @@ export function PaginationPage() {
                 page={blogPage}
                 previousAriaLabel="Previous page"
                 nextAriaLabel="Next page"
-                onChange={(args) => setBlogPage(args.page)}
+                onChange={args => setBlogPage(args.page)}
               />
             </View>
           </View>
@@ -331,7 +335,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Product Listing with Pagination</h2>
+        <h2>Product Listing with Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" justify="space-between" align="center">
@@ -367,7 +371,7 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Comments Section with Pagination</h2>
+        <h2>Comments Section with Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <span className="text-lg font-semibold">Comments (48)</span>
@@ -382,7 +386,8 @@ export function PaginationPage() {
                     </View>
                   </View>
                   <p className="text-sm">
-                    This is a sample comment that demonstrates how pagination works with a comments section. Great content!
+                    This is a sample comment that demonstrates how pagination works with a
+                    comments section. Great content!
                   </p>
                 </View>
               ))}
@@ -400,12 +405,18 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">User Directory with Pagination</h2>
+        <h2>User Directory with Pagination</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={3}>
               {Array.from({ length: 8 }).map((_, i) => (
-                <View key={i} direction="row" gap={3} align="center" className="border-b pb-3 last:border-b-0">
+                <View
+                  key={i}
+                  direction="row"
+                  gap={3}
+                  align="center"
+                  className="border-b pb-3 last:border-b-0"
+                >
                   <View className="w-12 h-12 bg-gray-300 rounded-full" />
                   <View gap={1} grow>
                     <span className="font-semibold">User Name {i + 1}</span>
@@ -428,11 +439,12 @@ export function PaginationPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Custom Page Labels</h2>
+        <h2>With Custom Page Labels</h2>
         <Card padding={4}>
           <View gap={4}>
             <p className="text-sm">
-              This example uses custom aria-labels for better accessibility. Each page button announces "Page X of 10" to screen readers.
+              This example uses custom aria-labels for better accessibility. Each page
+              button announces "Page X of 10" to screen readers.
             </p>
             <View align="center">
               <Pagination
@@ -440,7 +452,7 @@ export function PaginationPage() {
                 defaultPage={1}
                 previousAriaLabel="Go to previous page"
                 nextAriaLabel="Go to next page"
-                pageAriaLabel={(args) => `Page ${args.page} of 10`}
+                pageAriaLabel={args => `Page ${args.page} of 10`}
               />
             </View>
           </View>

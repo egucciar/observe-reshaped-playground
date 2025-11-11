@@ -1,16 +1,17 @@
 'use client'
 
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Avatar } from '../components/Avatar'
 import { User, Mail, Phone, Calendar, Star, Heart } from 'lucide-react'
 
 export function AvatarPage() {
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Avatar Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Avatar Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Initials</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Initials</Text>
         <View direction="row" gap={3} align="center">
           <Avatar initials="AB" />
           <Avatar initials="CD" color="positive" />
@@ -21,7 +22,7 @@ export function AvatarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Icons</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Icons</Text>
         <View direction="row" gap={3} align="center">
           <Avatar icon={User} />
           <Avatar icon={Mail} color="positive" />
@@ -33,7 +34,7 @@ export function AvatarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Different Sizes</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Different Sizes</Text>
         <View direction="row" gap={3} align="center">
           <Avatar initials="XS" size={8} />
           <Avatar initials="S" size={10} />
@@ -45,7 +46,7 @@ export function AvatarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Icon Sizes</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Icon Sizes</Text>
         <View direction="row" gap={3} align="center">
           <Avatar icon={User} size={8} />
           <Avatar icon={User} size={10} />
@@ -57,7 +58,7 @@ export function AvatarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Squared Avatars</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Squared Avatars</Text>
         <View direction="row" gap={3} align="center">
           <Avatar initials="AB" squared />
           <Avatar initials="CD" color="positive" squared />
@@ -68,7 +69,7 @@ export function AvatarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">User List Example</h2>
+        <Text variant="title-2" className="text-xl font-semibold">User List Example</Text>
         <View gap={2}>
           <View direction="row" gap={3} align="center">
             <Avatar initials="AJ" color="primary" />
@@ -95,7 +96,7 @@ export function AvatarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Color Palette</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Color Palette</Text>
         <View gap={2}>
           <View direction="row" gap={2} align="center">
             <Avatar initials="N" color="neutral" size={10} />

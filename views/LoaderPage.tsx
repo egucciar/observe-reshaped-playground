@@ -29,10 +29,10 @@ export function LoaderPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Loader Component</h1>
+      <h1>Loader Component</h1>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Loader Sizes</h2>
+        <h2>Loader Sizes</h2>
         <Card padding={4}>
           <View direction="row" gap={4} align="center">
             <View gap={2} align="center">
@@ -52,7 +52,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Loader Colors</h2>
+        <h2>Loader Colors</h2>
         <View direction="row" gap={3}>
           <Card padding={4}>
             <View gap={2} align="center">
@@ -70,7 +70,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Button Loading States</h2>
+        <h2>Button Loading States</h2>
         <Card padding={4}>
           <View direction="row" gap={3} wrap>
             <Button
@@ -125,7 +125,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Inline Loading States</h2>
+        <h2>Inline Loading States</h2>
         <Card padding={4}>
           <View gap={3}>
             <View direction="row" gap={2} align="center">
@@ -145,7 +145,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Centered Loading State</h2>
+        <h2>Centered Loading State</h2>
         <Card padding={4}>
           <View height="200px" align="center" justify="center" gap={3}>
             <Loader size="large" ariaLabel="Loading page" />
@@ -155,7 +155,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Card Loading States</h2>
+        <h2>Card Loading States</h2>
         <View direction="row" gap={3}>
           <Card padding={4}>
             <View gap={3}>
@@ -163,7 +163,9 @@ export function LoaderPage() {
                 <Loader size="small" ariaLabel="Loading user" />
                 <span className="font-semibold">Loading User Profile</span>
               </View>
-              <span className="text-sm opacity-70">Please wait while we fetch your data...</span>
+              <span className="text-sm opacity-70">
+                Please wait while we fetch your data...
+              </span>
             </View>
           </Card>
 
@@ -177,11 +179,18 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">List Loading State</h2>
+        <h2>List Loading State</h2>
         <Card padding={4}>
           <View gap={3}>
-            {[1, 2, 3].map((item) => (
-              <View key={item} direction="row" gap={3} align="center" padding={2} className="border rounded">
+            {[1, 2, 3].map(item => (
+              <View
+                key={item}
+                direction="row"
+                gap={3}
+                align="center"
+                padding={2}
+                className="border rounded"
+              >
                 <Loader size="small" ariaLabel={`Loading item ${item}`} />
                 <View gap={1} grow>
                   <span className="text-sm font-semibold">Loading item {item}</span>
@@ -194,10 +203,10 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Form Submission Loading</h2>
+        <h2>Form Submission Loading</h2>
         <Card padding={4}>
           <form
-            onSubmit={(e) => {
+            onSubmit={e => {
               e.preventDefault()
               simulateLoading()
             }}
@@ -243,7 +252,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Refresh Action</h2>
+        <h2>Refresh Action</h2>
         <Card padding={4}>
           <View gap={3}>
             <View direction="row" justify="space-between" align="center">
@@ -279,7 +288,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Overlay Loading</h2>
+        <h2>Overlay Loading</h2>
         <Card padding={4}>
           <View position="relative" height="200px" className="border rounded">
             <View padding={3}>
@@ -314,7 +323,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Empty State with Loader</h2>
+        <h2>Empty State with Loader</h2>
         <Card padding={4}>
           <View align="center" gap={3} padding={4}>
             <Loader size="large" ariaLabel="Loading content" />
@@ -327,7 +336,7 @@ export function LoaderPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Multiple Concurrent Loaders</h2>
+        <h2>Multiple Concurrent Loaders</h2>
         <Card padding={4}>
           <View direction="row" gap={3}>
             <View gap={2} grow className="border rounded p-3">

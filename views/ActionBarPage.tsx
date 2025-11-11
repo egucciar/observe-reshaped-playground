@@ -1,14 +1,15 @@
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { ActionBar } from '../components/ActionBar'
 import { Button } from '../components/Button'
 
 export function ActionBarPage() {
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">ActionBar Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">ActionBar Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Bottom Position (Default)</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Bottom Position (Default)</Text>
         <View position="relative" height="200px" backgroundColor="neutral-faded" borderRadius="medium">
           <View padding={3}>
             <p>Container with ActionBar at bottom</p>
@@ -23,7 +24,7 @@ export function ActionBarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Bottom-End Position</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Bottom-End Position</Text>
         <View position="relative" height="200px" backgroundColor="neutral-faded" borderRadius="medium">
           <View padding={3}>
             <p>ActionBar aligned to bottom-end</p>
@@ -37,7 +38,7 @@ export function ActionBarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Top Position</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Top Position</Text>
         <View position="relative" height="200px" backgroundColor="neutral-faded" borderRadius="medium">
           <ActionBar position="top">
             <View direction="row" gap={2} align="center">
@@ -53,7 +54,7 @@ export function ActionBarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Offset</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Offset</Text>
         <View position="relative" height="200px" backgroundColor="neutral-faded" borderRadius="medium">
           <View padding={3}>
             <p>ActionBar with offset from edge</p>
@@ -68,7 +69,7 @@ export function ActionBarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Elevated (with shadow)</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Elevated (with shadow)</Text>
         <View position="relative" height="200px" backgroundColor="neutral-faded" borderRadius="medium">
           <View padding={3}>
             <p>ActionBar with elevation shadow</p>
@@ -83,7 +84,7 @@ export function ActionBarPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Complex Layout</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Complex Layout</Text>
         <View position="relative" height="250px" backgroundColor="neutral-faded" borderRadius="medium">
           <View padding={3}>
             <p className="font-semibold">Checkout Summary</p>

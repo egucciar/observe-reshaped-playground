@@ -4,10 +4,10 @@ import { Resizable } from '../components/Resizable'
 export function ResizablePage() {
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Resizable Component</h1>
+      <h1>Resizable Component</h1>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Horizontal Split</h2>
+        <h2>Horizontal Split</h2>
         <Resizable height="200px">
           <Resizable.Item>
             <View backgroundColor="primary-faded" height="100%" padding={3}>
@@ -25,7 +25,7 @@ export function ResizablePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Size Constraints</h2>
+        <h2>With Size Constraints</h2>
         <Resizable height="200px">
           <Resizable.Item defaultSize="200px" minSize="150px" maxSize="400px">
             <View backgroundColor="neutral-faded" height="100%" padding={3}>
@@ -43,7 +43,7 @@ export function ResizablePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Vertical Split</h2>
+        <h2>Vertical Split</h2>
         <Resizable height="300px" direction="column">
           <Resizable.Item>
             <View backgroundColor="critical-faded" height="100%" padding={3}>
@@ -60,7 +60,7 @@ export function ResizablePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Three Panels</h2>
+        <h2>Three Panels</h2>
         <Resizable height="200px">
           <Resizable.Item>
             <View backgroundColor="primary-faded" height="100%" padding={3}>

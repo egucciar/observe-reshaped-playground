@@ -19,10 +19,10 @@ export function RadioPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Radio Component</h1>
+      <h1>Radio Component</h1>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Radio Buttons</h2>
+        <h2>Basic Radio Buttons</h2>
         <Card padding={4}>
           <View gap={3}>
             <Radio name="basic" value="option1">
@@ -39,7 +39,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Radio Sizes</h2>
+        <h2>Radio Sizes</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -80,7 +80,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Radio States</h2>
+        <h2>Radio States</h2>
         <Card padding={4}>
           <View gap={3}>
             <Radio name="states" value="default">
@@ -103,7 +103,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">RadioGroup - Basic</h2>
+        <h2>RadioGroup - Basic</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -127,7 +127,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">RadioGroup - Colors</h2>
+        <h2>RadioGroup - Colors</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -152,7 +152,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">RadioGroup - Sizes</h2>
+        <h2>RadioGroup - Sizes</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -176,7 +176,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Subscription Plan Selection</h2>
+        <h2>Subscription Plan Selection</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -235,7 +235,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Shipping Method Selection</h2>
+        <h2>Shipping Method Selection</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -248,7 +248,12 @@ export function RadioPage() {
               onChange={({ value }) => setSelectedShipping(value)}
             >
               <View gap={2}>
-                <View direction="row" justify="space-between" align="center" className="border-b pb-2">
+                <View
+                  direction="row"
+                  justify="space-between"
+                  align="center"
+                  className="border-b pb-2"
+                >
                   <Radio value="standard">
                     <View gap={0}>
                       <span className="font-semibold">Standard Shipping</span>
@@ -257,7 +262,12 @@ export function RadioPage() {
                   </Radio>
                   <span className="text-sm font-semibold">$5.99</span>
                 </View>
-                <View direction="row" justify="space-between" align="center" className="border-b pb-2">
+                <View
+                  direction="row"
+                  justify="space-between"
+                  align="center"
+                  className="border-b pb-2"
+                >
                   <Radio value="express">
                     <View gap={0}>
                       <span className="font-semibold">Express Shipping</span>
@@ -266,7 +276,12 @@ export function RadioPage() {
                   </Radio>
                   <span className="text-sm font-semibold">$12.99</span>
                 </View>
-                <View direction="row" justify="space-between" align="center" className="border-b pb-2">
+                <View
+                  direction="row"
+                  justify="space-between"
+                  align="center"
+                  className="border-b pb-2"
+                >
                   <Radio value="overnight">
                     <View gap={0}>
                       <span className="font-semibold">Overnight Shipping</span>
@@ -282,7 +297,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Payment Method Selection</h2>
+        <h2>Payment Method Selection</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -304,7 +319,9 @@ export function RadioPage() {
                 <Radio value="paypal">
                   <View gap={1}>
                     <span className="font-semibold">PayPal</span>
-                    <span className="text-sm opacity-70">Pay with your PayPal account</span>
+                    <span className="text-sm opacity-70">
+                      Pay with your PayPal account
+                    </span>
                   </View>
                 </Radio>
                 <Radio value="bank-transfer">
@@ -326,7 +343,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Theme Settings</h2>
+        <h2>Theme Settings</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -349,7 +366,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Notification Preferences</h2>
+        <h2>Notification Preferences</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -387,7 +404,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Survey Question</h2>
+        <h2>Survey Question</h2>
         <Card padding={4}>
           <View gap={4}>
             <span className="text-sm font-semibold">
@@ -407,7 +424,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Radio with Reset</h2>
+        <h2>Radio with Reset</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={2} align="center">
@@ -453,7 +470,7 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Horizontal Layout</h2>
+        <h2>Horizontal Layout</h2>
         <Card padding={4}>
           <View gap={4}>
             <span className="text-sm font-semibold">Select a day:</span>
@@ -471,10 +488,10 @@ export function RadioPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Form Example</h2>
+        <h2>Form Example</h2>
         <Card padding={4}>
           <form
-            onSubmit={(e) => {
+            onSubmit={e => {
               e.preventDefault()
               alert('Form submitted!')
             }}

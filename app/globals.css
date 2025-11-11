@@ -2,3 +2,45 @@
 @import '../public/custom/theme.css';
 @import '../public/custom/media.css';
 @import '../public/custom/tailwind.css';
+
+/* Scrollbar styling - always visible by default */
+div::-webkit-scrollbar,
+ul::-webkit-scrollbar {
+  /* This width combined with the border on the thumb creates the effect of a "transparent" border
+     which means the actual width of the scrollbar is 13px, but it appears to be 7px due to the border
+     with some padding on either side */
+  width: 13px;
+  height: 13px;
+}
+
+div::-webkit-scrollbar-track,
+ul::-webkit-scrollbar-track {
+  /* The track is always transparent */
+  background: transparent;
+}
+
+div::-webkit-scrollbar-corner,
+ul::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+div::-webkit-scrollbar-thumb,
+ul::-webkit-scrollbar-thumb {
+  /* The thumb can be a foreground color */
+  background-color: var(--rs-color-background-neutral);
+  border-radius: 6px;
+  /* Border transparent doesn't do anything by itself */
+  border: 3px solid transparent;
+  /* Background clip is what makes the "transparent" border work */
+  background-clip: padding-box;
+}
+
+/* TODO: Figure out if we should use scrollbar-color for above */
+/* Opt-in: hide scrollbar until hover with .scrollbar-on-hover class */
+.scrollbar-on-hover {
+  scrollbar-color: transparent transparent;
+}
+
+.scrollbar-on-hover:hover {
+  scrollbar-color: var(--rs-color-background-neutral) transparent;
+}

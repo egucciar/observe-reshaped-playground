@@ -20,7 +20,7 @@ import {
   Archive,
   Mail,
   Phone,
-  Calendar
+  Calendar,
 } from 'lucide-react'
 
 export function DropdownMenuPage() {
@@ -28,20 +28,22 @@ export function DropdownMenuPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">DropdownMenu Component</h1>
+      <h1>DropdownMenu Component</h1>
 
       {lastAction && (
         <Card padding={3}>
-          <span className="text-sm">Last action: <strong>{lastAction}</strong></span>
+          <span className="text-sm">
+            Last action: <strong>{lastAction}</strong>
+          </span>
         </Card>
       )}
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Dropdown Menu</h2>
+        <h2>Basic Dropdown Menu</h2>
         <Card padding={4}>
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              {(attributes) => (
+              {attributes => (
                 <Button attributes={attributes} variant="solid" color="primary">
                   Open Menu
                 </Button>
@@ -63,11 +65,11 @@ export function DropdownMenuPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu with Icons</h2>
+        <h2>Menu with Icons</h2>
         <Card padding={4}>
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              {(attributes) => (
+              {attributes => (
                 <Button attributes={attributes} icon={MoreVertical} variant="ghost">
                   Actions
                 </Button>
@@ -105,11 +107,11 @@ export function DropdownMenuPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Menu with Sections</h2>
+        <h2>Menu with Sections</h2>
         <Card padding={4}>
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              {(attributes) => (
+              {attributes => (
                 <Button attributes={attributes} variant="outline">
                   File Menu
                 </Button>
@@ -153,7 +155,7 @@ export function DropdownMenuPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">User Menu</h2>
+        <h2>User Menu</h2>
         <Card padding={4}>
           <View direction="row" gap={3} align="center">
             <Avatar initials="JD" color="primary" />
@@ -164,7 +166,7 @@ export function DropdownMenuPage() {
             <View grow />
             <DropdownMenu>
               <DropdownMenu.Trigger>
-                {(attributes) => (
+                {attributes => (
                   <Button attributes={attributes} icon={MoreVertical} variant="ghost" />
                 )}
               </DropdownMenu.Trigger>
@@ -181,7 +183,7 @@ export function DropdownMenuPage() {
                 >
                   Settings
                 </DropdownMenu.Item>
-                  <DropdownMenu.Item
+                <DropdownMenu.Item
                   startSlot={<LogOut size={16} />}
                   onClick={() => setLastAction('Logout')}
                   color="critical"
@@ -194,13 +196,12 @@ export function DropdownMenuPage() {
         </Card>
       </View>
 
-
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Nested Submenu</h2>
+        <h2>Nested Submenu</h2>
         <Card padding={4}>
           <DropdownMenu>
             <DropdownMenu.Trigger>
-              {(attributes) => (
+              {attributes => (
                 <Button attributes={attributes} variant="solid" color="primary">
                   More Actions
                 </Button>
@@ -238,16 +239,21 @@ export function DropdownMenuPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Context Menu on Cards</h2>
+        <h2>Context Menu on Cards</h2>
         <View direction="row" gap={3} wrap>
           <Card padding={4} elevated>
             <View gap={3}>
               <View direction="row" justify="space-between" align="center">
-                <h3 className="font-semibold">Project Alpha</h3>
+                <h3>Project Alpha</h3>
                 <DropdownMenu>
                   <DropdownMenu.Trigger>
-                    {(attributes) => (
-                      <Button attributes={attributes} icon={MoreVertical} variant="ghost" size="small" />
+                    {attributes => (
+                      <Button
+                        attributes={attributes}
+                        icon={MoreVertical}
+                        variant="ghost"
+                        size="small"
+                      />
                     )}
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Content>
@@ -269,7 +275,7 @@ export function DropdownMenuPage() {
                     >
                       Archive
                     </DropdownMenu.Item>
-                          <DropdownMenu.Item
+                    <DropdownMenu.Item
                       startSlot={<Trash2 size={16} />}
                       onClick={() => setLastAction('Delete Project Alpha')}
                       color="critical"
@@ -286,11 +292,16 @@ export function DropdownMenuPage() {
           <Card padding={4} elevated>
             <View gap={3}>
               <View direction="row" justify="space-between" align="center">
-                <h3 className="font-semibold">Project Beta</h3>
+                <h3>Project Beta</h3>
                 <DropdownMenu>
                   <DropdownMenu.Trigger>
-                    {(attributes) => (
-                      <Button attributes={attributes} icon={MoreVertical} variant="ghost" size="small" />
+                    {attributes => (
+                      <Button
+                        attributes={attributes}
+                        icon={MoreVertical}
+                        variant="ghost"
+                        size="small"
+                      />
                     )}
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Content>
@@ -312,7 +323,7 @@ export function DropdownMenuPage() {
                     >
                       Archive
                     </DropdownMenu.Item>
-                          <DropdownMenu.Item
+                    <DropdownMenu.Item
                       startSlot={<Trash2 size={16} />}
                       onClick={() => setLastAction('Delete Project Beta')}
                       color="critical"
@@ -329,7 +340,7 @@ export function DropdownMenuPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Contact Actions</h2>
+        <h2>Contact Actions</h2>
         <Card padding={4}>
           <View gap={0} divided>
             <View padding={3} direction="row" justify="space-between" align="center">
@@ -342,8 +353,13 @@ export function DropdownMenuPage() {
               </View>
               <DropdownMenu>
                 <DropdownMenu.Trigger>
-                  {(attributes) => (
-                    <Button attributes={attributes} icon={MoreVertical} variant="ghost" size="small" />
+                  {attributes => (
+                    <Button
+                      attributes={attributes}
+                      icon={MoreVertical}
+                      variant="ghost"
+                      size="small"
+                    />
                   )}
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Content>
@@ -365,7 +381,7 @@ export function DropdownMenuPage() {
                   >
                     Schedule Meeting
                   </DropdownMenu.Item>
-                      <DropdownMenu.Item
+                  <DropdownMenu.Item
                     startSlot={<User size={16} />}
                     onClick={() => setLastAction('View Alice Profile')}
                   >
@@ -385,8 +401,13 @@ export function DropdownMenuPage() {
               </View>
               <DropdownMenu>
                 <DropdownMenu.Trigger>
-                  {(attributes) => (
-                    <Button attributes={attributes} icon={MoreVertical} variant="ghost" size="small" />
+                  {attributes => (
+                    <Button
+                      attributes={attributes}
+                      icon={MoreVertical}
+                      variant="ghost"
+                      size="small"
+                    />
                   )}
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Content>
@@ -408,7 +429,7 @@ export function DropdownMenuPage() {
                   >
                     Schedule Meeting
                   </DropdownMenu.Item>
-                      <DropdownMenu.Item
+                  <DropdownMenu.Item
                     startSlot={<User size={16} />}
                     onClick={() => setLastAction('View Bob Profile')}
                   >
@@ -420,7 +441,6 @@ export function DropdownMenuPage() {
           </View>
         </Card>
       </View>
-
     </View>
   )
 }

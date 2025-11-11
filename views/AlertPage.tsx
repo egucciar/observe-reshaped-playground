@@ -1,4 +1,5 @@
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Alert } from '../components/Alert'
 import { Button } from '../components/Button'
 import { AlertCircle, CheckCircle, Info, AlertTriangle, Bell } from 'lucide-react'
@@ -6,17 +7,17 @@ import { AlertCircle, CheckCircle, Info, AlertTriangle, Bell } from 'lucide-reac
 export function AlertPage() {
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Alert Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Alert Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Alert</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Basic Alert</Text>
         <Alert title="Default Alert">
           This is a basic alert message without any color variant
         </Alert>
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Color Variants</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Color Variants</Text>
         <View gap={2}>
           <Alert title="Neutral Alert" color="neutral">
             General information or neutral message
@@ -37,7 +38,7 @@ export function AlertPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Icons</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Icons</Text>
         <View gap={2}>
           <Alert title="System Notification" icon={Bell} color="primary">
             You have new updates available
@@ -49,7 +50,7 @@ export function AlertPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Actions</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Actions</Text>
         <View gap={2}>
           <Alert
             title="Update Available"
@@ -76,7 +77,7 @@ export function AlertPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Inline Layout</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Inline Layout</Text>
         <Alert
           title="Quick tip"
           color="primary"
@@ -88,7 +89,7 @@ export function AlertPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Without Description</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Without Description</Text>
         <View gap={2}>
           <Alert title="Connection restored" color="positive" icon={CheckCircle} />
           <Alert title="Low disk space" color="warning" icon={AlertTriangle} />
@@ -97,7 +98,7 @@ export function AlertPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Real-World Examples</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Real-World Examples</Text>
         <View gap={2}>
           <Alert
             title="Account Verification Required"

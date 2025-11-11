@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Breadcrumbs } from '../components/Breadcrumbs'
 import { Home, Folder, FileText, Package, ShoppingCart, User, Settings } from 'lucide-react'
 
@@ -15,10 +16,10 @@ export function BreadcrumbsPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Breadcrumbs Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Breadcrumbs Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Breadcrumbs</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Basic Breadcrumbs</Text>
         <Breadcrumbs>
           <Breadcrumbs.Item onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>
           <Breadcrumbs.Item onClick={() => handleNavigation('catalog')}>Catalog</Breadcrumbs.Item>
@@ -27,7 +28,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Primary Color</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Primary Color</Text>
         <Breadcrumbs color="primary">
           <Breadcrumbs.Item onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>
           <Breadcrumbs.Item onClick={() => handleNavigation('products')}>Products</Breadcrumbs.Item>
@@ -36,7 +37,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Icons</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Icons</Text>
         <Breadcrumbs>
           <Breadcrumbs.Item icon={Home} onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>
           <Breadcrumbs.Item icon={Folder} onClick={() => handleNavigation('documents')}>Documents</Breadcrumbs.Item>
@@ -45,7 +46,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">E-commerce Navigation</h2>
+        <Text variant="title-2" className="text-xl font-semibold">E-commerce Navigation</Text>
         <Breadcrumbs color="primary">
           <Breadcrumbs.Item icon={Home} onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>
           <Breadcrumbs.Item icon={ShoppingCart} onClick={() => handleNavigation('shop')}>Shop</Breadcrumbs.Item>
@@ -55,7 +56,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Collapsible Breadcrumbs (Long Path)</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Collapsible Breadcrumbs (Long Path)</Text>
         <Breadcrumbs defaultVisibleItems={2}>
           <Breadcrumbs.Item onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>
           <Breadcrumbs.Item onClick={() => handleNavigation('catalog')}>Catalog</Breadcrumbs.Item>
@@ -67,7 +68,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Collapsible with Icons</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Collapsible with Icons</Text>
         <Breadcrumbs defaultVisibleItems={3} color="primary">
           <Breadcrumbs.Item icon={Home} onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>
           <Breadcrumbs.Item icon={Folder} onClick={() => handleNavigation('projects')}>Projects</Breadcrumbs.Item>
@@ -79,7 +80,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Disabled Items</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Disabled Items</Text>
         <Breadcrumbs>
           <Breadcrumbs.Item onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>
           <Breadcrumbs.Item disabled>Restricted Area</Breadcrumbs.Item>
@@ -88,7 +89,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Settings Navigation</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Settings Navigation</Text>
         <Breadcrumbs color="primary">
           <Breadcrumbs.Item icon={Settings} onClick={() => handleNavigation('settings')}>Settings</Breadcrumbs.Item>
           <Breadcrumbs.Item icon={User} onClick={() => handleNavigation('account')}>Account</Breadcrumbs.Item>
@@ -97,7 +98,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">File System Navigation</h2>
+        <Text variant="title-2" className="text-xl font-semibold">File System Navigation</Text>
         <Breadcrumbs>
           <Breadcrumbs.Item icon={Home} onClick={() => handleNavigation('root')}>Root</Breadcrumbs.Item>
           <Breadcrumbs.Item icon={Folder} onClick={() => handleNavigation('users')}>Users</Breadcrumbs.Item>
@@ -108,7 +109,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Product Categories</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Product Categories</Text>
         <Breadcrumbs>
           <Breadcrumbs.Item icon={Package} onClick={() => handleNavigation('products')}>Products</Breadcrumbs.Item>
           <Breadcrumbs.Item onClick={() => handleNavigation('clothing')}>Clothing</Breadcrumbs.Item>
@@ -119,7 +120,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Deep Hierarchy (Show 3 Items)</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Deep Hierarchy (Show 3 Items)</Text>
         <Breadcrumbs defaultVisibleItems={3}>
           <Breadcrumbs.Item onClick={() => handleNavigation('level1')}>Level 1</Breadcrumbs.Item>
           <Breadcrumbs.Item onClick={() => handleNavigation('level2')}>Level 2</Breadcrumbs.Item>
@@ -132,7 +133,7 @@ export function BreadcrumbsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Interactive Example</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Interactive Example</Text>
         <View gap={2}>
           <Breadcrumbs color="primary">
             <Breadcrumbs.Item icon={Home} onClick={() => handleNavigation('home')}>Home</Breadcrumbs.Item>

@@ -1,6 +1,7 @@
 'use client'
 
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Divider } from '../components/Divider'
 import { Card } from '../components/Card'
 import { Button } from '../components/Button'
@@ -10,10 +11,10 @@ import { Badge } from '../components/Badge'
 export function DividerPage() {
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Divider Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Divider Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Horizontal Divider</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Basic Horizontal Divider</Text>
         <Card padding={4}>
           <View gap={0}>
             <p>Content above divider</p>
@@ -24,7 +25,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Divider with Text Content</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Divider with Text Content</Text>
         <Card padding={4}>
           <View gap={3}>
             <Button variant="solid" color="primary" fullWidth>
@@ -40,7 +41,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Content Position</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Content Position</Text>
         <Card padding={4}>
           <View gap={3}>
             <View gap={2}>
@@ -60,7 +61,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Vertical Dividers</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Vertical Dividers</Text>
         <Card padding={4}>
           <View direction="row" gap={3} align="center" height={20}>
             <View justify="center" align="center" width="100%">
@@ -79,7 +80,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Blank Divider</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Blank Divider</Text>
         <Card padding={4}>
           <View gap={3}>
             <p>Content with blank divider below</p>
@@ -90,21 +91,21 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Section Separators</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Section Separators</Text>
         <Card padding={4}>
           <View gap={0}>
             <View padding={3}>
-              <h3 className="font-semibold">Profile Information</h3>
+              <Text variant="title-3" className="font-semibold">Profile Information</Text>
               <p className="text-sm opacity-70">Update your account details</p>
             </View>
             <Divider />
             <View padding={3}>
-              <h3 className="font-semibold">Privacy Settings</h3>
+              <Text variant="title-3" className="font-semibold">Privacy Settings</Text>
               <p className="text-sm opacity-70">Manage your privacy preferences</p>
             </View>
             <Divider />
             <View padding={3}>
-              <h3 className="font-semibold">Notifications</h3>
+              <Text variant="title-3" className="font-semibold">Notifications</Text>
               <p className="text-sm opacity-70">Configure notification preferences</p>
             </View>
           </View>
@@ -112,7 +113,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Team Members List</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Team Members List</Text>
         <Card padding={4}>
           <View gap={0}>
             <View padding={3} direction="row" gap={3} align="center">
@@ -143,7 +144,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Stats Dashboard</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Stats Dashboard</Text>
         <Card padding={4}>
           <View direction="row" gap={0} align="stretch" height={30}>
             <View padding={3} justify="center" align="center" width="100%">
@@ -171,7 +172,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Toolbar with Vertical Dividers</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Toolbar with Vertical Dividers</Text>
         <Card padding={3}>
           <View direction="row" gap={3} align="center">
             <Button variant="ghost" size="small">File</Button>
@@ -187,25 +188,25 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Article Sections</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Article Sections</Text>
         <Card padding={4}>
           <View gap={0}>
             <View paddingBlock={3}>
-              <h3 className="text-lg font-semibold mb-2">Introduction</h3>
+              <Text variant="title-3" className="text-lg font-semibold mb-2">Introduction</Text>
               <p className="text-sm opacity-70">
                 This is the introduction section of the article with some sample content.
               </p>
             </View>
             <Divider>Chapter 1</Divider>
             <View paddingBlock={3}>
-              <h3 className="text-lg font-semibold mb-2">Getting Started</h3>
+              <Text variant="title-3" className="text-lg font-semibold mb-2">Getting Started</Text>
               <p className="text-sm opacity-70">
                 Learn the basics and get up and running quickly with our comprehensive guide.
               </p>
             </View>
             <Divider>Chapter 2</Divider>
             <View paddingBlock={3}>
-              <h3 className="text-lg font-semibold mb-2">Advanced Topics</h3>
+              <Text variant="title-3" className="text-lg font-semibold mb-2">Advanced Topics</Text>
               <p className="text-sm opacity-70">
                 Dive deeper into advanced features and best practices for optimal results.
               </p>
@@ -215,7 +216,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Pricing Tiers</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Pricing Tiers</Text>
         <View direction="row" gap={3}>
           <Card padding={4} elevated>
             <View gap={3}>
@@ -271,7 +272,7 @@ export function DividerPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Using View's divided Property</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Using View's divided Property</Text>
         <Card padding={4}>
           <View divided gap={0}>
             <View padding={3}>

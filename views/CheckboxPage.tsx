@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Checkbox, CheckboxGroup } from '../components/Checkbox'
 import { Card } from '../components/Card'
 
@@ -37,10 +38,10 @@ export function CheckboxPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Checkbox Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Checkbox Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Checkbox</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Basic Checkbox</Text>
         <View gap={2}>
           <Checkbox
             name="single"
@@ -55,7 +56,7 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Checkbox Sizes</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Checkbox Sizes</Text>
         <View gap={2}>
           <Checkbox name="size" value="small" size="small">
             Small checkbox
@@ -70,7 +71,7 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Checkbox States</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Checkbox States</Text>
         <View gap={2}>
           <Checkbox name="state" value="default">
             Default state
@@ -94,7 +95,7 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Checkbox Group</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Checkbox Group</Text>
         <CheckboxGroup name="animals">
           <View gap={2}>
             <Checkbox
@@ -155,7 +156,7 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Select All with Indeterminate</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Select All with Indeterminate</Text>
         <View gap={2}>
           <Checkbox
             name="select-all"
@@ -196,10 +197,10 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Form Example</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Form Example</Text>
         <Card padding={4}>
           <View gap={3}>
-            <h3 className="text-lg font-semibold">Account Settings</h3>
+            <Text variant="title-3" className="text-lg font-semibold">Account Settings</Text>
             <View gap={2}>
               <Checkbox
                 name="terms"
@@ -223,10 +224,10 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Feature Selection</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Feature Selection</Text>
         <Card padding={4}>
           <View gap={3}>
-            <h3 className="text-lg font-semibold">Enable Features</h3>
+            <Text variant="title-3" className="text-lg font-semibold">Enable Features</Text>
             <CheckboxGroup name="features">
               <View gap={2}>
                 <Checkbox
@@ -291,10 +292,10 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Preferences with Descriptions</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Preferences with Descriptions</Text>
         <Card padding={4}>
           <View gap={3}>
-            <h3 className="text-lg font-semibold">Privacy Preferences</h3>
+            <Text variant="title-3" className="text-lg font-semibold">Privacy Preferences</Text>
             <View gap={3}>
               <View gap={1}>
                 <Checkbox
@@ -359,10 +360,10 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Validation Example</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Validation Example</Text>
         <Card padding={4}>
           <View gap={3}>
-            <h3 className="text-lg font-semibold">Required Agreement</h3>
+            <Text variant="title-3" className="text-lg font-semibold">Required Agreement</Text>
             <Checkbox
               name="required"
               value="accepted"
@@ -380,7 +381,7 @@ export function CheckboxPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Disabled Group</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Disabled Group</Text>
         <CheckboxGroup name="disabled-group">
           <View gap={2}>
             <Checkbox name="disabled" value="option1" disabled>

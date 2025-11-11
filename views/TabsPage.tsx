@@ -8,11 +8,11 @@ export function TabsPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Tabs Component</h1>
+      <h1>Tabs Component</h1>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Horizontal Tabs (Default)</h2>
-        <Tabs value={activeTab} onChange={(args) => setActiveTab(args.value)}>
+        <h2>Horizontal Tabs (Default)</h2>
+        <Tabs value={activeTab} onChange={args => setActiveTab(args.value)}>
           <Tabs.List>
             <Tabs.Item value="tab1">Tab 1</Tabs.Item>
             <Tabs.Item value="tab2">Tab 2</Tabs.Item>
@@ -25,9 +25,13 @@ export function TabsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Vertical Tabs</h2>
+        <h2>Vertical Tabs</h2>
         <View direction="row" gap={3}>
-          <Tabs direction="column" value={verticalTab} onChange={(args) => setVerticalTab(args.value)}>
+          <Tabs
+            direction="column"
+            value={verticalTab}
+            onChange={args => setVerticalTab(args.value)}
+          >
             <Tabs.List>
               <Tabs.Item value="vtab1">Vertical 1</Tabs.Item>
               <Tabs.Item value="vtab2">Vertical 2</Tabs.Item>
@@ -41,8 +45,8 @@ export function TabsPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Content Panels</h2>
-        <Tabs value={activeTab} onChange={(args) => setActiveTab(args.value)}>
+        <h2>With Content Panels</h2>
+        <Tabs value={activeTab} onChange={args => setActiveTab(args.value)}>
           <Tabs.List>
             <Tabs.Item value="tab1">First</Tabs.Item>
             <Tabs.Item value="tab2">Second</Tabs.Item>

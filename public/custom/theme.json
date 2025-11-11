@@ -33,60 +33,60 @@
   "font": {
     "title1": {
       "fontSize": {
-        "px": 96
+        "px": 30
       },
       "lineHeight": {
-        "px": 100
+        "px": 39
       },
-      "fontWeightToken": "extrabold",
+      "fontWeightToken": "bold",
       "fontFamilyToken": "title"
     },
     "title2": {
       "fontSize": {
-        "px": 80
+        "px": 24
       },
       "lineHeight": {
-        "px": 84
+        "px": 31.2
       },
-      "fontWeightToken": "extrabold",
+      "fontWeightToken": "bold",
       "fontFamilyToken": "title"
     },
     "title3": {
       "fontSize": {
-        "px": 64
+        "px": 20
       },
       "lineHeight": {
-        "px": 68
+        "px": 26
       },
-      "fontWeightToken": "extrabold",
+      "fontWeightToken": "bold",
       "fontFamilyToken": "title"
     },
     "title4": {
       "fontSize": {
-        "px": 56
+        "px": 18
       },
       "lineHeight": {
-        "px": 60
+        "px": 23.4
       },
       "fontWeightToken": "bold",
       "fontFamilyToken": "title"
     },
     "title5": {
       "fontSize": {
-        "px": 48
+        "px": 15
       },
       "lineHeight": {
-        "px": 52
+        "px": 20.8
       },
       "fontWeightToken": "bold",
       "fontFamilyToken": "title"
     },
     "title6": {
       "fontSize": {
-        "px": 36
+        "px": 13
       },
       "lineHeight": {
-        "px": 40
+        "px": 18.2
       },
       "fontWeightToken": "bold",
       "fontFamilyToken": "title"
@@ -123,26 +123,29 @@
         "px": 18
       },
       "lineHeight": {
-        "px": 28
+        "px": 23.4
       },
+      "fontWeightToken": "regular",
       "fontFamilyToken": "body"
     },
     "body2": {
       "fontSize": {
-        "px": 16
+        "px": 15
       },
       "lineHeight": {
-        "px": 24
+        "px": 20.8
       },
+      "fontWeightToken": "regular",
       "fontFamilyToken": "body"
     },
     "body3": {
       "fontSize": {
-        "px": 14
+        "px": 13
       },
       "lineHeight": {
         "px": 20
       },
+      "fontWeightToken": "regular",
       "fontFamilyToken": "body"
     },
     "caption1": {
@@ -152,6 +155,7 @@
       "lineHeight": {
         "px": 16
       },
+      "fontWeightToken": "regular",
       "fontFamilyToken": "body"
     },
     "caption2": {
@@ -161,6 +165,7 @@
       "lineHeight": {
         "px": 12
       },
+      "fontWeightToken": "regular",
       "fontFamilyToken": "body"
     }
   },

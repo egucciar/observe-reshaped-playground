@@ -16,10 +16,10 @@ export function NumberFieldPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">NumberField Component</h1>
+      <h1>NumberField Component</h1>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Number Fields</h2>
+        <h2>Basic Number Fields</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -54,7 +54,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Number Field Sizes</h2>
+        <h2>Number Field Sizes</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -92,7 +92,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Number Field Variants</h2>
+        <h2>Number Field Variants</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -120,7 +120,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Step Values</h2>
+        <h2>Step Values</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -168,7 +168,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Min and Max Values</h2>
+        <h2>Min and Max Values</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -208,7 +208,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Controlled Component</h2>
+        <h2>Controlled Component</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -221,7 +221,7 @@ export function NumberFieldPage() {
                 increaseAriaLabel="Increase quantity"
                 decreaseAriaLabel="Decrease quantity"
                 value={quantity}
-                onChange={(value) => setQuantity(value.value)}
+                onChange={value => setQuantity(value.value)}
                 min={1}
                 max={99}
               />
@@ -233,7 +233,11 @@ export function NumberFieldPage() {
               <Button variant="outline" size="small" onClick={() => setQuantity(10)}>
                 Set to 10
               </Button>
-              <Button variant="outline" size="small" onClick={() => setQuantity(quantity + 5)}>
+              <Button
+                variant="outline"
+                size="small"
+                onClick={() => setQuantity(quantity + 5)}
+              >
                 Add 5
               </Button>
             </View>
@@ -242,7 +246,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Price Input</h2>
+        <h2>Price Input</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -255,7 +259,7 @@ export function NumberFieldPage() {
                 increaseAriaLabel="Increase price"
                 decreaseAriaLabel="Decrease price"
                 value={price}
-                onChange={(value) => setPrice(value.value)}
+                onChange={value => setPrice(value.value)}
                 step={0.01}
                 min={0}
               />
@@ -265,7 +269,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Percentage Input</h2>
+        <h2>Percentage Input</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -278,7 +282,7 @@ export function NumberFieldPage() {
                 increaseAriaLabel="Increase percentage"
                 decreaseAriaLabel="Decrease percentage"
                 value={percentage}
-                onChange={(value) => setPercentage(value.value)}
+                onChange={value => setPercentage(value.value)}
                 min={0}
                 max={100}
                 step={5}
@@ -289,7 +293,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Age Input</h2>
+        <h2>Age Input</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -302,7 +306,7 @@ export function NumberFieldPage() {
                 increaseAriaLabel="Increase age"
                 decreaseAriaLabel="Decrease age"
                 value={age}
-                onChange={(value) => setAge(value.value)}
+                onChange={value => setAge(value.value)}
                 min={0}
                 max={120}
               />
@@ -312,7 +316,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Rating Input</h2>
+        <h2>Rating Input</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -325,7 +329,7 @@ export function NumberFieldPage() {
                 increaseAriaLabel="Increase rating"
                 decreaseAriaLabel="Decrease rating"
                 value={rating}
-                onChange={(value) => setRating(value.value)}
+                onChange={value => setRating(value.value)}
                 min={1}
                 max={5}
               />
@@ -335,7 +339,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Disabled State</h2>
+        <h2>Disabled State</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -353,10 +357,10 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Form Example</h2>
+        <h2>Form Example</h2>
         <Card padding={4}>
           <form
-            onSubmit={(e) => {
+            onSubmit={e => {
               e.preventDefault()
               alert('Form submitted!')
             }}
@@ -405,7 +409,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Shopping Cart Example</h2>
+        <h2>Shopping Cart Example</h2>
         <Card padding={4}>
           <View gap={3}>
             <View direction="row" gap={3} align="center" className="border-b pb-3">
@@ -457,7 +461,7 @@ export function NumberFieldPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Settings Panel Example</h2>
+        <h2>Settings Panel Example</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>

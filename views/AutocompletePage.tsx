@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Autocomplete } from '../components/Autocomplete'
 import { Search, MapPin, User, Mail } from 'lucide-react'
 
@@ -61,10 +62,10 @@ export function AutocompletePage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Autocomplete Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Autocomplete Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Autocomplete</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Basic Autocomplete</Text>
         <View maxWidth="400px">
           <Autocomplete
             name="fruit"
@@ -85,7 +86,7 @@ export function AutocompletePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Start Icon</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Start Icon</Text>
         <View maxWidth="400px">
           <Autocomplete
             name="country"
@@ -107,7 +108,7 @@ export function AutocompletePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">With Search Icon</h2>
+        <Text variant="title-2" className="text-xl font-semibold">With Search Icon</Text>
         <View maxWidth="400px">
           <Autocomplete
             name="search"
@@ -129,7 +130,7 @@ export function AutocompletePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Complex Items</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Complex Items</Text>
         <View maxWidth="400px">
           <Autocomplete
             name="user"
@@ -169,7 +170,7 @@ export function AutocompletePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">No Results State</h2>
+        <Text variant="title-2" className="text-xl font-semibold">No Results State</Text>
         <View maxWidth="400px">
           <Autocomplete
             name="empty"
@@ -198,7 +199,7 @@ export function AutocompletePage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Usage Tips</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Usage Tips</Text>
         <View gap={2} className="text-sm opacity-80">
           <p>• Type to filter the available options</p>
           <p>• Use arrow keys to navigate through suggestions</p>

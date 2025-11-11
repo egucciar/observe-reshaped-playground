@@ -20,7 +20,7 @@ export function ProgressPage() {
     let interval: NodeJS.Timeout
     if (isDownloading && downloadProgress < 100) {
       interval = setInterval(() => {
-        setDownloadProgress((prev) => Math.min(prev + 5, 100))
+        setDownloadProgress(prev => Math.min(prev + 5, 100))
       }, 200)
     }
     return () => clearInterval(interval)
@@ -30,7 +30,7 @@ export function ProgressPage() {
     let interval: NodeJS.Timeout
     if (isUploading && uploadProgress < 100) {
       interval = setInterval(() => {
-        setUploadProgress((prev) => Math.min(prev + 3, 100))
+        setUploadProgress(prev => Math.min(prev + 3, 100))
       }, 200)
     }
     return () => clearInterval(interval)
@@ -40,7 +40,7 @@ export function ProgressPage() {
     let interval: NodeJS.Timeout
     if (isProcessing && taskProgress < 100) {
       interval = setInterval(() => {
-        setTaskProgress((prev) => Math.min(prev + 2, 100))
+        setTaskProgress(prev => Math.min(prev + 2, 100))
       }, 300)
     }
     return () => clearInterval(interval)
@@ -63,10 +63,10 @@ export function ProgressPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Progress Component</h1>
+      <h1>Progress Component</h1>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Progress</h2>
+        <h2>Basic Progress</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -94,7 +94,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Progress Sizes</h2>
+        <h2>Progress Sizes</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -110,7 +110,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Progress Colors</h2>
+        <h2>Progress Colors</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -134,7 +134,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Custom Value Boundaries</h2>
+        <h2>Custom Value Boundaries</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -154,7 +154,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Download Progress</h2>
+        <h2>Download Progress</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={3} align="center" justify="space-between">
@@ -166,7 +166,10 @@ export function ProgressPage() {
                 {downloadProgress === 100 ? 'Complete' : 'Downloading'}
               </Badge>
             </View>
-            <Progress value={downloadProgress} color={downloadProgress === 100 ? 'positive' : 'primary'} />
+            <Progress
+              value={downloadProgress}
+              color={downloadProgress === 100 ? 'positive' : 'primary'}
+            />
             <View direction="row" gap={2}>
               <Button
                 variant="solid"
@@ -195,7 +198,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Upload Progress</h2>
+        <h2>Upload Progress</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={3} align="center" justify="space-between">
@@ -207,7 +210,10 @@ export function ProgressPage() {
                 {uploadProgress === 100 ? 'Complete' : 'Uploading'}
               </Badge>
             </View>
-            <Progress value={uploadProgress} color={uploadProgress === 100 ? 'positive' : 'warning'} />
+            <Progress
+              value={uploadProgress}
+              color={uploadProgress === 100 ? 'positive' : 'warning'}
+            />
             <View direction="row" gap={2}>
               <Button
                 variant="solid"
@@ -236,7 +242,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Task Processing</h2>
+        <h2>Task Processing</h2>
         <Card padding={4}>
           <View gap={4}>
             <View direction="row" gap={3} align="center" justify="space-between">
@@ -248,7 +254,10 @@ export function ProgressPage() {
                 <CheckCircle size={20} className="text-green-500" />
               )}
             </View>
-            <Progress value={taskProgress} color={taskProgress === 100 ? 'positive' : 'primary'} />
+            <Progress
+              value={taskProgress}
+              color={taskProgress === 100 ? 'positive' : 'primary'}
+            />
             <View direction="row" gap={2}>
               <Button
                 variant="solid"
@@ -277,34 +286,42 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Installation Progress</h2>
+        <h2>Installation Progress</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={3}>
               <View gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <span className="text-sm font-semibold">Step 1: Downloading packages</span>
+                  <span className="text-sm font-semibold">
+                    Step 1: Downloading packages
+                  </span>
                   <Badge color="positive">Complete</Badge>
                 </View>
                 <Progress value={100} color="positive" size="small" />
               </View>
               <View gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <span className="text-sm font-semibold">Step 2: Installing dependencies</span>
+                  <span className="text-sm font-semibold">
+                    Step 2: Installing dependencies
+                  </span>
                   <Badge color="positive">Complete</Badge>
                 </View>
                 <Progress value={100} color="positive" size="small" />
               </View>
               <View gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <span className="text-sm font-semibold">Step 3: Configuring settings</span>
+                  <span className="text-sm font-semibold">
+                    Step 3: Configuring settings
+                  </span>
                   <Badge color="primary">In Progress</Badge>
                 </View>
                 <Progress value={65} color="primary" size="small" />
               </View>
               <View gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <span className="text-sm font-semibold">Step 4: Finalizing installation</span>
+                  <span className="text-sm font-semibold">
+                    Step 4: Finalizing installation
+                  </span>
                   <Badge>Pending</Badge>
                 </View>
                 <Progress value={0} size="small" />
@@ -315,7 +332,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Profile Completion</h2>
+        <h2>Profile Completion</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -355,7 +372,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Storage Usage</h2>
+        <h2>Storage Usage</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -373,7 +390,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Skill Levels</h2>
+        <h2>Skill Levels</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -401,7 +418,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Project Timeline</h2>
+        <h2>Project Timeline</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -433,7 +450,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Battery Status</h2>
+        <h2>Battery Status</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -462,7 +479,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Goal Progress</h2>
+        <h2>Goal Progress</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>
@@ -491,7 +508,7 @@ export function ProgressPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Survey Completion</h2>
+        <h2>Survey Completion</h2>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>

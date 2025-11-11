@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Card } from '../components/Card'
 import { Avatar } from '../components/Avatar'
 import { Badge } from '../components/Badge'
@@ -24,21 +25,21 @@ export function CardPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1 className="text-2xl font-bold">Card Component</h1>
+      <Text variant="title-1" className="text-2xl font-bold">Card Component</Text>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Basic Cards</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Basic Cards</Text>
         <View direction="row" gap={3} wrap>
           <Card padding={4}>
             <View gap={2}>
-              <h3 className="text-lg font-semibold">Simple Card</h3>
+              <Text variant="title-3" className="text-lg font-semibold">Simple Card</Text>
               <p className="text-sm opacity-70">This is a basic card with default styling</p>
             </View>
           </Card>
 
           <Card padding={4} elevated>
             <View gap={2}>
-              <h3 className="text-lg font-semibold">Elevated Card</h3>
+              <Text variant="title-3" className="text-lg font-semibold">Elevated Card</Text>
               <p className="text-sm opacity-70">This card has increased elevation</p>
             </View>
           </Card>
@@ -46,18 +47,18 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Clickable Cards</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Clickable Cards</Text>
         <View direction="row" gap={3} wrap>
           <Card padding={4} onClick={() => console.log('Card 1 clicked')}>
             <View gap={2}>
-              <h3 className="text-lg font-semibold">Interactive Card</h3>
+              <Text variant="title-3" className="text-lg font-semibold">Interactive Card</Text>
               <p className="text-sm opacity-70">Click me to see interaction</p>
             </View>
           </Card>
 
           <Card padding={4} elevated onClick={() => console.log('Card 2 clicked')}>
             <View gap={2}>
-              <h3 className="text-lg font-semibold">Elevated Interactive</h3>
+              <Text variant="title-3" className="text-lg font-semibold">Elevated Interactive</Text>
               <p className="text-sm opacity-70">Elevated and clickable</p>
             </View>
           </Card>
@@ -65,7 +66,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Selectable Cards</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Selectable Cards</Text>
         <View direction="row" gap={3} wrap>
           {['option1', 'option2', 'option3'].map((option) => (
             <Card
@@ -75,7 +76,7 @@ export function CardPage() {
               onClick={() => setSelectedCard(option)}
             >
               <View gap={2}>
-                <h3 className="text-lg font-semibold">Option {option.slice(-1)}</h3>
+                <Text variant="title-3" className="text-lg font-semibold">Option {option.slice(-1)}</Text>
                 <p className="text-sm opacity-70">Click to select this option</p>
               </View>
             </Card>
@@ -84,7 +85,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Product Cards</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Product Cards</Text>
         <View direction="row" gap={3} wrap>
           <Card padding={0} elevated>
             <View gap={0}>
@@ -93,7 +94,7 @@ export function CardPage() {
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <h3 className="text-lg font-semibold">Product Name</h3>
+                  <Text variant="title-3" className="text-lg font-semibold">Product Name</Text>
                   <Badge color="primary">New</Badge>
                 </View>
                 <p className="text-sm opacity-70">High quality product with great features</p>
@@ -112,7 +113,7 @@ export function CardPage() {
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <h3 className="text-lg font-semibold">Another Product</h3>
+                  <Text variant="title-3" className="text-lg font-semibold">Another Product</Text>
                   <Badge color="warning">Sale</Badge>
                 </View>
                 <p className="text-sm opacity-70">Amazing features at a discounted price</p>
@@ -130,7 +131,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Social Media Cards</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Social Media Cards</Text>
         <View gap={3}>
           <Card padding={4} elevated>
             <View gap={3}>
@@ -197,7 +198,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Event Cards</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Event Cards</Text>
         <View direction="row" gap={3} wrap>
           <Card padding={4} elevated onClick={() => console.log('Event clicked')}>
             <View gap={3}>
@@ -205,7 +206,7 @@ export function CardPage() {
                 <Badge icon={Calendar} color="primary">Upcoming</Badge>
                 <Badge color="warning">Featured</Badge>
               </View>
-              <h3 className="text-lg font-semibold">Tech Conference 2024</h3>
+              <Text variant="title-3" className="text-lg font-semibold">Tech Conference 2024</Text>
               <View gap={2}>
                 <View direction="row" gap={2} align="center">
                   <Calendar size={16} className="opacity-70" />
@@ -229,7 +230,7 @@ export function CardPage() {
               <View direction="row" justify="space-between" align="center">
                 <Badge icon={Calendar} color="positive">This Week</Badge>
               </View>
-              <h3 className="text-lg font-semibold">Design Systems Webinar</h3>
+              <Text variant="title-3" className="text-lg font-semibold">Design Systems Webinar</Text>
               <View gap={2}>
                 <View direction="row" gap={2} align="center">
                   <Calendar size={16} className="opacity-70" />
@@ -251,7 +252,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Stats Cards</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Stats Cards</Text>
         <View direction="row" gap={3} wrap>
           <Card padding={4} elevated>
             <View gap={2}>
@@ -298,7 +299,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <h2 className="text-xl font-semibold">Different Padding Sizes</h2>
+        <Text variant="title-2" className="text-xl font-semibold">Different Padding Sizes</Text>
         <View direction="row" gap={3} wrap>
           <Card padding={2}>
             <p className="text-sm">Padding: 2</p>
