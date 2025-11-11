@@ -1,9 +1,5 @@
-import { Content } from './content'
+import { redirect } from 'next/navigation'
 
-export default async function Home() {
-  return (
-    <main>
-      <Content />
-    </main>
-  )
+export default function Home() {
+  redirect('/overview')
 }

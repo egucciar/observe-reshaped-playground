@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Reshaped requires transpiling and optimization
+  transpilePackages: ['reshaped'],
+  experimental: {
+    optimizePackageImports: ['reshaped'],
+  },
   webpack: (config, { isServer }) => {
     // Optimize CSS Module chunking to prevent duplicates
     if (!isServer) {

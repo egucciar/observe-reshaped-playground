@@ -1,7 +1,4 @@
-@import '../tailwind.css';
-@import '../public/custom/theme.css';
-@import '../public/custom/media.css';
-@import '../public/custom/tailwind.css';
+/* CSS files imported directly in layout.tsx to prevent FOUC from @import waterfall */
 
 /* Scrollbar styling - always visible by default */
 div::-webkit-scrollbar,
