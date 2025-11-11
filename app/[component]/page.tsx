@@ -1,16 +1,7 @@
-'use client'
+import { ComponentPageClient } from './client'
 
-import { use } from 'react'
-import { notFound } from 'next/navigation'
-import { componentMap } from '../componentMap'
+export default async function ComponentPage({ params }: { params: Promise<{ component: string }> }) {
+  const { component } = await params
 
-export default function ComponentPage({ params }: { params: Promise<{ component: string }> }) {
-  const { component } = use(params)
-  const PageComponent = componentMap[component]
-
-  if (!PageComponent) {
-    notFound()
-  }
-
-  return <PageComponent />
+  return <ComponentPageClient component={component} />
 }
