@@ -14,6 +14,7 @@ export const introductionComponents: NavItem[] = [
 export const customComponents: NavItem[] = [
   { key: 'accordiongroup', label: 'Accordion Group' },
   { key: 'aiinputs', label: 'AI Inputs' },
+  { key: 'applink', label: 'AppLink' },
   { key: 'construction', label: 'Construction' },
   { key: 'facetpanel', label: 'Facet Panel' },
   { key: 'fieldgroup', label: 'Field Group' },

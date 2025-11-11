@@ -46,6 +46,7 @@ import { ShowcasePage } from '../views/ShowcasePage'
 import { DashboardBlockPage } from '../views/DashboardBlockPage'
 import { LoginBlockPage } from '../views/LoginBlockPage'
 import { SidebarBlockPage } from '../views/SidebarBlockPage'
+import { AppLinkPage } from '../views/AppLinkPage'
 
 export const componentMap: Record<string, React.ComponentType> = {
   // Introduction
@@ -66,6 +67,7 @@ export const componentMap: Record<string, React.ComponentType> = {
       message="Intelligent input components with AI-powered suggestions and validation. Coming soon!"
     />
   ),
+  applink: AppLinkPage,
   construction: ConstructionPage,
   facetpanel: () => (
     <PlaceholderPage

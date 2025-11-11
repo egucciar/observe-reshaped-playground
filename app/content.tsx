@@ -1,6 +1,5 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
 import { View } from '../components/View'
 import { Resizable } from '../components/Resizable'
 import { ThemeToggle } from '../components/ThemeToggle'
@@ -14,7 +13,6 @@ import {
 } from './navigationConfig'
 
 export function Content({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
 
   return (
     <View height="100vh" width="100%" overflow="hidden" position="relative">
@@ -40,11 +38,7 @@ export function Content({ children }: { children: React.ReactNode }) {
                 <Accordion.Content>
                   <View paddingTop={2} gap={1}>
                     {introductionComponents.map(comp => (
-                      <AppLink.MenuItem
-                        key={comp.key}
-                        selected={pathname === `/${comp.key}`}
-                        href={`/${comp.key}`}
-                      >
+                      <AppLink.MenuItem key={comp.key} href={`/${comp.key}`}>
                         {comp.label}
                       </AppLink.MenuItem>
                     ))}
@@ -61,11 +55,7 @@ export function Content({ children }: { children: React.ReactNode }) {
                 <Accordion.Content>
                   <View paddingTop={2} gap={1}>
                     {customComponents.map(comp => (
-                      <AppLink.MenuItem
-                        key={comp.key}
-                        selected={pathname === `/${comp.key}`}
-                        href={`/${comp.key}`}
-                      >
+                      <AppLink.MenuItem key={comp.key} href={`/${comp.key}`}>
                         {comp.label}
                       </AppLink.MenuItem>
                     ))}
@@ -82,11 +72,7 @@ export function Content({ children }: { children: React.ReactNode }) {
                 <Accordion.Content>
                   <View paddingTop={2} gap={1}>
                     {blocksComponents.map(comp => (
-                      <AppLink.MenuItem
-                        key={comp.key}
-                        selected={pathname === `/${comp.key}`}
-                        href={`/${comp.key}`}
-                      >
+                      <AppLink.MenuItem key={comp.key} href={`/${comp.key}`}>
                         {comp.label}
                       </AppLink.MenuItem>
                     ))}
@@ -103,11 +89,7 @@ export function Content({ children }: { children: React.ReactNode }) {
                 <Accordion.Content>
                   <View paddingTop={2} gap={1}>
                     {reshapedComponents.map(comp => (
-                      <AppLink.MenuItem
-                        key={comp.key}
-                        selected={pathname === `/${comp.key}`}
-                        href={`/${comp.key}`}
-                      >
+                      <AppLink.MenuItem key={comp.key} href={`/${comp.key}`}>
                         {comp.label}
                       </AppLink.MenuItem>
                     ))}
