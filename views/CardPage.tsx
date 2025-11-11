@@ -38,89 +38,110 @@ export function CardPage() {
 
   return (
     <View padding={4} gap={4}>
-      <Text variant="title-1" className="text-2xl font-bold">
-        Card Component
-      </Text>
+      <Text variant="title-1">Card Component</Text>
 
-      <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
-          Basic Cards
-        </Text>
-        <View direction="row" gap={3} wrap>
-          <Card padding={4}>
-            <View gap={2}>
-              <Text variant="title-3" className="text-lg font-semibold">
-                Simple Card
-              </Text>
-              <p className="text-sm opacity-70">
-                This is a basic card with default styling
-              </p>
-            </View>
-          </Card>
-
-          <Card padding={4} elevated>
-            <View gap={2}>
-              <Text variant="title-3" className="text-lg font-semibold">
-                Elevated Card
-              </Text>
-              <p className="text-sm opacity-70">This card has increased elevation</p>
-            </View>
-          </Card>
+      <View gap={4} paddingTop={3}>
+        <View gap={2}>
+          <Text variant="title-2">Custom Enhancements</Text>
+          <Text variant="body-2" color="neutral-faded">
+            The Card component includes the following customizations to improve visual feedback and usability:
+          </Text>
         </View>
-      </View>
 
-      <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
-          Clickable Cards
-        </Text>
-        <View direction="row" gap={3} wrap>
-          <Card padding={4} onClick={() => console.log('Card 1 clicked')}>
-            <View gap={2}>
-              <Text variant="title-3" className="text-lg font-semibold">
-                Interactive Card
-              </Text>
-              <p className="text-sm opacity-70">Click me to see interaction</p>
-            </View>
-          </Card>
-
-          <Card padding={4} elevated onClick={() => console.log('Card 2 clicked')}>
-            <View gap={2}>
-              <Text variant="title-3" className="text-lg font-semibold">
-                Elevated Interactive
-              </Text>
-              <p className="text-sm opacity-70">Elevated and clickable</p>
-            </View>
-          </Card>
-        </View>
-      </View>
-
-      <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
-          Selectable Cards
-        </Text>
-        <View direction="row" gap={3} wrap>
-          {['option1', 'option2', 'option3'].map(option => (
-            <Card
-              key={option}
-              padding={4}
-              selected={selectedCard === option}
-              onClick={() => setSelectedCard(option)}
-            >
-              <View gap={2}>
-                <Text variant="title-3" className="text-lg font-semibold">
-                  Option {option.slice(-1)}
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">Modified Hover, Focus & Selected States</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Replaced background highlight overlay with border and shadow changes
                 </Text>
-                <p className="text-sm opacity-70">Click to select this option</p>
               </View>
-            </Card>
-          ))}
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Hover state shows highlighted border color and raised shadow elevation
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Selected state uses primary border (2px) for clear visual indication
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Focus state matches selected state for consistent keyboard navigation
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Border is rendered on pseudo-element to avoid conflicts with card shadows
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Hover Examples</Text>
+              <View direction="row" gap={3} wrap>
+                <Card padding={4} onClick={() => console.log('Hover card clicked')}>
+                  <View gap={2}>
+                    <Text variant="title-3">Hover Over Me</Text>
+                    <Text variant="body-2" color="neutral-faded">
+                      Notice the border darkens and shadow elevates
+                    </Text>
+                  </View>
+                </Card>
+                <Card padding={4} elevated onClick={() => console.log('Elevated hover clicked')}>
+                  <View gap={2}>
+                    <Text variant="title-3">Elevated Card</Text>
+                    <Text variant="body-2" color="neutral-faded">
+                      Works with elevated cards too
+                    </Text>
+                  </View>
+                </Card>
+              </View>
+            </View>
+
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Selected Examples</Text>
+              <View direction="row" gap={3} wrap>
+                {['option1', 'option2', 'option3'].map(option => (
+                  <Card
+                    key={option}
+                    padding={4}
+                    selected={selectedCard === option}
+                    onClick={() => setSelectedCard(option)}
+                  >
+                    <View gap={2}>
+                      <Text variant="title-3">Option {option.slice(-1)}</Text>
+                      <Text variant="body-2" color="neutral-faded">
+                        Click to select
+                      </Text>
+                    </View>
+                  </Card>
+                ))}
+              </View>
+            </View>
+          </View>
         </View>
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
-          Product Cards
-        </Text>
+        <Text variant="title-2">Product Cards</Text>
         <Text variant="body-2" color="neutral-faded">
           Click on a product card to select it
         </Text>
@@ -144,16 +165,14 @@ export function CardPage() {
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <Text variant="title-3" className="text-lg font-semibold">
-                    Product Name
-                  </Text>
+                  <Text variant="title-3">Product Name</Text>
                   <Badge color="primary">New</Badge>
                 </View>
-                <p className="text-sm opacity-70">
+                <Text variant="body-2" color="neutral-faded">
                   High quality product with great features
-                </p>
+                </Text>
                 <View direction="row" justify="space-between" align="center">
-                  <span className="text-xl font-bold">$99.99</span>
+                  <Text variant="featured-3" weight="bold">$99.99</Text>
                   <Button
                     variant="solid"
                     color="primary"
@@ -189,18 +208,18 @@ export function CardPage() {
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <Text variant="title-3" className="text-lg font-semibold">
+                  <Text variant="title-3">
                     Another Product
                   </Text>
                   <Badge color="warning">Sale</Badge>
                 </View>
-                <p className="text-sm opacity-70">
+                <Text variant="body-2" color="neutral-faded">
                   Amazing features at a discounted price
-                </p>
+                </Text>
                 <View direction="row" justify="space-between" align="center">
                   <View gap={1}>
-                    <span className="text-xl font-bold">$79.99</span>
-                    <span className="text-sm line-through opacity-50">$99.99</span>
+                    <Text variant="featured-3" weight="bold">$79.99</Text>
+                    <Text variant="body-2" color="neutral-faded" className="line-through">$99.99</Text>
                   </View>
                   <Button
                     variant="solid"
@@ -237,14 +256,14 @@ export function CardPage() {
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
-                  <Text variant="title-3" className="text-lg font-semibold">
+                  <Text variant="title-3">
                     Premium Product
                   </Text>
                   <Badge color="positive">Best Seller</Badge>
                 </View>
-                <p className="text-sm opacity-70">Top-rated product loved by customers</p>
+                <Text variant="body-2" color="neutral-faded">Top-rated product loved by customers</Text>
                 <View direction="row" justify="space-between" align="center">
-                  <span className="text-xl font-bold">$149.99</span>
+                  <Text variant="featured-3" weight="bold">$149.99</Text>
                   <Button
                     variant="solid"
                     color="primary"
@@ -264,7 +283,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
+        <Text variant="title-2">
           Social Media Cards
         </Text>
         <View gap={3}>
@@ -353,7 +372,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
+        <Text variant="title-2">
           Event Cards
         </Text>
         <View direction="row" gap={3} wrap>
@@ -421,7 +440,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
+        <Text variant="title-2">
           Stats Cards
         </Text>
         <View direction="row" gap={3} wrap>
@@ -476,7 +495,7 @@ export function CardPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">
+        <Text variant="title-2">
           Different Padding Sizes
         </Text>
         <View direction="row" gap={3} wrap>
