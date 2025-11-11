@@ -1,0 +1,51 @@
+.container {
+  /* 
+    Input number fixes - in addition to the highlighted border on hover,
+    all the box-shadows sit oddly with the borders around the increment/decrement buttons
+    Because of this, use a pseudo element to create the border instead
+  */
+  position: relative;
+  box-shadow: none;
+
+  /* ensure number borders are behind focus border */
+  & > * {
+    z-index: 1;
+  }
+
+  &::before {
+    /* repeated from reshaped */
+    box-shadow: 0 0 0 var(--rs-text-field-border-width) var(--rs-text-field-border-color)
+      inset;
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2; /* Shadow layer */
+    border-radius: inherit;
+  }
+
+  &:hover:not(:focus-within) {
+    --rs-text-field-border-color: var(--rs-color-border-neutral-highlighted);
+  }
+
+  &:focus-within {
+    --rs-text-field-border-color: var(--rs-color-border-primary);
+    --rs-text-field-border-width: 2px;
+  }
+
+  &[class*='status-error'] {
+    --rs-text-field-border-width: 1px;
+    --rs-text-field-border-color: var(--rs-color-border-critical);
+
+    &:hover {
+      --rs-text-field-border-width: 1.5px;
+      --rs-text-field-border-color: var(--rs-color-border-critical);
+    }
+
+    &:hover:focus-within,
+    &:focus-within {
+      --rs-text-field-border-width: 2px;
+      --rs-text-field-border-color: var(--rs-color-border-critical);
+    }
+  }
+}

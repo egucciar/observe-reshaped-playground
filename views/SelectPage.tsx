@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Select } from '../components/Select'
 import { Card } from '../components/Card'
 import { Badge } from '../components/Badge'
@@ -15,10 +16,160 @@ export function SelectPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1>Select Component</h1>
+      <Text variant="title-1">Select Component</Text>
+
+      <View gap={4} paddingTop={3}>
+        <View gap={2}>
+          <Text variant="title-2">Custom Enhancements</Text>
+          <Text variant="body-2" color="neutral-faded">
+            The Select component includes the following customizations:
+          </Text>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">Architecture: Only Select.Custom is Customized (Temporary)</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Base Select component is a plain re-export with no customizations
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Select.Custom receives custom styling, default size="small", and auto-propagates size to children
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  We are unlikely to use base Select since we always want to give users the ability to filter dropdown options, even when there are few options
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Long-term: Select.Custom has limitations (see{' '}
+                  <a
+                    href="https://github.com/reshaped-ui/reshaped/issues/497"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    reshaped#497
+                  </a>
+                  ) and will be replaced with a fully custom implementation
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <Text variant="body-2" weight="medium" paddingTop={2}>Default Size Strategy</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Select.Custom defaults to size="small" for consistent compact UI
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Children (Select.Option) automatically inherit size="small" unless explicitly overridden
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Implementation uses React.Children.map to clone children and inject size prop
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <Text variant="body-2" weight="medium" paddingTop={2}>Enhanced Hover State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Aligned with Card component for consistent hover behavior across components
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Shows highlighted border color on hover (default Reshaped has no hover change)
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Disabled for disabled and error states to avoid conflicts
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error state uses native Reshaped styling (no custom modifications)
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Hover Example</Text>
+              <Select.Custom name="hover-example" placeholder="Hover over me to see the highlighted border">
+                <Select.Option value="option1">Option 1</Select.Option>
+                <Select.Option value="option2">Option 2</Select.Option>
+                <Select.Option value="option3">Option 3</Select.Option>
+              </Select.Custom>
+            </View>
+
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Error State Example (Native Styling)</Text>
+              <Text variant="caption-1" color="neutral-faded">
+                Error state uses default Reshaped styling for demonstration
+              </Text>
+              <Select.Custom
+                name="error-example"
+                placeholder="Please select a valid option"
+                hasError
+              >
+                <Select.Option value="invalid">Invalid Option</Select.Option>
+                <Select.Option value="option1">Option 1</Select.Option>
+                <Select.Option value="option2">Option 2</Select.Option>
+              </Select.Custom>
+              <Text variant="caption-1" color="critical">
+                Please select a valid option
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
 
       <View gap={3}>
-        <h2>Basic Select</h2>
+        <Text variant="title-2">Basic Select</Text>
         <Card padding={4}>
           <View maxWidth="400px">
             <Select.Custom name="basic" placeholder="Choose an option...">

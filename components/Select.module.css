@@ -1,0 +1,17 @@
+.container {
+  /*
+    Hover state enhancement:
+    - Align with Card component behavior for consistent UX
+    - Show highlighted border on hover for better visual feedback
+    - Default Reshaped has no hover change, this makes it more noticeable
+    - Disabled for disabled, focused, error, and headless variants
+  */
+  &:hover,
+  &:hover:active {
+    &:not([class*='disabled']):not([class*='status-error']):not(
+        [class*='headless']
+      ):after {
+      box-shadow: 0 0 0 1px var(--rs-color-border-neutral-highlighted) inset;
+    }
+  }
+}

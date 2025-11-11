@@ -15,10 +15,111 @@ export function TextAreaPage() {
 
   return (
     <View padding={4} gap={4}>
-      <Text variant="title-1" className="text-2xl font-bold">TextArea Component</Text>
+      <Text variant="title-1">TextArea Component</Text>
+
+      <View gap={4} paddingTop={3}>
+        <View gap={2}>
+          <Text variant="title-2">Custom Enhancements</Text>
+          <Text variant="body-2" color="neutral-faded">
+            The TextArea component includes the following customizations to improve visual feedback:
+          </Text>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">1. Enhanced Hover State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Aligned with Card component for consistent hover behavior across components
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Shows highlighted border color on hover (default Reshaped has no hover change)
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Disabled for disabled, focused, error, and headless states to avoid conflicts
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Hover Example</Text>
+              <TextArea name="hover-example" placeholder="Hover over me to see the highlighted border" />
+            </View>
+          </View>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">2. Persistent Error State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error styling remains visible even when focused for real-time feedback
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Default Reshaped removes error border on focus, hiding the validation issue
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Progressive border thickness: 1px base → 1.5px hover → 2px focus
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error persists until hasError prop is removed, ensuring clear validation state
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Error State Example</Text>
+              <Text variant="caption-1" color="neutral-faded">
+                Try clicking into the field - notice the error border stays visible
+              </Text>
+              <TextArea
+                name="error-example"
+                placeholder="This field has an error"
+                hasError
+              />
+              <Text variant="caption-1" color="critical">
+                Please enter a valid value
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Basic TextArea</Text>
+        <Text variant="title-2">Basic TextArea</Text>
         <Card padding={4}>
           <View maxWidth="600px">
             <TextArea
@@ -30,7 +131,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">With Placeholder</Text>
+        <Text variant="title-2">With Placeholder</Text>
         <Card padding={4}>
           <View maxWidth="600px">
             <TextArea
@@ -42,7 +143,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Controlled State</Text>
+        <Text variant="title-2">Controlled State</Text>
         <Card padding={4}>
           <View gap={3} maxWidth="600px">
             <TextArea
@@ -54,7 +155,7 @@ export function TextAreaPage() {
             <View padding={3} backgroundColor="neutral-faded" borderRadius="medium">
               <View gap={2}>
                 <Badge color="primary">Character count: {story.length}</Badge>
-                <p className="text-sm">Current value: {story || '(empty)'}</p>
+                <Text variant="body-2">Current value: {story || '(empty)'}</Text>
               </View>
             </View>
           </View>
@@ -62,7 +163,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Uncontrolled with Default Value</Text>
+        <Text variant="title-2">Uncontrolled with Default Value</Text>
         <Card padding={4}>
           <View maxWidth="600px">
             <TextArea
@@ -75,11 +176,11 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Different Sizes</Text>
+        <Text variant="title-2">Different Sizes</Text>
         <Card padding={4}>
           <View gap={3} maxWidth="600px">
             <View gap={2}>
-              <p className="text-sm font-semibold">Medium (Default)</p>
+              <Text variant="body-2" weight="medium">Medium (Default)</Text>
               <TextArea
                 name="size-medium"
                 size="medium"
@@ -87,7 +188,7 @@ export function TextAreaPage() {
               />
             </View>
             <View gap={2}>
-              <p className="text-sm font-semibold">Large</p>
+              <Text variant="body-2" weight="medium">Large</Text>
               <TextArea
                 name="size-large"
                 size="large"
@@ -95,7 +196,7 @@ export function TextAreaPage() {
               />
             </View>
             <View gap={2}>
-              <p className="text-sm font-semibold">XLarge</p>
+              <Text variant="body-2" weight="medium">XLarge</Text>
               <TextArea
                 name="size-xlarge"
                 size="xlarge"
@@ -107,11 +208,11 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Variants</Text>
+        <Text variant="title-2">Variants</Text>
         <Card padding={4}>
           <View gap={3} maxWidth="600px">
             <View gap={2}>
-              <p className="text-sm font-semibold">Outline (Default)</p>
+              <Text variant="body-2" weight="medium">Outline (Default)</Text>
               <TextArea
                 name="variant-outline"
                 variant="outline"
@@ -119,7 +220,7 @@ export function TextAreaPage() {
               />
             </View>
             <View gap={2}>
-              <p className="text-sm font-semibold">Faded</p>
+              <Text variant="body-2" weight="medium">Faded</Text>
               <TextArea
                 name="variant-faded"
                 variant="faded"
@@ -127,7 +228,7 @@ export function TextAreaPage() {
               />
             </View>
             <View gap={2}>
-              <p className="text-sm font-semibold">Headless</p>
+              <Text variant="body-2" weight="medium">Headless</Text>
               <TextArea
                 name="variant-headless"
                 variant="headless"
@@ -139,7 +240,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Auto Resize</Text>
+        <Text variant="title-2">Auto Resize</Text>
         <Card padding={4}>
           <View gap={3} maxWidth="600px">
             <TextArea
@@ -155,7 +256,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Disabled Resize</Text>
+        <Text variant="title-2">Disabled Resize</Text>
         <Card padding={4}>
           <View maxWidth="600px">
             <TextArea
@@ -168,7 +269,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Error State</Text>
+        <Text variant="title-2">Error State</Text>
         <Card padding={4}>
           <View gap={3} maxWidth="600px">
             <TextArea
@@ -182,7 +283,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Disabled State</Text>
+        <Text variant="title-2">Disabled State</Text>
         <Card padding={4}>
           <View gap={3} maxWidth="600px">
             <TextArea
@@ -200,7 +301,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Feedback Form Example</Text>
+        <Text variant="title-2">Feedback Form Example</Text>
         <Card padding={4}>
           <View gap={4} maxWidth="600px">
             <View gap={2}>
@@ -232,7 +333,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Multi-field Form</Text>
+        <Text variant="title-2">Multi-field Form</Text>
         <Card padding={4}>
           <View gap={4} maxWidth="600px">
             <View gap={2}>
@@ -266,7 +367,7 @@ export function TextAreaPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Usage Tips</Text>
+        <Text variant="title-2">Usage Tips</Text>
         <View gap={2} className="text-sm opacity-80">
           <p>• Use TextArea for multiline text input</p>
           <p>• Provide clear placeholders to guide users</p>

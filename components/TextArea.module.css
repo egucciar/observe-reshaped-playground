@@ -1,0 +1,41 @@
+.container {
+  /*
+    Hover state enhancement:
+    - Align with Card component behavior for consistent UX
+    - Show highlighted border on hover for better visual feedback
+    - Default Reshaped has no hover change, this makes it more noticeable
+    - Disabled for disabled, focused, error, and headless variants
+  */
+  &:not([class*='disabled']):not([class*='headless']):not([class*='status-error']):not(
+      :focus-within
+    ) {
+    &:hover > textarea {
+      box-shadow: 0 0 0 1px var(--rs-color-border-neutral-highlighted) inset;
+    }
+  }
+
+  /*
+    Error state enhancement:
+    - Keep error styling visible even when focused (real-time feedback)
+    - Default Reshaped removes error border on focus, hiding the issue
+    - Progressive disclosure: 1px unfocused → 1.5px hover → 2px focused
+    - Error persists until hasError prop is removed, ensuring users see validation state
+  */
+  &[class*='status-error'] > textarea {
+    /* Base error state: thin red border (1px) */
+    --rs-text-field-border-width: 1px;
+    --rs-text-field-border-color: var(--rs-color-border-critical);
+    box-shadow: 0 0 0 1px var(--rs-color-border-critical) inset !important;
+
+    /* Hover error state: slightly thicker (1.5px) */
+    &:hover {
+      box-shadow: 0 0 0 1.5px var(--rs-color-border-critical) inset !important;
+    }
+
+    /* Focus error state: thickest border (2px) for maximum visibility */
+    &:hover:focus-within,
+    &:focus-within {
+      box-shadow: 0 0 0 2px var(--rs-color-border-critical) inset !important;
+    }
+  }
+}

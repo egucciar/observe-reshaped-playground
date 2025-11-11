@@ -59,10 +59,154 @@ export function AutocompletePage() {
   const [countryValue, setCountryValue] = useState('')
   const [userValue, setUserValue] = useState('')
   const [emailValue, setEmailValue] = useState('')
+  const [errorValue, setErrorValue] = useState('')
 
   return (
     <View padding={4} gap={4}>
       <Text variant="title-1" className="text-2xl font-bold">Autocomplete Component</Text>
+
+      <View gap={4} paddingTop={3}>
+        <View gap={2}>
+          <Text variant="title-2">Custom Enhancements</Text>
+          <Text variant="body-2" color="neutral-faded">
+            The Autocomplete component includes the following customizations:
+          </Text>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">Default Size Strategy</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Defaults to size="small" for consistent compact UI
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Children (Autocomplete.Item) automatically inherit size="small" unless explicitly overridden
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Implementation uses React.Children.map to clone children and inject size prop
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Defaults to fallbackAdjustLayout=true for better positioning behavior
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <Text variant="body-2" weight="medium" paddingTop={2}>Enhanced Hover State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Aligned with Card component for consistent hover behavior across components
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Shows highlighted border color on hover (default Reshaped has no hover change)
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Disabled for disabled and error states to avoid conflicts
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <Text variant="body-2" weight="medium" paddingTop={2}>Persistent Error State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error styling remains visible even when focused (real-time feedback)
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Progressive disclosure: 1px unfocused → 1.5px hover → 2px focused
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Default Reshaped removes error border on focus, hiding the validation issue
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Hover Example</Text>
+              <Autocomplete
+                name="hover-example"
+                placeholder="Hover over me to see the highlighted border"
+              >
+                <Autocomplete.Item value="option1">Option 1</Autocomplete.Item>
+                <Autocomplete.Item value="option2">Option 2</Autocomplete.Item>
+                <Autocomplete.Item value="option3">Option 3</Autocomplete.Item>
+              </Autocomplete>
+            </View>
+
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Error State Example</Text>
+              <Text variant="caption-1" color="neutral-faded">
+                Error state persists during focus for continuous validation feedback
+              </Text>
+              <Autocomplete
+                name="error-example"
+                placeholder="Search for a valid fruit..."
+                value={errorValue}
+                onChange={(event) => setErrorValue(event.value)}
+                hasError
+              >
+                {fruits.map((fruit) => {
+                  if (!fruit.toLowerCase().includes(errorValue.toLowerCase())) return null
+                  return (
+                    <Autocomplete.Item key={fruit} value={fruit}>
+                      {fruit}
+                    </Autocomplete.Item>
+                  )
+                })}
+              </Autocomplete>
+              <Text variant="caption-1" color="critical">
+                Please select a valid fruit from the list
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
 
       <View gap={3}>
         <Text variant="title-2" className="text-xl font-semibold">Basic Autocomplete</Text>

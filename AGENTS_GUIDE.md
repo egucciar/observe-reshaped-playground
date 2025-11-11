@@ -154,6 +154,55 @@ export { ComponentName } from 'reshaped'
 export type { ComponentNameProps } from 'reshaped'
 ```
 
+### CRITICAL: Wrapping Subcomponents - Avoid Infinite Recursion
+
+When wrapping a component's subcomponent (like `DropdownMenu.Item` or `Select.Custom`), you **MUST** store a reference to the original subcomponent **BEFORE** attaching the wrapped version. Otherwise, you'll create infinite recursion where the wrapped component calls itself.
+
+#### ❌ WRONG - Causes Infinite Recursion
+
+```tsx
+// DON'T DO THIS - DropdownMenuItem will call itself infinitely!
+const DropdownMenu = ReshapedDropdownMenu
+
+const DropdownMenuItem = ({ size = 'small', ...props }: DropdownMenuItemProps) => {
+  // This references DropdownMenu.Item, which will be DropdownMenuItem after line 8!
+  return <ReshapedDropdownMenu.Item size={size} {...props} />
+}
+
+// This replaces ReshapedDropdownMenu.Item with DropdownMenuItem
+DropdownMenu.Item = DropdownMenuItem
+```
+
+#### ✅ CORRECT - Store Reference First
+
+```tsx
+// Store reference to original subcomponent BEFORE attaching wrapped version
+const DropdownMenu = ReshapedDropdownMenu
+const ReshapedDropdownMenuItem = ReshapedDropdownMenu.Item  // ← Store reference first!
+
+// Now wrap it safely
+const DropdownMenuItem = ({ size = 'small', ...props }: DropdownMenuItemProps) => {
+  // This always references the original Reshaped component
+  return <ReshapedDropdownMenuItem size={size} {...props} />
+}
+
+// Safe to attach - DropdownMenuItem uses ReshapedDropdownMenuItem internally
+DropdownMenu.Item = DropdownMenuItem
+DropdownMenu.Trigger = ReshapedDropdownMenu.Trigger
+DropdownMenu.Content = ReshapedDropdownMenu.Content
+```
+
+**Why this matters:**
+- When you write `const DropdownMenu = ReshapedDropdownMenu`, both variables reference the same object
+- If you attach `DropdownMenuItem` to `DropdownMenu.Item`, it also modifies `ReshapedDropdownMenu.Item`
+- Without storing the original reference, `ReshapedDropdownMenu.Item` inside your wrapper will call itself
+- This causes infinite recursion and crashes the app
+
+**Always follow this pattern when wrapping subcomponents:**
+1. Store a reference to the original subcomponent
+2. Create your wrapper using that stored reference
+3. Attach your wrapper to the parent component
+
 ### Layout and Spacing
 
 Use the `View` component for all layout needs instead of plain `div` elements:

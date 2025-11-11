@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { NumberField } from '../components/NumberField'
 import { Card } from '../components/Card'
 import { Button } from '../components/Button'
@@ -16,10 +17,166 @@ export function NumberFieldPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1>NumberField Component</h1>
+      <Text variant="title-1">NumberField Component</Text>
+
+      <View gap={4} paddingTop={3}>
+        <View gap={2}>
+          <Text variant="title-2">Custom Enhancements</Text>
+          <Text variant="body-2" color="neutral-faded">
+            The NumberField component includes the following customizations to improve visual feedback:
+          </Text>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">Default Size Strategy</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  NumberField defaults to size="small" for consistent compact UI
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <Text variant="body-2" weight="medium" paddingTop={2}>Special Implementation: Pseudo-Element Borders</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  NumberField has increment/decrement buttons with their own borders
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Using box-shadow directly causes visual conflicts with button borders
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Solution: Uses ::before pseudo-element (z-index: 2) to create border layer above buttons (z-index: 1)
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  This approach prevents border conflicts while maintaining consistent styling
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <Text variant="body-2" weight="medium" paddingTop={2}>Enhanced Hover State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Aligned with Card component for consistent hover behavior across components
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Shows highlighted border color on hover (default Reshaped has no hover change)
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Disabled for disabled, focused, error, and headless states to avoid conflicts
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Hover Example</Text>
+              <NumberField
+                name="hover-example"
+                increaseAriaLabel="Increase"
+                decreaseAriaLabel="Decrease"
+                defaultValue={5}
+              />
+            </View>
+          </View>
+        </View>
+
+        <View gap={3} paddingTop={2}>
+          <Text variant="body-2" weight="medium">Persistent Error State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error styling remains visible even when focused for real-time feedback
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Default Reshaped removes error border on focus, hiding the validation issue
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Progressive border thickness: 1px base → 1.5px hover → 2px focus
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error persists until hasError prop is removed, ensuring clear validation state
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Error State Example</Text>
+              <Text variant="caption-1" color="neutral-faded">
+                Try clicking into the field - notice the error border stays visible
+              </Text>
+              <NumberField
+                name="error-example"
+                increaseAriaLabel="Increase"
+                decreaseAriaLabel="Decrease"
+                defaultValue={-5}
+                hasError
+              />
+              <Text variant="caption-1" color="critical">
+                Value must be positive
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
 
       <View gap={3}>
-        <h2>Basic Number Fields</h2>
+        <Text variant="title-2">Basic Number Fields</Text>
         <Card padding={4}>
           <View gap={4}>
             <View gap={2}>

@@ -13,27 +13,125 @@ export function TextFieldPage() {
 
   return (
     <View padding={4} gap={4}>
-      <Text variant="title-1" className="text-2xl font-bold">TextField Component</Text>
-      <p className="text-gray-600">Single-line text input for forms</p>
+      <Text variant="title-1">TextField Component</Text>
+
+      <View gap={4} paddingTop={3}>
+        <View gap={2}>
+          <Text variant="title-2">Custom Enhancements</Text>
+          <Text variant="body-2" color="neutral-faded">
+            The TextField component includes the following customizations to improve visual feedback:
+          </Text>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">1. Enhanced Hover State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Aligned with Card component for consistent hover behavior across components
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Shows highlighted border color on hover (default Reshaped has no hover change)
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Disabled for disabled, focused, error, and headless states to avoid conflicts
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Hover Example</Text>
+              <TextField name="hover-example" placeholder="Hover over me to see the highlighted border" />
+            </View>
+          </View>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">2. Persistent Error State</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error styling remains visible even when focused for real-time feedback
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Default Reshaped removes error border on focus, hiding the validation issue
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Progressive border thickness: 1px base → 1.5px hover → 2px focus
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Error persists until hasError prop is removed, ensuring clear validation state
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View gap={3} paddingTop={2}>
+            <View gap={2}>
+              <Text variant="body-2" weight="medium">Error State Example</Text>
+              <Text variant="caption-1" color="neutral-faded">
+                Try clicking into the field - notice the error border stays visible
+              </Text>
+              <TextField
+                name="error-example"
+                placeholder="This field has an error"
+                validationHint="Please enter a valid value"
+                hasError
+              />
+            </View>
+          </View>
+        </View>
+      </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Basic TextField (Uncontrolled)</Text>
+        <Text variant="title-2">Basic TextField (Uncontrolled)</Text>
         <TextField name="basic" placeholder="Enter text..." />
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Controlled TextField</Text>
+        <Text variant="title-2">Controlled TextField</Text>
         <TextField
           name="controlled"
           value={value}
           onChange={(e) => setValue(e.value)}
           placeholder="Type something..."
         />
-        <p className="text-sm text-gray-600">Current value: {value || '(empty)'}</p>
+        <Text variant="body-2" color="neutral-faded">Current value: {value || '(empty)'}</Text>
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Sizes</Text>
+        <Text variant="title-2">Sizes</Text>
         <View gap={2}>
           <TextField name="small" size="small" placeholder="Small" />
           <TextField name="medium" size="medium" placeholder="Medium (Default)" />
@@ -43,7 +141,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Variants</Text>
+        <Text variant="title-2">Variants</Text>
         <View gap={2}>
           <TextField name="outline" variant="outline" placeholder="Outline (Default)" />
           <TextField name="faded" variant="faded" placeholder="Faded" />
@@ -52,7 +150,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">With Prefix</Text>
+        <Text variant="title-2">With Prefix</Text>
         <View gap={2}>
           <TextField name="phone" prefix="+1" placeholder="Phone number" />
           <TextField name="website" prefix="https://" placeholder="example.com" />
@@ -61,7 +159,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">With Suffix</Text>
+        <Text variant="title-2">With Suffix</Text>
         <View gap={2}>
           <TextField name="domain" suffix=".com" placeholder="mysite" />
           <TextField name="weight" suffix="kg" placeholder="Enter weight" />
@@ -70,7 +168,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">With Icons</Text>
+        <Text variant="title-2">With Icons</Text>
         <View gap={2}>
           <TextField
             name="search"
@@ -107,7 +205,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">States</Text>
+        <Text variant="title-2">States</Text>
         <View gap={2}>
           <TextField name="disabled" placeholder="Disabled" disabled />
           <TextField name="error" placeholder="With error" hasError />
@@ -116,12 +214,12 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Rounded</Text>
+        <Text variant="title-2">Rounded</Text>
         <TextField name="rounded" placeholder="Rounded input" rounded />
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Input Types</Text>
+        <Text variant="title-2">Input Types</Text>
         <View gap={2}>
           <TextField
             name="password"
@@ -142,7 +240,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">With Start/End Slots</Text>
+        <Text variant="title-2">With Start/End Slots</Text>
         <View gap={2}>
           <TextField
             name="with-button"
@@ -157,7 +255,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Login Form Example</Text>
+        <Text variant="title-2">Login Form Example</Text>
         <Card padding={4}>
           <View gap={3}>
             <Text variant="title-3" className="font-semibold text-lg">Sign In</Text>
@@ -190,7 +288,7 @@ export function TextFieldPage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Contact Form Example</Text>
+        <Text variant="title-2">Contact Form Example</Text>
         <Card padding={4}>
           <View gap={3}>
             <Text variant="title-3" className="font-semibold text-lg">Get in Touch</Text>

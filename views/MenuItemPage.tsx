@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { MenuItem } from '../components/MenuItem'
 import { Card } from '../components/Card'
 import { Badge } from '../components/Badge'
@@ -49,7 +50,38 @@ export function MenuItemPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1>MenuItem Component</h1>
+      <Text variant="title-1">MenuItem Component</Text>
+
+      <View gap={4} paddingTop={3}>
+        <View gap={2}>
+          <Text variant="title-2">Custom Enhancements</Text>
+          <Text variant="body-2" color="neutral-faded">
+            The MenuItem component includes the following customizations:
+          </Text>
+        </View>
+
+        <View gap={3}>
+          <Text variant="body-2" weight="medium">Default Size Strategy</Text>
+          <View gap={2}>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  MenuItem defaults to size="small" for consistent compact UI
+                </Text>
+              </View>
+            </View>
+            <View direction="row" gap={2} align="start">
+              <Text variant="body-2">•</Text>
+              <View>
+                <Text variant="body-2" color="neutral-faded">
+                  Uses simple wrapper approach - no subcomponents to wrap
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
 
       {lastAction && (
         <Card padding={3}>
