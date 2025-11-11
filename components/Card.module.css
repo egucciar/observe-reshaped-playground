@@ -1,0 +1,70 @@
+.root {
+  /*
+    for card, a number of aesthetic and usability adjustments are desired
+     * use the `border-neutral-highlight` token on hover for border
+     * show the `--rs-shadow-raised` shadow on hover
+     * do NOT have a highlight opacity on hover
+
+     In order to have the raised shadow work simultaneously with selected state,
+     we need an `inset` version of that box-shadow. However, `inset` will break
+     if the card contains an element with background color.
+
+     The solution below solves all by doing its inset shadow on a pseudo element
+  */
+
+  /* part 1 border fix: relative stacking for card */
+  position: relative;
+  /* box-shadow on card will ONLY be used for raised shadow */
+  box-shadow: var(--rs-card-shadow-elevation) !important;
+  /* NO border on card - border is done on pseudo element */
+  border: none !important;
+
+  /* custom styling for our hover and focus states */
+  --rs-card-border-color: var(--rs-color-border-neutral);
+  --rs-card-border-thickness: 1px;
+
+  /* part 2 border fix: move children behind border */
+  & > * {
+    z-index: 1;
+  }
+
+  &::before {
+    /* remove reshaped background highlight */
+    background: transparent !important;
+    /* ensure the before is always shown */
+    opacity: 1 !important;
+
+    /* styles for box-shadow (more future-proof in case before is removed) */
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 0 0 var(--rs-card-border-thickness) var(--rs-card-border-color) inset;
+    pointer-events: none;
+    /* part 3 border fix: raise border above card shadow */
+    z-index: 2;
+    border-radius: inherit;
+  }
+
+  /* selected state - re-create the selected border we removed */
+  &[class*='selected'] {
+    --rs-card-border-color: var(--rs-color-border-primary);
+    --rs-card-border-thickness: 2px;
+  }
+
+  /* all custom hover and focus states */
+  &[class*='actionable'] {
+    /* hover - darker border + shadow */
+    &:hover {
+      --rs-card-border-color: var(--rs-color-border-neutral-highlighted);
+      --rs-card-border-thickness: 1px;
+      --rs-card-shadow-elevation: var(--rs-shadow-raised);
+    }
+
+    /* focus - same as selected for now */
+    &:hover:focus,
+    &:focus {
+      --rs-card-border-color: var(--rs-color-border-primary);
+      --rs-card-border-thickness: 2px;
+    }
+  }
+}

@@ -152,7 +152,7 @@ const reshapedComponents = [
   { key: 'badge', label: 'Badge', component: BadgePage },
   { key: 'breadcrumbs', label: 'Breadcrumbs', component: BreadcrumbsPage },
   { key: 'button', label: (<span className="flex items-center gap-1">Button <Sparkles size={14} /></span>), component: ButtonPage },
-  { key: 'card', label: 'Card', component: CardPage },
+  { key: 'card', label: (<span className="flex items-center gap-1">Card <Sparkles size={14} /></span>), component: CardPage },
   { key: 'checkbox', label: 'Checkbox', component: CheckboxPage },
   { key: 'container', label: 'Container', component: ContainerPage },
   { key: 'divider', label: 'Divider', component: DividerPage },
