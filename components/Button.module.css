@@ -1,0 +1,46 @@
+/* aesthetic / usability - hover state overrides (more noticeable) */
+.root {
+  /* raised-shadow on hover (solid and outline) */
+  &[class*='solid'],
+  &[class*='outline'] {
+    &:hover {
+      box-shadow: var(--rs-shadow-raised);
+    }
+  }
+
+  /* dark highlight on hover (solid) */
+  &[class*='solid'],
+  &[class*='solid'][class*='color'] {
+    --rs-button-highlight-opacity: 0.1 !important;
+    --rs-button-highlight-color: var(--rs-color-black) !important;
+  }
+
+  /* faded background on hover opaque (outline) */
+  &[class*='outline'],
+  &[class*='outline'][class*='color'] {
+    &[class*='neutral'] {
+      --rs-button-highlight-opacity: 1 !important;
+      --rs-button-highlight-color: var(--rs-color-background-neutral-faded) !important;
+    }
+
+    &[class*='primary'] {
+      --rs-button-highlight-opacity: 1 !important;
+      --rs-button-highlight-color: var(--rs-color-background-primary-faded) !important;
+    }
+
+    &[class*='critical'] {
+      --rs-button-highlight-opacity: 1 !important;
+      --rs-button-highlight-color: var(--rs-color-background-critical-faded) !important;
+    }
+
+    &[class*='positive'] {
+      --rs-button-highlight-opacity: 1 !important;
+      --rs-button-highlight-color: var(--rs-color-background-positive-faded) !important;
+    }
+  }
+
+  /* more visible separator for toggle group */
+  &[class*='solid'][class*='primary'][class*='root'] {
+    --rs-button-group-separator-color: rgba(var(--rs-color-rgb-black), 0.15);
+  }
+}

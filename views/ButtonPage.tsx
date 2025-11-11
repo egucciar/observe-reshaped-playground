@@ -117,12 +117,59 @@ export function ButtonPage() {
       <View gap={3}>
         <Text variant="title-2">2. Modified Hover & Focus States</Text>
         <Text variant="body-2" color="neutral-faded">
-          Goal: The default states are very subtle, so we've enhanced them for better visibility
+          The default Reshaped hover states are subtle. We've enhanced them for better user feedback and interactivity.
         </Text>
-        <View direction="row" gap={2}>
-          <Button variant="solid" color="primary">Hover Me</Button>
-          <Button variant="outline" color="primary">Or Me</Button>
-          <Button variant="ghost" color="primary">Try Me</Button>
+
+        <View gap={2}>
+          <Text variant="body-2" weight="medium">Solid Buttons</Text>
+          <Text variant="caption-1" color="neutral-faded">
+            Enhanced with raised shadow on hover + darker overlay (10% black)
+          </Text>
+          <View direction="row" gap={2} wrap>
+            <Button variant="solid" color="primary">Primary</Button>
+            <Button variant="solid" color="positive">Positive</Button>
+            <Button variant="solid" color="critical">Critical</Button>
+            <Button variant="solid" color="neutral">Neutral</Button>
+          </View>
+        </View>
+
+        <View gap={2}>
+          <Text variant="body-2" weight="medium">Outline Buttons</Text>
+          <Text variant="caption-1" color="neutral-faded">
+            Enhanced with raised shadow + opaque faded background on hover
+          </Text>
+          <View direction="row" gap={2} wrap>
+            <Button variant="outline" color="primary">Primary</Button>
+            <Button variant="outline" color="positive">Positive</Button>
+            <Button variant="outline" color="critical">Critical</Button>
+            <Button variant="outline" color="neutral">Neutral</Button>
+          </View>
+        </View>
+
+        <View gap={2}>
+          <Text variant="body-2" weight="medium">Ghost Buttons</Text>
+          <Text variant="caption-1" color="neutral-faded">
+            Uses default hover behavior (no custom enhancements)
+          </Text>
+          <View direction="row" gap={2} wrap>
+            <Button variant="ghost" color="primary">Primary</Button>
+            <Button variant="ghost" color="positive">Positive</Button>
+            <Button variant="ghost" color="critical">Critical</Button>
+            <Button variant="ghost" color="neutral">Neutral</Button>
+          </View>
+        </View>
+
+        <View gap={2}>
+          <Text variant="body-2" weight="medium">Faded Buttons</Text>
+          <Text variant="caption-1" color="neutral-faded">
+            Uses default hover behavior (no custom enhancements)
+          </Text>
+          <View direction="row" gap={2} wrap>
+            <Button variant="faded" color="primary">Primary</Button>
+            <Button variant="faded" color="positive">Positive</Button>
+            <Button variant="faded" color="critical">Critical</Button>
+            <Button variant="faded" color="neutral">Neutral</Button>
+          </View>
         </View>
       </View>
     </View>

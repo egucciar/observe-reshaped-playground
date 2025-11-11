@@ -26,5 +26,8 @@
     "reshaped": "^3.8.8",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "postcss-nesting": "^13.0.2"
   }
 }

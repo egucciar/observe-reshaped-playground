@@ -2,9 +2,11 @@ import React from 'react'
 import {
   Button as ReshapedButton,
   type ButtonProps as ReshapedButtonProps,
+  classNames,
 } from 'reshaped'
 import { Tooltip, type TooltipProps } from './Tooltip'
 import { Actionable } from './Actionable'
+import styles from './Button.module.css'
 
 export interface ButtonProps extends ReshapedButtonProps {
   /**
@@ -24,6 +26,7 @@ const ButtonWithAttributes = ({
     <ReshapedButton
       size={size}
       {...props}
+      className={classNames(styles.root, props.className)}
       attributes={{
         ...props.attributes,
         ...tooltipAttributes,
