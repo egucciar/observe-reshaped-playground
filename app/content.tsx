@@ -1,5 +1,7 @@
 'use client'
 
+import { useRef } from 'react'
+import { useKeyboardArrowNavigation } from 'reshaped'
 import { View } from '../components/View'
 import { Text } from '../components/Text'
 import { Resizable } from '../components/Resizable'
@@ -14,6 +16,13 @@ import {
 } from './navigationConfig'
 
 export function Content({ children }: { children: React.ReactNode }) {
+  const navigationRef = useRef<HTMLDivElement>(null)
+
+  useKeyboardArrowNavigation({
+    ref: navigationRef,
+    orientation: 'vertical',
+    circular: true,
+  })
 
   return (
     <View height="100vh" width="100%" overflow="hidden" position="relative">
@@ -29,7 +38,7 @@ export function Content({ children }: { children: React.ReactNode }) {
             overflow="auto"
             className="scrollbar-on-hover"
           >
-            <View gap={2}>
+            <View gap={2} attributes={{ ref: navigationRef }}>
               <Accordion defaultActive>
                 <Accordion.Trigger>
                   <View padding={2}>
