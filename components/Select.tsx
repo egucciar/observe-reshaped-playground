@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Select as ReshapedSelect, classNames } from 'reshaped'
 import { useFieldGroup } from './FieldGroup'
