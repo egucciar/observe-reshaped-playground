@@ -47,6 +47,7 @@ import { ShowcasePage } from '../views/ShowcasePage'
 import { DashboardBlockPage } from '../views/DashboardBlockPage'
 import { LoginBlockPage } from '../views/LoginBlockPage'
 import { SidebarBlockPage } from '../views/SidebarBlockPage'
+import { SignUpFlowPage } from '../views/SignUpFlowPage'
 import { AppLinkPage } from '../views/AppLinkPage'
 
 export const componentMap: Record<string, React.ComponentType> = {
@@ -99,6 +100,7 @@ export const componentMap: Record<string, React.ComponentType> = {
   // Blocks
   'dashboard-block': DashboardBlockPage,
   'login-block': LoginBlockPage,
+  'signup-flow': SignUpFlowPage,
   'sidebar-block': SidebarBlockPage,
 
   // Reshaped

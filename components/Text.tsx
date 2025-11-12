@@ -5,6 +5,7 @@ import {
   Text as ReshapedText,
   type TextProps as ReshapedTextProps,
   Tooltip,
+  type FlyoutTriggerAttributes,
 } from 'reshaped'
 
 // Simple debounce implementation to avoid adding lodash-es dependency
@@ -34,7 +35,7 @@ const TextWithAttributes = <As extends keyof React.JSX.IntrinsicElements = 'div'
   setIsTruncated,
   ...props
 }: TextProps<As> & {
-  tooltipAttributes?: TextProps<As>['attributes']
+  tooltipAttributes?: FlyoutTriggerAttributes
   isTruncated?: boolean
   // needed to set the tooltip from the top
   setIsTruncated?: (value: boolean) => void

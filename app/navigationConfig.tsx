@@ -27,6 +27,7 @@ export const customComponents: NavItem[] = [
 export const blocksComponents: NavItem[] = [
   { key: 'dashboard-block', label: 'Dashboard' },
   { key: 'login-block', label: 'Login' },
+  { key: 'signup-flow', label: 'Sign Up Flow' },
   { key: 'sidebar-block', label: 'Sidebar' },
 ]
 

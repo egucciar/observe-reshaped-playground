@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselPanel {
+  display: none;
+  width: 50%;
+  height: 100vh;
+}
+
+.formPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+  .carouselPanel {
+    display: flex;
+  }
+
+  .formPanel {
+    width: 50%;
+  }
+}
