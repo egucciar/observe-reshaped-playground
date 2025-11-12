@@ -1,0 +1,38 @@
+.fieldGroup {
+  position: relative;
+
+  /* Set a z-index for everything that's a child */
+  & > * {
+    z-index: 1;
+  }
+
+  /* Give the currently focused/hovered element a higher z-index */
+  /* This ensures its focused border state is elevated above */
+  /* other elements to the left or right of it if it's overlapped */
+  & > *:focus,
+  & > *:focus-within,
+  & > *:hover {
+    z-index: 2;
+  }
+
+  & > *:not(:first-child) {
+    /* Shift right elements to the left so "border collapses" */
+    margin-left: -1px;
+  }
+
+  /* Select component uses after for styling */
+  & > *:not(:first-child),
+  & > *:not(:first-child):after {
+    /* If not first, remove radius on left */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  /* Select component uses after for styling */
+  & > *:not(:last-child),
+  & > *:not(:last-child):after {
+    /* If not last, remove radius on right */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

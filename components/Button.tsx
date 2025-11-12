@@ -4,6 +4,7 @@ import {
   type ButtonProps as ReshapedButtonProps,
   classNames,
 } from 'reshaped'
+import { useFieldGroup } from './FieldGroup'
 import { Tooltip, type TooltipProps } from './Tooltip'
 import { Actionable } from './Actionable'
 import styles from './Button.module.css'
@@ -18,13 +19,16 @@ export interface ButtonProps extends ReshapedButtonProps {
 
 // Internal component that renders the actual button
 const ButtonWithAttributes = ({
-  size = 'small',
+  size,
   tooltipAttributes,
   ...props
 }: ButtonProps & { tooltipAttributes?: ButtonProps['attributes'] }) => {
+  const fieldGroupSize = useFieldGroup()
+  const finalSize = fieldGroupSize?.size ?? size ?? 'small'
+
   return (
     <ReshapedButton
-      size={size}
+      size={finalSize}
       {...props}
       className={classNames(styles.root, props.className)}
       attributes={{

@@ -13,6 +13,7 @@ import { ContainerPage } from '../views/ContainerPage'
 import { DividerPage } from '../views/DividerPage'
 import { DismissiblePage } from '../views/DismissiblePage'
 import { DropdownMenuPage } from '../views/DropdownMenuPage'
+import { FieldGroupPage } from '../views/FieldGroupPage'
 import { FileUploadPage } from '../views/FileUploadPage'
 import { LinkPage } from '../views/LinkPage'
 import { LoaderPage } from '../views/LoaderPage'
@@ -75,12 +76,7 @@ export const componentMap: Record<string, React.ComponentType> = {
       message="A filtering panel with faceted search capabilities. Coming soon!"
     />
   ),
-  fieldgroup: () => (
-    <PlaceholderPage
-      title="Field Group Component"
-      message="A component for grouping related input fields together. Coming soon!"
-    />
-  ),
+  fieldgroup: FieldGroupPage,
   multipleselector: () => (
     <PlaceholderPage
       title="MultipleSelector Component"

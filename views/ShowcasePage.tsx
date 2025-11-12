@@ -342,11 +342,11 @@ export function ShowcasePage() {
       <Card padding={4}>
         <View gap={2}>
           <Text variant="title-3" weight="medium">Select</Text>
-          <Select.Custom name="select" value={selectValue} onChange={(e) => setSelectValue(e.value)} placeholder="Select an option">
+          <Select name="select" value={selectValue} onChange={(e) => setSelectValue(e.value)} placeholder="Select an option">
             <Select.Option value="option1">Option 1</Select.Option>
             <Select.Option value="option2">Option 2</Select.Option>
             <Select.Option value="option3">Option 3</Select.Option>
-          </Select.Custom>
+          </Select>
         </View>
       </Card>
 

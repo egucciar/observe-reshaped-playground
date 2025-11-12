@@ -27,7 +27,7 @@ export function SelectPage() {
         </View>
 
         <View gap={3}>
-          <Text variant="body-2" weight="medium">Architecture: Only Select.Custom is Customized (Temporary)</Text>
+          <Text variant="body-2" weight="medium">Architecture: Only Select is Customized (Temporary)</Text>
           <View gap={2}>
             <View direction="row" gap={2} align="start">
               <Text variant="body-2">•</Text>
@@ -41,7 +41,7 @@ export function SelectPage() {
               <Text variant="body-2">•</Text>
               <View>
                 <Text variant="body-2" color="neutral-faded">
-                  Select.Custom receives custom styling, default size="small", and auto-propagates size to children
+                  Select receives custom styling, default size="small", and auto-propagates size to children
                 </Text>
               </View>
             </View>
@@ -57,7 +57,7 @@ export function SelectPage() {
               <Text variant="body-2">•</Text>
               <View>
                 <Text variant="body-2" color="neutral-faded">
-                  Long-term: Select.Custom has limitations (see{' '}
+                  Long-term: Select has limitations (see{' '}
                   <a
                     href="https://github.com/reshaped-ui/reshaped/issues/497"
                     target="_blank"
@@ -80,7 +80,7 @@ export function SelectPage() {
               <Text variant="body-2">•</Text>
               <View>
                 <Text variant="body-2" color="neutral-faded">
-                  Select.Custom defaults to size="small" for consistent compact UI
+                  Select defaults to size="small" for consistent compact UI
                 </Text>
               </View>
             </View>
@@ -143,11 +143,11 @@ export function SelectPage() {
           <View gap={3} paddingTop={2}>
             <View gap={2}>
               <Text variant="body-2" weight="medium">Hover Example</Text>
-              <Select.Custom name="hover-example" placeholder="Hover over me to see the highlighted border">
+              <Select name="hover-example" placeholder="Hover over me to see the highlighted border">
                 <Select.Option value="option1">Option 1</Select.Option>
                 <Select.Option value="option2">Option 2</Select.Option>
                 <Select.Option value="option3">Option 3</Select.Option>
-              </Select.Custom>
+              </Select>
             </View>
 
             <View gap={2}>
@@ -155,7 +155,7 @@ export function SelectPage() {
               <Text variant="caption-1" color="neutral-faded">
                 Error state uses default Reshaped styling for demonstration
               </Text>
-              <Select.Custom
+              <Select
                 name="error-example"
                 placeholder="Please select a valid option"
                 hasError
@@ -163,7 +163,7 @@ export function SelectPage() {
                 <Select.Option value="invalid">Invalid Option</Select.Option>
                 <Select.Option value="option1">Option 1</Select.Option>
                 <Select.Option value="option2">Option 2</Select.Option>
-              </Select.Custom>
+              </Select>
               <Text variant="caption-1" color="critical">
                 Please select a valid option
               </Text>
@@ -176,12 +176,12 @@ export function SelectPage() {
         <Text variant="title-2">Basic Select</Text>
         <Card padding={4}>
           <View maxWidth="400px">
-            <Select.Custom name="basic" placeholder="Choose an option...">
+            <Select name="basic" placeholder="Choose an option...">
               <Select.Option value="option1">Option 1</Select.Option>
               <Select.Option value="option2">Option 2</Select.Option>
               <Select.Option value="option3">Option 3</Select.Option>
               <Select.Option value="option4">Option 4</Select.Option>
-            </Select.Custom>
+            </Select>
           </View>
         </Card>
       </View>
@@ -190,7 +190,7 @@ export function SelectPage() {
         <h2>With Label</h2>
         <Card padding={4}>
           <View maxWidth="400px">
-            <Select.Custom
+            <Select
               name="labeled"
               placeholder="Select a country..."
               value={country}
@@ -203,7 +203,7 @@ export function SelectPage() {
               <Select.Option value="de">Germany</Select.Option>
               <Select.Option value="fr">France</Select.Option>
               <Select.Option value="jp">Japan</Select.Option>
-            </Select.Custom>
+            </Select>
           </View>
           {country && (
             <View paddingTop={3}>
@@ -217,7 +217,7 @@ export function SelectPage() {
         <h2>With Start Icon</h2>
         <Card padding={4}>
           <View maxWidth="400px" gap={3}>
-            <Select.Custom
+            <Select
               name="location"
               placeholder="Select location..."
               startSlot={<MapPin size={16} />}
@@ -227,9 +227,9 @@ export function SelectPage() {
               <Select.Option value="chicago">Chicago</Select.Option>
               <Select.Option value="houston">Houston</Select.Option>
               <Select.Option value="phoenix">Phoenix</Select.Option>
-            </Select.Custom>
+            </Select>
 
-            <Select.Custom
+            <Select
               name="language"
               placeholder="Select language..."
               startSlot={<Globe size={16} />}
@@ -239,9 +239,9 @@ export function SelectPage() {
               <Select.Option value="fr">French</Select.Option>
               <Select.Option value="de">German</Select.Option>
               <Select.Option value="ja">Japanese</Select.Option>
-            </Select.Custom>
+            </Select>
 
-            <Select.Custom
+            <Select
               name="user"
               placeholder="Select user..."
               startSlot={<User size={16} />}
@@ -250,7 +250,7 @@ export function SelectPage() {
               <Select.Option value="bob">Bob Smith</Select.Option>
               <Select.Option value="carol">Carol Davis</Select.Option>
               <Select.Option value="david">David Wilson</Select.Option>
-            </Select.Custom>
+            </Select>
           </View>
         </Card>
       </View>
@@ -261,29 +261,29 @@ export function SelectPage() {
           <View maxWidth="400px" gap={3}>
             <View gap={2}>
               <span className="text-sm font-semibold">Small</span>
-              <Select.Custom name="size-small" placeholder="Small select..." size="small">
+              <Select name="size-small" placeholder="Small select..." size="small">
                 <Select.Option value="xs">Extra Small</Select.Option>
                 <Select.Option value="s">Small</Select.Option>
                 <Select.Option value="m">Medium</Select.Option>
-              </Select.Custom>
+              </Select>
             </View>
 
             <View gap={2}>
               <span className="text-sm font-semibold">Medium (Default)</span>
-              <Select.Custom name="size-medium" placeholder="Medium select...">
+              <Select name="size-medium" placeholder="Medium select...">
                 <Select.Option value="xs">Extra Small</Select.Option>
                 <Select.Option value="s">Small</Select.Option>
                 <Select.Option value="m">Medium</Select.Option>
-              </Select.Custom>
+              </Select>
             </View>
 
             <View gap={2}>
               <span className="text-sm font-semibold">Large</span>
-              <Select.Custom name="size-large" placeholder="Large select..." size="large">
+              <Select name="size-large" placeholder="Large select..." size="large">
                 <Select.Option value="xs">Extra Small</Select.Option>
                 <Select.Option value="s">Small</Select.Option>
                 <Select.Option value="m">Medium</Select.Option>
-              </Select.Custom>
+              </Select>
             </View>
           </View>
         </Card>
@@ -293,19 +293,19 @@ export function SelectPage() {
         <h2>Disabled State</h2>
         <Card padding={4}>
           <View maxWidth="400px" gap={3}>
-            <Select.Custom
+            <Select
               name="disabled"
               placeholder="This select is disabled..."
               disabled
             >
               <Select.Option value="1">Option 1</Select.Option>
               <Select.Option value="2">Option 2</Select.Option>
-            </Select.Custom>
+            </Select>
 
-            <Select.Custom name="disabled-value" value="selected" disabled>
+            <Select name="disabled-value" value="selected" disabled>
               <Select.Option value="selected">Selected and Disabled</Select.Option>
               <Select.Option value="other">Other Option</Select.Option>
-            </Select.Custom>
+            </Select>
           </View>
         </Card>
       </View>
@@ -314,7 +314,7 @@ export function SelectPage() {
         <h2>With Grouped Options</h2>
         <Card padding={4}>
           <View maxWidth="400px">
-            <Select.Custom
+            <Select
               name="grouped"
               placeholder="Select a color..."
               value={color}
@@ -328,7 +328,7 @@ export function SelectPage() {
               <Select.Option value="blue">Blue</Select.Option>
               <Select.Option value="purple">Purple</Select.Option>
               <Select.Option value="pink">Pink</Select.Option>
-            </Select.Custom>
+            </Select>
           </View>
           {color && (
             <View paddingTop={3}>
@@ -342,7 +342,7 @@ export function SelectPage() {
         <h2>Priority Selector</h2>
         <Card padding={4}>
           <View maxWidth="400px" gap={3}>
-            <Select.Custom
+            <Select
               name="priority"
               placeholder="Select priority..."
               value={priority}
@@ -353,7 +353,7 @@ export function SelectPage() {
               <Select.Option value="high">🟠 High</Select.Option>
               <Select.Option value="medium">🟡 Medium</Select.Option>
               <Select.Option value="low">🟢 Low</Select.Option>
-            </Select.Custom>
+            </Select>
 
             {priority && (
               <View direction="row" gap={2} align="center">
@@ -381,7 +381,7 @@ export function SelectPage() {
         <h2>T-Shirt Sizes</h2>
         <Card padding={4}>
           <View maxWidth="400px" gap={3}>
-            <Select.Custom
+            <Select
               name="tshirt"
               placeholder="Select your size..."
               value={size}
@@ -393,7 +393,7 @@ export function SelectPage() {
               <Select.Option value="l">L - Large</Select.Option>
               <Select.Option value="xl">XL - Extra Large</Select.Option>
               <Select.Option value="xxl">XXL - Double Extra Large</Select.Option>
-            </Select.Custom>
+            </Select>
 
             {size && (
               <View padding={3} backgroundColor="neutral-faded" borderRadius="medium">

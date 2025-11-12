@@ -383,11 +383,11 @@ export function ModalPage() {
                 </View>
                 <View gap={2}>
                   <Text variant="body-2" weight="medium">Category</Text>
-                  <Select.Custom name="category" placeholder="Select category">
+                  <Select name="category" placeholder="Select category">
                     <Select.Option value="cat1">Category 1</Select.Option>
                     <Select.Option value="cat2">Category 2</Select.Option>
                     <Select.Option value="cat3">Category 3</Select.Option>
-                  </Select.Custom>
+                  </Select>
                 </View>
               </View>
               <View direction="row" gap={2} justify="end">
@@ -505,11 +505,11 @@ export function ModalPage() {
                     <View gap={2}>
                       <View direction="row" justify="space-between" align="center">
                         <Text variant="body-2">Profile visibility</Text>
-                        <Select.Custom name="visibility" defaultValue="public">
+                        <Select name="visibility" defaultValue="public">
                           <Select.Option value="public">Public</Select.Option>
                           <Select.Option value="private">Private</Select.Option>
                           <Select.Option value="friends">Friends only</Select.Option>
-                        </Select.Custom>
+                        </Select>
                       </View>
                     </View>
                   </Card>

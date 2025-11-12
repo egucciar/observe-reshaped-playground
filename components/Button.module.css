@@ -1,5 +1,9 @@
 /* aesthetic / usability - hover state overrides (more noticeable) */
 .root {
+  /* ensures highlight gets border-radius in case adjusted by field-group */
+  &::before {
+    border-radius: inherit;
+  }
   /* raised-shadow on hover (solid and outline) */
   &[class*='solid'],
   &[class*='outline'] {
