@@ -41,16 +41,16 @@ export function LoginBlockPage() {
 
       {/* Centered Login Card */}
       <View align="center" paddingBlock={8}>
-        <Card padding={6} className="w-full max-w-md">
-          <View gap={6}>
-            {/* Header */}
-            <View gap={2} align="center">
-              <View
-                padding={3}
-                className="rounded-full bg-primary-faded"
-              >
-                <LogIn size={24} className="text-primary" />
-              </View>
+        <View maxWidth="500px" width="100%">
+          <Card padding={6}>
+            <View gap={6}>
+              {/* Header */}
+              <View gap={2} align="center">
+                <div className="bg-primary-faded p-x3 rounded-full inline-flex">
+                  <Text color="primary">
+                    <LogIn size={24} />
+                  </Text>
+                </div>
               <Text variant="title-3">Welcome back</Text>
               <Text variant="body-2" color="neutral-faded" align="center">
                 Enter your credentials to access your account
@@ -153,7 +153,8 @@ export function LoginBlockPage() {
               </Text>
             </View>
           </View>
-        </Card>
+          </Card>
+        </View>
       </View>
 
       {/* Additional Login Variations */}
@@ -164,7 +165,7 @@ export function LoginBlockPage() {
           <View
             direction="row"
             gap={4}
-            className="grid grid-cols-1 md:grid-cols-2"
+            wrap
           >
             {/* Minimal Login */}
             <Card padding={4}>

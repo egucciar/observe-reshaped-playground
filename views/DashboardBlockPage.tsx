@@ -77,7 +77,7 @@ export function DashboardBlockPage() {
           <View
             direction="row"
             gap={4}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+            wrap
           >
             {statsData.map((stat) => {
               const Icon = stat.icon
@@ -88,16 +88,20 @@ export function DashboardBlockPage() {
                       <Text variant="body-2" color="neutral-faded">
                         {stat.title}
                       </Text>
-                      <Icon size={16} className="text-neutral-faded" />
+                      <Text color="neutral-faded">
+                        <Icon size={16} />
+                      </Text>
                     </View>
                     <View gap={1}>
                       <Text variant="title-2">{stat.value}</Text>
                       <View direction="row" align="center" gap={1}>
-                        {stat.trend === 'up' ? (
-                          <TrendingUp size={12} className="text-green-600" />
-                        ) : (
-                          <TrendingDown size={12} className="text-red-600" />
-                        )}
+                        <Text color={stat.trend === 'up' ? 'positive' : 'critical'}>
+                          {stat.trend === 'up' ? (
+                            <TrendingUp size={12} />
+                          ) : (
+                            <TrendingDown size={12} />
+                          )}
+                        </Text>
                         <Text
                           variant="caption-1"
                           color={stat.trend === 'up' ? 'positive' : 'critical'}
@@ -144,7 +148,7 @@ export function DashboardBlockPage() {
                     <Table.Row
                       key={row.id}
                       onClick={() => setSelectedRow(row.id)}
-                      className={selectedRow === row.id ? "cursor-pointer bg-blue-50" : "cursor-pointer"}
+                      highlighted={selectedRow === row.id}
                     >
                       <Table.Cell>
                         <Text variant="body-2" weight="medium">

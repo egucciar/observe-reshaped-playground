@@ -161,7 +161,9 @@ export function CardPage() {
                 justify="center"
                 align="center"
               >
-                <ShoppingCart size={48} className="opacity-30" />
+                <Text color="neutral-faded">
+                  <ShoppingCart size={48} />
+                </Text>
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
@@ -204,7 +206,9 @@ export function CardPage() {
                 justify="center"
                 align="center"
               >
-                <ShoppingCart size={48} className="opacity-30" />
+                <Text color="neutral-faded">
+                  <ShoppingCart size={48} />
+                </Text>
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
@@ -219,7 +223,9 @@ export function CardPage() {
                 <View direction="row" justify="space-between" align="center">
                   <View gap={1}>
                     <Text variant="featured-3" weight="bold">$79.99</Text>
-                    <Text variant="body-2" color="neutral-faded" className="line-through">$99.99</Text>
+                    <Text variant="body-2" color="neutral-faded">
+                      <s>$99.99</s>
+                    </Text>
                   </View>
                   <Button
                     variant="solid"
@@ -252,7 +258,9 @@ export function CardPage() {
                 justify="center"
                 align="center"
               >
-                <ShoppingCart size={48} className="opacity-30" />
+                <Text color="neutral-faded">
+                  <ShoppingCart size={48} />
+                </Text>
               </View>
               <View padding={4} gap={2}>
                 <View direction="row" justify="space-between" align="center">
@@ -292,23 +300,27 @@ export function CardPage() {
               <View direction="row" gap={3} align="center">
                 <Avatar initials="JD" color="primary" />
                 <View gap={1}>
-                  <span className="font-semibold">John Doe</span>
+                  <Text variant="body-2" weight="medium">John Doe</Text>
                   <View direction="row" gap={2} align="center">
-                    <Clock size={14} className="opacity-50" />
-                    <span className="text-sm opacity-70">2 hours ago</span>
+                    <Text color="neutral-faded">
+                      <Clock size={14} />
+                    </Text>
+                    <Text variant="body-2" color="neutral-faded">2 hours ago</Text>
                   </View>
                 </View>
               </View>
-              <p>
+              <Text variant="body-2">
                 Just launched my new project! Check it out and let me know what you think.
-              </p>
+              </Text>
               <View
                 height={48}
                 backgroundColor="neutral-faded"
                 justify="center"
                 align="center"
               >
-                <Eye size={32} className="opacity-30" />
+                <Text color="neutral-faded">
+                  <Eye size={32} />
+                </Text>
               </View>
               <View direction="row" gap={4}>
                 <Button
@@ -334,21 +346,25 @@ export function CardPage() {
               <View direction="row" gap={3} align="center">
                 <Avatar initials="AS" color="positive" />
                 <View gap={1}>
-                  <span className="font-semibold">Alice Smith</span>
+                  <Text variant="body-2" weight="medium">Alice Smith</Text>
                   <View direction="row" gap={2} align="center">
-                    <Clock size={14} className="opacity-50" />
-                    <span className="text-sm opacity-70">5 hours ago</span>
+                    <Text color="neutral-faded">
+                      <Clock size={14} />
+                    </Text>
+                    <Text variant="body-2" color="neutral-faded">5 hours ago</Text>
                   </View>
                 </View>
               </View>
-              <p>Beautiful sunset at the beach today!</p>
+              <Text variant="body-2">Beautiful sunset at the beach today!</Text>
               <View
                 height={48}
                 backgroundColor="neutral-faded"
                 justify="center"
                 align="center"
               >
-                <Eye size={32} className="opacity-30" />
+                <Text color="neutral-faded">
+                  <Eye size={32} />
+                </Text>
               </View>
               <View direction="row" gap={4}>
                 <Button
@@ -384,21 +400,27 @@ export function CardPage() {
                 </Badge>
                 <Badge color="warning">Featured</Badge>
               </View>
-              <Text variant="title-3" className="text-lg font-semibold">
+              <Text variant="title-3" weight="medium">
                 Tech Conference 2024
               </Text>
               <View gap={2}>
                 <View direction="row" gap={2} align="center">
-                  <Calendar size={16} className="opacity-70" />
-                  <span className="text-sm opacity-70">March 15, 2024</span>
+                  <Text color="neutral-faded">
+                    <Calendar size={16} />
+                  </Text>
+                  <Text variant="body-2" color="neutral-faded">March 15, 2024</Text>
                 </View>
                 <View direction="row" gap={2} align="center">
-                  <MapPin size={16} className="opacity-70" />
-                  <span className="text-sm opacity-70">San Francisco, CA</span>
+                  <Text color="neutral-faded">
+                    <MapPin size={16} />
+                  </Text>
+                  <Text variant="body-2" color="neutral-faded">San Francisco, CA</Text>
                 </View>
                 <View direction="row" gap={2} align="center">
-                  <Users size={16} className="opacity-70" />
-                  <span className="text-sm opacity-70">500+ attendees</span>
+                  <Text color="neutral-faded">
+                    <Users size={16} />
+                  </Text>
+                  <Text variant="body-2" color="neutral-faded">500+ attendees</Text>
                 </View>
               </View>
               <Button variant="solid" color="primary" fullWidth>
@@ -414,21 +436,27 @@ export function CardPage() {
                   This Week
                 </Badge>
               </View>
-              <Text variant="title-3" className="text-lg font-semibold">
+              <Text variant="title-3" weight="medium">
                 Design Systems Webinar
               </Text>
               <View gap={2}>
                 <View direction="row" gap={2} align="center">
-                  <Calendar size={16} className="opacity-70" />
-                  <span className="text-sm opacity-70">March 12, 2024</span>
+                  <Text color="neutral-faded">
+                    <Calendar size={16} />
+                  </Text>
+                  <Text variant="body-2" color="neutral-faded">March 12, 2024</Text>
                 </View>
                 <View direction="row" gap={2} align="center">
-                  <Clock size={16} className="opacity-70" />
-                  <span className="text-sm opacity-70">2:00 PM - 3:30 PM</span>
+                  <Text color="neutral-faded">
+                    <Clock size={16} />
+                  </Text>
+                  <Text variant="body-2" color="neutral-faded">2:00 PM - 3:30 PM</Text>
                 </View>
                 <View direction="row" gap={2} align="center">
-                  <Users size={16} className="opacity-70" />
-                  <span className="text-sm opacity-70">120 registered</span>
+                  <Text color="neutral-faded">
+                    <Users size={16} />
+                  </Text>
+                  <Text variant="body-2" color="neutral-faded">120 registered</Text>
                 </View>
               </View>
               <Button variant="solid" color="primary" fullWidth>
@@ -447,15 +475,17 @@ export function CardPage() {
           <Card padding={4} elevated>
             <View gap={2}>
               <View direction="row" justify="space-between" align="center">
-                <span className="text-sm opacity-70">Total Revenue</span>
-                <TrendingUp size={20} className="text-green-500" />
+                <Text variant="body-2" color="neutral-faded">Total Revenue</Text>
+                <Text color="positive">
+                  <TrendingUp size={20} />
+                </Text>
               </View>
-              <span className="text-3xl font-bold">$45,231</span>
+              <Text variant="featured-1" weight="bold">$45,231</Text>
               <View direction="row" gap={2} align="center">
                 <Badge color="positive" size="small">
                   +12.5%
                 </Badge>
-                <span className="text-sm opacity-70">from last month</span>
+                <Text variant="body-2" color="neutral-faded">from last month</Text>
               </View>
             </View>
           </Card>
@@ -463,15 +493,17 @@ export function CardPage() {
           <Card padding={4} elevated>
             <View gap={2}>
               <View direction="row" justify="space-between" align="center">
-                <span className="text-sm opacity-70">Active Users</span>
-                <Users size={20} className="text-blue-500" />
+                <Text variant="body-2" color="neutral-faded">Active Users</Text>
+                <Text color="primary">
+                  <Users size={20} />
+                </Text>
               </View>
-              <span className="text-3xl font-bold">2,345</span>
+              <Text variant="featured-1" weight="bold">2,345</Text>
               <View direction="row" gap={2} align="center">
                 <Badge color="positive" size="small">
                   +8.2%
                 </Badge>
-                <span className="text-sm opacity-70">from last week</span>
+                <Text variant="body-2" color="neutral-faded">from last week</Text>
               </View>
             </View>
           </Card>
@@ -479,15 +511,17 @@ export function CardPage() {
           <Card padding={4} elevated>
             <View gap={2}>
               <View direction="row" justify="space-between" align="center">
-                <span className="text-sm opacity-70">Avg. Rating</span>
-                <Star size={20} className="text-yellow-500" />
+                <Text variant="body-2" color="neutral-faded">Avg. Rating</Text>
+                <Text color="warning">
+                  <Star size={20} />
+                </Text>
               </View>
-              <span className="text-3xl font-bold">4.8</span>
+              <Text variant="featured-1" weight="bold">4.8</Text>
               <View direction="row" gap={2} align="center">
                 <Badge color="neutral" size="small">
                   +0.3
                 </Badge>
-                <span className="text-sm opacity-70">from last month</span>
+                <Text variant="body-2" color="neutral-faded">from last month</Text>
               </View>
             </View>
           </Card>
@@ -500,16 +534,16 @@ export function CardPage() {
         </Text>
         <View direction="row" gap={3} wrap>
           <Card padding={2}>
-            <p className="text-sm">Padding: 2</p>
+            <Text variant="body-2">Padding: 2</Text>
           </Card>
           <Card padding={4}>
-            <p className="text-sm">Padding: 4</p>
+            <Text variant="body-2">Padding: 4</Text>
           </Card>
           <Card padding={6}>
-            <p className="text-sm">Padding: 6</p>
+            <Text variant="body-2">Padding: 6</Text>
           </Card>
           <Card padding={8}>
-            <p className="text-sm">Padding: 8</p>
+            <Text variant="body-2">Padding: 8</Text>
           </Card>
         </View>
       </View>

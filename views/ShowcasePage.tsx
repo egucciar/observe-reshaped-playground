@@ -62,8 +62,8 @@ export function ShowcasePage() {
   return (
     <View padding={6} gap={6} maxWidth="1200px">
       <View gap={2}>
-        <Text variant="title-1" className="text-4xl font-bold">Component Showcase</Text>
-        <Text variant="body-1" className="text-gray-600">
+        <Text variant="title-1" weight="bold">Component Showcase</Text>
+        <Text variant="body-1" color="neutral-faded">
           A comprehensive showcase of all Reshaped components with interactive examples
         </Text>
       </View>
@@ -73,12 +73,12 @@ export function ShowcasePage() {
       {/* Accordion */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Accordion</Text>
+          <Text variant="title-3" weight="medium">Accordion</Text>
           <Accordion>
             <Accordion.Trigger>Click to expand</Accordion.Trigger>
             <Accordion.Content>
               <View padding={2}>
-                <p>Accordion content goes here</p>
+                <Text variant="body-2">Accordion content goes here</Text>
               </View>
             </Accordion.Content>
           </Accordion>
@@ -88,7 +88,7 @@ export function ShowcasePage() {
       {/* ActionBar */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">ActionBar</Text>
+          <Text variant="title-3" weight="medium">ActionBar</Text>
           <View position="relative" height="100px" backgroundColor="neutral-faded" borderRadius="medium">
             <ActionBar position="bottom">
               <View direction="row" gap={2}>
@@ -103,7 +103,7 @@ export function ShowcasePage() {
       {/* Actionable */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Actionable</Text>
+          <Text variant="title-3" weight="medium">Actionable</Text>
           <Actionable onClick={() => alert('Clicked!')}>
             <View padding={3} borderRadius="medium" backgroundColor="neutral-faded">
               Click me - I'm actionable!
@@ -115,7 +115,7 @@ export function ShowcasePage() {
       {/* Alert */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Alert</Text>
+          <Text variant="title-3" weight="medium">Alert</Text>
           <Alert title="Information" color="primary">
             This is an informational alert message
           </Alert>
@@ -125,7 +125,7 @@ export function ShowcasePage() {
       {/* Autocomplete */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Autocomplete</Text>
+          <Text variant="title-3" weight="medium">Autocomplete</Text>
           <Autocomplete
             name="autocomplete"
             value={autocompleteValue}
@@ -149,7 +149,7 @@ export function ShowcasePage() {
       {/* Avatar */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Avatar</Text>
+          <Text variant="title-3" weight="medium">Avatar</Text>
           <Avatar initials="JD" color="primary" />
         </View>
       </Card>
@@ -157,7 +157,7 @@ export function ShowcasePage() {
       {/* Badge */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Badge</Text>
+          <Text variant="title-3" weight="medium">Badge</Text>
           <View direction="row" gap={2}>
             <Badge color="primary">Primary</Badge>
             <Badge color="positive">Success</Badge>
@@ -169,7 +169,7 @@ export function ShowcasePage() {
       {/* Breadcrumbs */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Breadcrumbs</Text>
+          <Text variant="title-3" weight="medium">Breadcrumbs</Text>
           <Breadcrumbs>
             <Breadcrumbs.Item href="#">Home</Breadcrumbs.Item>
             <Breadcrumbs.Item href="#">Products</Breadcrumbs.Item>
@@ -181,7 +181,7 @@ export function ShowcasePage() {
       {/* Button */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Button</Text>
+          <Text variant="title-3" weight="medium">Button</Text>
           <View direction="row" gap={2}>
             <Button variant="solid" color="primary">Primary</Button>
             <Button variant="outline">Outline</Button>
@@ -193,7 +193,7 @@ export function ShowcasePage() {
       {/* Checkbox */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Checkbox</Text>
+          <Text variant="title-3" weight="medium">Checkbox</Text>
           <Checkbox checked={checkboxValue} onChange={(e) => setCheckboxValue(!!e.value)}>
             Check me
           </Checkbox>
@@ -203,7 +203,7 @@ export function ShowcasePage() {
       {/* Container */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Container</Text>
+          <Text variant="title-3" weight="medium">Container</Text>
           <Container>
             <View padding={3} backgroundColor="neutral-faded" borderRadius="medium">
               Container content with max width
@@ -216,7 +216,7 @@ export function ShowcasePage() {
       {dismissibleVisible && (
         <Card padding={4}>
           <View gap={2}>
-            <Text variant="title-3" className="font-semibold">Dismissible</Text>
+            <Text variant="title-3" weight="medium">Dismissible</Text>
             <Dismissible closeAriaLabel="Close" onClose={() => setDismissibleVisible(false)}>
               <Alert color="primary">Dismissible alert content</Alert>
             </Dismissible>
@@ -227,7 +227,7 @@ export function ShowcasePage() {
       {/* DropdownMenu */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">DropdownMenu</Text>
+          <Text variant="title-3" weight="medium">DropdownMenu</Text>
           <DropdownMenu>
             <DropdownMenu.Trigger>
               {(attributes) => (
@@ -246,7 +246,7 @@ export function ShowcasePage() {
       {/* FileUpload */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">FileUpload</Text>
+          <Text variant="title-3" weight="medium">FileUpload</Text>
           <FileUpload name="file" onChange={(e) => console.log(e.value)}>
             Click to upload file
           </FileUpload>
@@ -256,7 +256,7 @@ export function ShowcasePage() {
       {/* Link */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Link</Text>
+          <Text variant="title-3" weight="medium">Link</Text>
           <Link href="#">Click this link</Link>
         </View>
       </Card>
@@ -264,7 +264,7 @@ export function ShowcasePage() {
       {/* Loader */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Loader</Text>
+          <Text variant="title-3" weight="medium">Loader</Text>
           <Loader />
         </View>
       </Card>
@@ -272,7 +272,7 @@ export function ShowcasePage() {
       {/* MenuItem */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">MenuItem</Text>
+          <Text variant="title-3" weight="medium">MenuItem</Text>
           <MenuItem>Menu Item</MenuItem>
         </View>
       </Card>
@@ -280,12 +280,12 @@ export function ShowcasePage() {
       {/* Modal */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Modal</Text>
+          <Text variant="title-3" weight="medium">Modal</Text>
           <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
           <Modal active={modalOpen} onClose={() => setModalOpen(false)}>
             <View padding={6} gap={4}>
               <Modal.Title>Modal Title</Modal.Title>
-              <p>Modal content goes here</p>
+              <Text variant="body-2">Modal content goes here</Text>
               <View direction="row" gap={2} justify="end">
                 <Button onClick={() => setModalOpen(false)}>Close</Button>
               </View>
@@ -297,7 +297,7 @@ export function ShowcasePage() {
       {/* NumberField */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">NumberField</Text>
+          <Text variant="title-3" weight="medium">NumberField</Text>
           <NumberField
             name="number"
             increaseAriaLabel="Increase"
@@ -312,7 +312,7 @@ export function ShowcasePage() {
       {/* Pagination */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Pagination</Text>
+          <Text variant="title-3" weight="medium">Pagination</Text>
           <Pagination total={5} defaultPage={1} previousAriaLabel="Previous" nextAriaLabel="Next" />
         </View>
       </Card>
@@ -320,7 +320,7 @@ export function ShowcasePage() {
       {/* Progress */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Progress</Text>
+          <Text variant="title-3" weight="medium">Progress</Text>
           <Progress value={60} />
         </View>
       </Card>
@@ -328,7 +328,7 @@ export function ShowcasePage() {
       {/* Radio */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Radio</Text>
+          <Text variant="title-3" weight="medium">Radio</Text>
           <RadioGroup name="radio" value={radioValue} onChange={(e) => setRadioValue(e.value)}>
             <View gap={2}>
               <Radio value="option1">Option 1</Radio>
@@ -341,7 +341,7 @@ export function ShowcasePage() {
       {/* Select */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Select</Text>
+          <Text variant="title-3" weight="medium">Select</Text>
           <Select.Custom name="select" value={selectValue} onChange={(e) => setSelectValue(e.value)} placeholder="Select an option">
             <Select.Option value="option1">Option 1</Select.Option>
             <Select.Option value="option2">Option 2</Select.Option>
@@ -353,7 +353,7 @@ export function ShowcasePage() {
       {/* Skeleton */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Skeleton</Text>
+          <Text variant="title-3" weight="medium">Skeleton</Text>
           <Skeleton height="40px" />
         </View>
       </Card>
@@ -361,7 +361,7 @@ export function ShowcasePage() {
       {/* Slider */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Slider</Text>
+          <Text variant="title-3" weight="medium">Slider</Text>
           <Slider name="slider" value={sliderValue} onChange={(e) => setSliderValue(e.value)} />
         </View>
       </Card>
@@ -369,7 +369,7 @@ export function ShowcasePage() {
       {/* Stepper */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Stepper</Text>
+          <Text variant="title-3" weight="medium">Stepper</Text>
           <Stepper activeId={1}>
             <Stepper.Item title="Step 1" />
             <Stepper.Item title="Step 2" />
@@ -381,7 +381,7 @@ export function ShowcasePage() {
       {/* Switch */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Switch</Text>
+          <Text variant="title-3" weight="medium">Switch</Text>
           <Switch name="switch" checked={switchValue} onChange={(e) => setSwitchValue(!!e.value)}>
             Toggle me
           </Switch>
@@ -391,7 +391,7 @@ export function ShowcasePage() {
       {/* Table */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Table</Text>
+          <Text variant="title-3" weight="medium">Table</Text>
           <Table>
             <Table.Head>
               <Table.Row>
@@ -416,7 +416,7 @@ export function ShowcasePage() {
       {/* Tabs */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Tabs</Text>
+          <Text variant="title-3" weight="medium">Tabs</Text>
           <Tabs defaultValue="tab1">
             <Tabs.List>
               <Tabs.Item value="tab1">Tab 1</Tabs.Item>
@@ -435,7 +435,7 @@ export function ShowcasePage() {
       {/* TextArea */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">TextArea</Text>
+          <Text variant="title-3" weight="medium">TextArea</Text>
           <TextArea
             name="textarea"
             value={textAreaValue}
@@ -448,7 +448,7 @@ export function ShowcasePage() {
       {/* TextField */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">TextField</Text>
+          <Text variant="title-3" weight="medium">TextField</Text>
           <TextField
             name="textfield"
             value={textFieldValue}
@@ -461,7 +461,7 @@ export function ShowcasePage() {
       {/* Timeline */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Timeline</Text>
+          <Text variant="title-3" weight="medium">Timeline</Text>
           <Timeline>
             <Timeline.Item>First event</Timeline.Item>
             <Timeline.Item>Second event</Timeline.Item>
@@ -473,7 +473,7 @@ export function ShowcasePage() {
       {/* Toast */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Toast</Text>
+          <Text variant="title-3" weight="medium">Toast</Text>
           <Button
             onClick={() => {
               toast.show({
@@ -490,7 +490,7 @@ export function ShowcasePage() {
       {/* Tooltip */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Tooltip</Text>
+          <Text variant="title-3" weight="medium">Tooltip</Text>
           <Tooltip text="This is a tooltip">
             {(attributes) => (
               <Button attributes={attributes}>Hover me</Button>
@@ -502,7 +502,7 @@ export function ShowcasePage() {
       {/* ToggleButton */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">ToggleButton</Text>
+          <Text variant="title-3" weight="medium">ToggleButton</Text>
           <ToggleButton checked={toggleValue} onChange={(e) => setToggleValue(e.checked)}>
             Toggle
           </ToggleButton>
@@ -512,7 +512,7 @@ export function ShowcasePage() {
       {/* ToggleButtonGroup */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">ToggleButtonGroup</Text>
+          <Text variant="title-3" weight="medium">ToggleButtonGroup</Text>
           <ToggleButtonGroup value={toggleGroupValue} onChange={(e) => setToggleGroupValue(e.value)}>
             <ToggleButton value="option1">Option 1</ToggleButton>
             <ToggleButton value="option2">Option 2</ToggleButton>
@@ -524,7 +524,7 @@ export function ShowcasePage() {
       {/* Resizable - Last since it needs more space */}
       <Card padding={4}>
         <View gap={2}>
-          <Text variant="title-3" className="font-semibold">Resizable</Text>
+          <Text variant="title-3" weight="medium">Resizable</Text>
           <Resizable height="200px">
             <Resizable.Item>
               <View padding={3} backgroundColor="neutral-faded" height="100%">

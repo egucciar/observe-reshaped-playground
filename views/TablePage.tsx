@@ -7,11 +7,11 @@ import { Badge } from '../components/Badge'
 export function TablePage() {
   return (
     <View padding={4} gap={4}>
-      <Text variant="title-1" className="text-2xl font-bold">Table Component</Text>
-      <p className="text-gray-600">Organize and display data in tabular format</p>
+      <Text variant="title-1">Table Component</Text>
+      <Text variant="body-1" color="neutral-faded">Organize and display data in tabular format</Text>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Basic Table</Text>
+        <Text variant="title-2">Basic Table</Text>
         <Table>
           <Table.Row>
             <Table.Heading>Name</Table.Heading>
@@ -37,7 +37,7 @@ export function TablePage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">With Borders</Text>
+        <Text variant="title-2">With Borders</Text>
         <Table border columnBorder>
           <Table.Row>
             <Table.Heading>Product</Table.Heading>
@@ -63,7 +63,7 @@ export function TablePage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Highlighted Rows (Striped)</Text>
+        <Text variant="title-2">Highlighted Rows (Striped)</Text>
         <Table>
           <Table.Row>
             <Table.Heading>ID</Table.Heading>
@@ -94,7 +94,7 @@ export function TablePage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Column Width & Alignment</Text>
+        <Text variant="title-2">Column Width & Alignment</Text>
         <Table border>
           <Table.Row>
             <Table.Heading width="40%">Description</Table.Heading>
@@ -118,7 +118,7 @@ export function TablePage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">With Badge Components</Text>
+        <Text variant="title-2">With Badge Components</Text>
         <Table border>
           <Table.Row>
             <Table.Heading>User</Table.Heading>
@@ -156,7 +156,7 @@ export function TablePage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Column & Row Spanning</Text>
+        <Text variant="title-2">Column & Row Spanning</Text>
         <Table border columnBorder>
           <Table.Row>
             <Table.Heading rowSpan={2}>Category</Table.Heading>
@@ -187,7 +187,7 @@ export function TablePage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">In Card Container</Text>
+        <Text variant="title-2">In Card Container</Text>
         <Card>
           <Table>
             <Table.Row>
@@ -221,7 +221,7 @@ export function TablePage() {
       </View>
 
       <View gap={3}>
-        <Text variant="title-2" className="text-xl font-semibold">Custom Padding</Text>
+        <Text variant="title-2">Custom Padding</Text>
         <Table border>
           <Table.Row>
             <Table.Heading padding={6}>Large Padding</Table.Heading>

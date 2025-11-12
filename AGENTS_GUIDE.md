@@ -2,6 +2,71 @@
 
 This document provides guidelines for AI agents working on this codebase.
 
+## ⚠️ Tailwind CSS Usage Policy
+
+**PREFER RESHAPED COMPONENTS FIRST. Use Tailwind CSS strategically when Reshaped doesn't provide the needed functionality.**
+
+### When to Use Reshaped vs Tailwind
+
+**✅ ALWAYS use Reshaped for:**
+- Typography (`Text` component instead of `<p>`, `<span>`, `<h1>`)
+- Form elements (`TextField`, `TextArea`, `Select`, `Switch` instead of `<input>`, `<textarea>`, `<select>`)
+- Layout containers (`View` instead of `<div>`)
+- Buttons (`Button` instead of `<button>`)
+- Cards and containers (`Card` component)
+- Standard UI patterns that Reshaped provides
+
+**✅ CAN use Tailwind when:**
+- Reshaped doesn't provide the specific styling you need
+- Quick prototyping and iterating on designs
+- Copy/pasting examples to iterate from
+- Filling gaps in Reshaped's coverage
+- **IMPORTANT: When using Tailwind, prefer Reshaped design tokens** (see below)
+
+### Reshaped Design Tokens with Tailwind
+
+When you DO use Tailwind, use Reshaped's design tokens for consistency:
+
+**Colors:**
+- `bg-elevated`, `bg-neutral-faded`, `text-primary`, `text-critical`, `text-positive`, `text-warning`
+- `border-neutral-faded`, `border-primary`
+
+**Spacing:**
+- `p-x1` through `p-x12`, `m-x1` through `m-x12`
+- `gap-x1` through `gap-x12`
+- Responsive: `l:p-x6`, `s:m-x4`
+
+**Borders:**
+- `rounded-small`, `rounded-medium`, `rounded-large`, `rounded-full`
+
+**Shadows:**
+- `shadow-raised`, `shadow-overlay`
+
+**Example of Correct Tailwind Usage:**
+```tsx
+// ✅ GOOD - Using Tailwind with Reshaped tokens for styling gaps
+<div className="bg-elevated p-x4 l:p-x6 text-critical border border-neutral-faded rounded-medium shadow-raised">
+  Custom styled content with Reshaped tokens
+</div>
+
+// ✅ GOOD - Reshaped components with Tailwind for gaps
+<View align="center" justify="center">
+  <Text variant="title-1">Hello</Text>
+  <div className="bg-elevated p-x4 rounded-medium">
+    <Text variant="body-1">Mixed approach when needed</Text>
+  </div>
+</View>
+
+// ❌ BAD - Using arbitrary Tailwind values instead of tokens
+<div className="bg-gray-100 p-4 text-red-500 border border-gray-300 rounded-lg">
+  Should use Reshaped tokens
+</div>
+
+// ❌ BAD - Using raw HTML when Reshaped has components
+<p className="text-xl font-bold">Should use Text component</p>
+<input type="text" className="border rounded p-2" />
+```
+
 ## Component Usage Rules
 
 ### Always Use Internal Components
@@ -430,6 +495,58 @@ Many form components require a `name` prop:
 - `TextArea`
 - `TextField`
 
+### Component Prop Limitations
+
+**Card Component:**
+- Card does NOT support `maxWidth` or `width` props
+- To constrain Card width, wrap it in a View with width constraints:
+
+```tsx
+// ❌ WRONG - Card doesn't support maxWidth/width
+<Card padding={6} maxWidth="500px" width="100%">
+  Content
+</Card>
+
+// ✅ CORRECT - Wrap Card in View with width constraints
+<View maxWidth="500px" width="100%">
+  <Card padding={6}>
+    Content
+  </Card>
+</View>
+```
+
+**View Component:**
+- View does NOT support `style` prop for custom CSS
+- View does NOT support `borderRadius="full"` - only "small", "medium", "large" are valid
+- For custom styling like fully rounded borders, use Tailwind with Reshaped tokens:
+
+```tsx
+// ❌ WRONG - View doesn't support style prop or borderRadius="full"
+<View padding={3} borderRadius="full" style={{ borderRadius: '9999px' }}>
+  Content
+</View>
+
+// ✅ CORRECT - Use Tailwind with Reshaped tokens for custom styling
+<div className="bg-primary-faded p-x3 rounded-full inline-flex">
+  Content
+</div>
+```
+
+**Table.Row Component:**
+- Table.Row uses `highlighted` prop for selection/highlighting, NOT `selected`
+
+```tsx
+// ❌ WRONG - 'selected' prop doesn't exist
+<Table.Row selected={isSelected}>
+  <Table.Cell>Content</Table.Cell>
+</Table.Row>
+
+// ✅ CORRECT - Use 'highlighted' prop
+<Table.Row highlighted={isSelected}>
+  <Table.Cell>Content</Table.Cell>
+</Table.Row>
+```
+
 ### Accessibility Props
 
 Some components require aria-label props:
@@ -496,6 +613,127 @@ Different components return values in different ways:
    - Use correct event handler property (`e.value` vs `e.checked` vs `args.page`)
    - Use correct prop names (`page` vs `activePage`, `checked` vs `selected`)
 
+## Tailwind CSS Replacement Guide
+
+### Common Tailwind → Reshaped Conversions
+
+**Typography:**
+```tsx
+// ❌ Tailwind
+<h1 className="text-4xl font-bold">Title</h1>
+<h2 className="text-2xl font-semibold">Section</h2>
+<p className="text-xl text-gray-600">Description</p>
+<span className="text-sm text-gray-500">Helper</span>
+<span className="text-xs font-semibold opacity-70 uppercase">Label</span>
+
+// ✅ Reshaped
+<Text variant="title-1">Title</Text>
+<Text variant="title-2">Section</Text>
+<Text variant="featured-2" color="neutral-faded">Description</Text>
+<Text variant="body-2" color="neutral-faded">Helper</Text>
+<Text variant="caption-1" weight="medium" color="neutral-faded">LABEL</Text>
+```
+
+**Colors:**
+```tsx
+// ❌ Tailwind
+<div className="text-blue-600">Primary</div>
+<div className="text-green-500">Success</div>
+<div className="text-red-500">Error</div>
+<div className="text-yellow-500">Warning</div>
+<div className="bg-gray-100">Background</div>
+
+// ✅ Reshaped
+<Text color="primary">Primary</Text>
+<Text color="positive">Success</Text>
+<Text color="critical">Error</Text>
+<Text color="warning">Warning</Text>
+<View backgroundColor="neutral-faded">Background</View>
+```
+
+**Layout:**
+```tsx
+// ❌ Tailwind
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div className="w-full max-w-md p-4">Content</div>
+</div>
+
+// ✅ Reshaped
+<View direction="row" gap={4} wrap>
+  <View maxWidth="500px" width="100%" padding={4}>Content</View>
+</View>
+```
+
+**Borders & Cards:**
+```tsx
+// ❌ Tailwind
+<div className="border rounded px-3 py-2">Content</div>
+<div className="border rounded p-4">Card</div>
+
+// ✅ Reshaped
+<Card padding={3}>Content</Card>
+<Card padding={4}>Card</Card>
+```
+
+**Form Elements:**
+```tsx
+// ❌ Tailwind
+<textarea className="border rounded px-3 py-2" placeholder="Text" />
+<select className="border rounded px-2 py-1">
+  <option>Option</option>
+</select>
+<input type="checkbox" />
+
+// ✅ Reshaped
+<TextArea name="text" placeholder="Text" />
+<Select.Custom name="select" placeholder="Select">
+  <Select.Option value="1">Option</Select.Option>
+</Select.Custom>
+<Switch name="enabled" />
+```
+
+**Icons with Colors:**
+```tsx
+// ❌ Tailwind
+<Icon size={20} className="text-blue-500" />
+<Icon size={16} className="opacity-70" />
+
+// ✅ Reshaped
+<Text color="primary">
+  <Icon size={20} />
+</Text>
+<Text color="neutral-faded">
+  <Icon size={16} />
+</Text>
+```
+
+**Links:**
+```tsx
+// ❌ Tailwind
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+  Link
+</a>
+
+// ✅ Reshaped
+<Link
+  href="https://example.com"
+  attributes={{ target: '_blank', rel: 'noopener noreferrer' }}
+>
+  Link
+</Link>
+```
+
+### Pre-Commit Checklist
+
+Before creating any pull request, verify your code has:
+
+- [ ] ✅ NO `className` props with Tailwind utilities (`text-*`, `font-*`, `bg-*`, `p-*`, `m-*`, `flex`, `grid`, etc.)
+- [ ] ✅ ALL text uses `<Text>` component (no `<p>`, `<span>`, `<h1>`, `<h2>`, etc.)
+- [ ] ✅ ALL layout uses `<View>` component (no `<div>` with styling)
+- [ ] ✅ ALL colors use Reshaped props (`color="primary"`, `color="neutral-faded"`, not Tailwind classes)
+- [ ] ✅ ALL form elements use Reshaped components (`TextField`, `TextArea`, `Select`, `Switch`, `Checkbox`)
+- [ ] ✅ ALL borders/cards use `<Card>` component (no `className="border rounded"`)
+
 ## Important Notes
 
 - **NEVER use HTML tags - always use Reshaped components**
@@ -504,6 +742,11 @@ Different components return values in different ways:
   - Use `<View>` instead of `<div>`
   - Use `<Button>` instead of `<button>`
   - Use `<TextField>` instead of `<input>`
+- **NEVER use Tailwind CSS utility classes**
+  - Use `<Text variant="title-2">` instead of `className="text-2xl font-semibold"`
+  - Use `<Text color="neutral-faded">` instead of `className="text-gray-600"`
+  - Use `<View direction="row" gap={4}>` instead of `className="flex gap-4"`
+  - Use `<Card padding={4}>` instead of `className="border rounded p-4"`
 - **Never mix native HTML elements with internal components**
 - **Always check if a component wrapper exists before creating form elements**
 - **Use TypeScript types from the component library**

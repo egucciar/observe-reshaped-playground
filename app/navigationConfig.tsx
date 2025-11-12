@@ -9,6 +9,7 @@ export const introductionComponents: NavItem[] = [
   { key: 'overview', label: 'Overview' },
   { key: 'playground', label: 'Playground' },
   { key: 'showcase', label: 'Showcase' },
+  { key: 'tailwind', label: 'Tailwind' },
 ]
 
 export const customComponents: NavItem[] = [
@@ -97,6 +98,7 @@ export const reshapedComponents: NavItem[] = [
   { key: 'switch', label: 'Switch' },
   { key: 'table', label: 'Table' },
   { key: 'tabs', label: 'Tabs' },
+  { key: 'text', label: 'Text' },
   {
     key: 'textarea',
     label: (

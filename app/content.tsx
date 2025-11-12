@@ -1,6 +1,7 @@
 'use client'
 
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Resizable } from '../components/Resizable'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { Accordion } from '../components/Accordion'
@@ -32,7 +33,7 @@ export function Content({ children }: { children: React.ReactNode }) {
               <Accordion defaultActive>
                 <Accordion.Trigger>
                   <View padding={2}>
-                    <span className="font-semibold">Introduction</span>
+                    <Text variant="title-6">Introduction</Text>
                   </View>
                 </Accordion.Trigger>
                 <Accordion.Content>
@@ -49,7 +50,7 @@ export function Content({ children }: { children: React.ReactNode }) {
               <Accordion defaultActive>
                 <Accordion.Trigger>
                   <View padding={2}>
-                    <span className="font-semibold">Custom</span>
+                    <Text variant="title-6">Custom</Text>
                   </View>
                 </Accordion.Trigger>
                 <Accordion.Content>
@@ -66,7 +67,7 @@ export function Content({ children }: { children: React.ReactNode }) {
               <Accordion defaultActive>
                 <Accordion.Trigger>
                   <View padding={2}>
-                    <span className="font-semibold">Blocks</span>
+                    <Text variant="title-6">Blocks</Text>
                   </View>
                 </Accordion.Trigger>
                 <Accordion.Content>
@@ -83,7 +84,7 @@ export function Content({ children }: { children: React.ReactNode }) {
               <Accordion defaultActive>
                 <Accordion.Trigger>
                   <View padding={2}>
-                    <span className="font-semibold">Reshaped</span>
+                    <Text variant="title-6">Reshaped</Text>
                   </View>
                 </Accordion.Trigger>
                 <Accordion.Content>

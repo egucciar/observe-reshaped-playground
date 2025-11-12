@@ -1,10 +1,14 @@
 'use client'
 
 import { View } from '../components/View'
+import { Text } from '../components/Text'
 import { Modal, useToggle } from '../components/Modal'
 import { Card } from '../components/Card'
 import { Button } from '../components/Button'
 import { TextField } from '../components/TextField'
+import { TextArea } from '../components/TextArea'
+import { Select } from '../components/Select'
+import { Switch } from '../components/Switch'
 import { Divider } from '../components/Divider'
 import { Badge } from '../components/Badge'
 import { Avatar } from '../components/Avatar'
@@ -46,10 +50,10 @@ export function ModalPage() {
 
   return (
     <View padding={4} gap={4}>
-      <h1>Modal Component</h1>
+      <Text variant="title-1">Modal Component</Text>
 
       <View gap={3}>
-        <h2>Basic Modal</h2>
+        <Text variant="title-2">Basic Modal</Text>
         <Card padding={4}>
           <Button variant="solid" color="primary" onClick={basicModal.activate}>
             Open Basic Modal
@@ -61,7 +65,7 @@ export function ModalPage() {
                 This is a simple modal with title and content.
               </Modal.Subtitle>
               <View gap={3}>
-                <p>Modal content goes here. You can include any content you need.</p>
+                <Text variant="body-2">Modal content goes here. You can include any content you need.</Text>
               </View>
               <View direction="row" gap={2} justify="end">
                 <Button variant="ghost" onClick={basicModal.deactivate}>
@@ -77,7 +81,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Modal Positions</h2>
+        <Text variant="title-2">Modal Positions</Text>
         <Card padding={4}>
           <View direction="row" gap={3} wrap>
             <Button variant="outline" onClick={centerModal.activate}>
@@ -104,7 +108,7 @@ export function ModalPage() {
           >
             <View padding={6} gap={4}>
               <Modal.Title>Center Modal</Modal.Title>
-              <p>This modal is positioned in the center of the screen (default).</p>
+              <Text variant="body-2">This modal is positioned in the center of the screen (default).</Text>
               <Button variant="solid" onClick={centerModal.deactivate}>
                 Close
               </Button>
@@ -118,7 +122,7 @@ export function ModalPage() {
           >
             <View padding={6} gap={4}>
               <Modal.Title>Bottom Modal</Modal.Title>
-              <p>This modal slides up from the bottom of the screen.</p>
+              <Text variant="body-2">This modal slides up from the bottom of the screen.</Text>
               <Button variant="solid" onClick={bottomModal.deactivate}>
                 Close
               </Button>
@@ -132,7 +136,7 @@ export function ModalPage() {
           >
             <View padding={6} gap={4}>
               <Modal.Title>Start Modal</Modal.Title>
-              <p>This modal slides in from the start (left) side of the screen.</p>
+              <Text variant="body-2">This modal slides in from the start (left) side of the screen.</Text>
               <Button variant="solid" onClick={startModal.deactivate}>
                 Close
               </Button>
@@ -142,7 +146,7 @@ export function ModalPage() {
           <Modal active={endModal.active} onClose={endModal.deactivate} position="end">
             <View padding={6} gap={4}>
               <Modal.Title>End Modal</Modal.Title>
-              <p>This modal slides in from the end (right) side of the screen.</p>
+              <Text variant="body-2">This modal slides in from the end (right) side of the screen.</Text>
               <Button variant="solid" onClick={endModal.deactivate}>
                 Close
               </Button>
@@ -156,10 +160,12 @@ export function ModalPage() {
           >
             <View padding={6} gap={4}>
               <Modal.Title>Full Screen Modal</Modal.Title>
-              <p>This modal takes up the entire screen.</p>
-              <View height="300px" className="border rounded p-4">
-                <span>Full screen content area</span>
-              </View>
+              <Text variant="body-2">This modal takes up the entire screen.</Text>
+              <Card padding={4}>
+                <View height="300px">
+                  <Text variant="body-2">Full screen content area</Text>
+                </View>
+              </Card>
               <Button variant="solid" onClick={fullScreenModal.deactivate}>
                 Close
               </Button>
@@ -169,7 +175,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Modal Sizes</h2>
+        <Text variant="title-2">Modal Sizes</Text>
         <Card padding={4}>
           <View direction="row" gap={3} wrap>
             <Button variant="outline" onClick={smallModal.activate}>
@@ -186,7 +192,7 @@ export function ModalPage() {
           <Modal active={smallModal.active} onClose={smallModal.deactivate} size="400px">
             <View padding={6} gap={4}>
               <Modal.Title>Small Modal</Modal.Title>
-              <p>This is a small modal with 400px width.</p>
+              <Text variant="body-2">This is a small modal with 400px width.</Text>
               <Button variant="solid" onClick={smallModal.deactivate}>
                 Close
               </Button>
@@ -200,7 +206,7 @@ export function ModalPage() {
           >
             <View padding={6} gap={4}>
               <Modal.Title>Medium Modal</Modal.Title>
-              <p>This is a medium modal with 600px width.</p>
+              <Text variant="body-2">This is a medium modal with 600px width.</Text>
               <Button variant="solid" onClick={mediumModal.deactivate}>
                 Close
               </Button>
@@ -210,7 +216,7 @@ export function ModalPage() {
           <Modal active={largeModal.active} onClose={largeModal.deactivate} size="800px">
             <View padding={6} gap={4}>
               <Modal.Title>Large Modal</Modal.Title>
-              <p>This is a large modal with 800px width.</p>
+              <Text variant="body-2">This is a large modal with 800px width.</Text>
               <Button variant="solid" onClick={largeModal.deactivate}>
                 Close
               </Button>
@@ -220,7 +226,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Confirmation Modals</h2>
+        <Text variant="title-2">Confirmation Modals</Text>
         <Card padding={4}>
           <View direction="row" gap={3} wrap>
             <Button variant="solid" color="primary" onClick={confirmModal.activate}>
@@ -234,7 +240,9 @@ export function ModalPage() {
           <Modal active={confirmModal.active} onClose={confirmModal.deactivate}>
             <View padding={6} gap={4}>
               <View direction="row" gap={3} align="center">
-                <CheckCircle size={24} className="text-blue-500" />
+                <Text color="primary">
+                  <CheckCircle size={24} />
+                </Text>
                 <Modal.Title>Confirm Action</Modal.Title>
               </View>
               <Modal.Subtitle>
@@ -254,7 +262,9 @@ export function ModalPage() {
           <Modal active={deleteModal.active} onClose={deleteModal.deactivate}>
             <View padding={6} gap={4}>
               <View direction="row" gap={3} align="center">
-                <Trash2 size={24} className="text-red-500" />
+                <Text color="critical">
+                  <Trash2 size={24} />
+                </Text>
                 <Modal.Title>Delete Item</Modal.Title>
               </View>
               <Modal.Subtitle>
@@ -274,7 +284,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Alert Modals</h2>
+        <Text variant="title-2">Alert Modals</Text>
         <Card padding={4}>
           <View direction="row" gap={3} wrap>
             <Button variant="outline" onClick={successModal.activate}>
@@ -291,10 +301,12 @@ export function ModalPage() {
           <Modal active={successModal.active} onClose={successModal.deactivate}>
             <View padding={6} gap={4}>
               <View direction="row" gap={3} align="center">
-                <CheckCircle size={24} className="text-green-500" />
+                <Text color="positive">
+                  <CheckCircle size={24} />
+                </Text>
                 <Modal.Title>Success</Modal.Title>
               </View>
-              <p>Your changes have been saved successfully!</p>
+              <Text variant="body-2">Your changes have been saved successfully!</Text>
               <Button variant="solid" color="primary" onClick={successModal.deactivate}>
                 OK
               </Button>
@@ -304,13 +316,15 @@ export function ModalPage() {
           <Modal active={warningModal.active} onClose={warningModal.deactivate}>
             <View padding={6} gap={4}>
               <View direction="row" gap={3} align="center">
-                <AlertTriangle size={24} className="text-yellow-500" />
+                <Text color="warning">
+                  <AlertTriangle size={24} />
+                </Text>
                 <Modal.Title>Warning</Modal.Title>
               </View>
-              <p>
+              <Text variant="body-2">
                 Please review your changes before proceeding. Some fields may be
                 incomplete.
-              </p>
+              </Text>
               <View direction="row" gap={2} justify="end">
                 <Button variant="ghost" onClick={warningModal.deactivate}>
                   Review
@@ -325,12 +339,14 @@ export function ModalPage() {
           <Modal active={infoModal.active} onClose={infoModal.deactivate}>
             <View padding={6} gap={4}>
               <View direction="row" gap={3} align="center">
-                <Info size={24} className="text-blue-500" />
+                <Text color="primary">
+                  <Info size={24} />
+                </Text>
                 <Modal.Title>Information</Modal.Title>
               </View>
-              <p>
+              <Text variant="body-2">
                 Here is some important information you should know about this feature.
-              </p>
+              </Text>
               <Button variant="solid" onClick={infoModal.deactivate}>
                 Got it
               </Button>
@@ -340,7 +356,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Form Modal</h2>
+        <Text variant="title-2">Form Modal</Text>
         <Card padding={4}>
           <Button variant="solid" color="primary" onClick={formModal.activate}>
             Create New Item
@@ -354,25 +370,24 @@ export function ModalPage() {
               </Modal.Subtitle>
               <View gap={3}>
                 <View gap={2}>
-                  <span className="text-sm font-semibold">Title</span>
+                  <Text variant="body-2" weight="medium">Title</Text>
                   <TextField name="title" placeholder="Enter title" />
                 </View>
                 <View gap={2}>
-                  <span className="text-sm font-semibold">Description</span>
-                  <textarea
-                    className="border rounded px-3 py-2"
+                  <Text variant="body-2" weight="medium">Description</Text>
+                  <TextArea
+                    name="description"
                     placeholder="Enter description"
-                    rows={4}
+                    inputAttributes={{ rows: 4 }}
                   />
                 </View>
                 <View gap={2}>
-                  <span className="text-sm font-semibold">Category</span>
-                  <select className="border rounded px-3 py-2">
-                    <option>Select category</option>
-                    <option>Category 1</option>
-                    <option>Category 2</option>
-                    <option>Category 3</option>
-                  </select>
+                  <Text variant="body-2" weight="medium">Category</Text>
+                  <Select.Custom name="category" placeholder="Select category">
+                    <Select.Option value="cat1">Category 1</Select.Option>
+                    <Select.Option value="cat2">Category 2</Select.Option>
+                    <Select.Option value="cat3">Category 3</Select.Option>
+                  </Select.Custom>
                 </View>
               </View>
               <View direction="row" gap={2} justify="end">
@@ -394,7 +409,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Profile Modal</h2>
+        <Text variant="title-2">Profile Modal</Text>
         <Card padding={4}>
           <Button variant="outline" onClick={profileModal.activate}>
             View Profile
@@ -414,24 +429,24 @@ export function ModalPage() {
               <View gap={4} align="center">
                 <Avatar size={20} initials="JD" />
                 <View gap={1} align="center">
-                  <span className="text-lg font-semibold">John Doe</span>
-                  <span className="text-sm opacity-70">john.doe@example.com</span>
+                  <Text variant="title-4" weight="medium">John Doe</Text>
+                  <Text variant="body-2" color="neutral-faded">john.doe@example.com</Text>
                   <Badge color="positive">Active</Badge>
                 </View>
               </View>
               <Divider />
               <View gap={3}>
                 <View gap={1}>
-                  <span className="text-sm font-semibold">Role</span>
-                  <span className="text-sm">Administrator</span>
+                  <Text variant="body-2" weight="medium">Role</Text>
+                  <Text variant="body-2">Administrator</Text>
                 </View>
                 <View gap={1}>
-                  <span className="text-sm font-semibold">Member since</span>
-                  <span className="text-sm">January 2024</span>
+                  <Text variant="body-2" weight="medium">Member since</Text>
+                  <Text variant="body-2">January 2024</Text>
                 </View>
                 <View gap={1}>
-                  <span className="text-sm font-semibold">Last login</span>
-                  <span className="text-sm">2 hours ago</span>
+                  <Text variant="body-2" weight="medium">Last login</Text>
+                  <Text variant="body-2">2 hours ago</Text>
                 </View>
               </View>
               <View direction="row" gap={2}>
@@ -448,7 +463,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Settings Modal</h2>
+        <Text variant="title-2">Settings Modal</Text>
         <Card padding={4}>
           <Button variant="outline" icon={Settings} onClick={settingsModal.activate}>
             Open Settings
@@ -466,34 +481,38 @@ export function ModalPage() {
               </Modal.Subtitle>
               <View gap={4}>
                 <View gap={2}>
-                  <span className="text-sm font-semibold">Account</span>
-                  <View gap={2} className="border rounded p-3">
-                    <View direction="row" justify="space-between" align="center">
-                      <span className="text-sm">Email notifications</span>
-                      <input type="checkbox" defaultChecked />
+                  <Text variant="body-2" weight="medium">Account</Text>
+                  <Card padding={3}>
+                    <View gap={2}>
+                      <View direction="row" justify="space-between" align="center">
+                        <Text variant="body-2">Email notifications</Text>
+                        <Switch name="email-notif" defaultChecked />
+                      </View>
+                      <View direction="row" justify="space-between" align="center">
+                        <Text variant="body-2">Push notifications</Text>
+                        <Switch name="push-notif" />
+                      </View>
+                      <View direction="row" justify="space-between" align="center">
+                        <Text variant="body-2">Two-factor authentication</Text>
+                        <Switch name="2fa" defaultChecked />
+                      </View>
                     </View>
-                    <View direction="row" justify="space-between" align="center">
-                      <span className="text-sm">Push notifications</span>
-                      <input type="checkbox" />
-                    </View>
-                    <View direction="row" justify="space-between" align="center">
-                      <span className="text-sm">Two-factor authentication</span>
-                      <input type="checkbox" defaultChecked />
-                    </View>
-                  </View>
+                  </Card>
                 </View>
                 <View gap={2}>
-                  <span className="text-sm font-semibold">Privacy</span>
-                  <View gap={2} className="border rounded p-3">
-                    <View direction="row" justify="space-between" align="center">
-                      <span className="text-sm">Profile visibility</span>
-                      <select className="border rounded px-2 py-1 text-sm">
-                        <option>Public</option>
-                        <option>Private</option>
-                        <option>Friends only</option>
-                      </select>
+                  <Text variant="body-2" weight="medium">Privacy</Text>
+                  <Card padding={3}>
+                    <View gap={2}>
+                      <View direction="row" justify="space-between" align="center">
+                        <Text variant="body-2">Profile visibility</Text>
+                        <Select.Custom name="visibility" defaultValue="public">
+                          <Select.Option value="public">Public</Select.Option>
+                          <Select.Option value="private">Private</Select.Option>
+                          <Select.Option value="friends">Friends only</Select.Option>
+                        </Select.Custom>
+                      </View>
                     </View>
-                  </View>
+                  </Card>
                 </View>
               </View>
               <View direction="row" gap={2} justify="end">
@@ -514,7 +533,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Image Preview Modal</h2>
+        <Text variant="title-2">Image Preview Modal</Text>
         <Card padding={4}>
           <Button variant="outline" icon={ImageIcon} onClick={imageModal.activate}>
             Preview Image
@@ -531,14 +550,18 @@ export function ModalPage() {
                   onClick={imageModal.deactivate}
                 />
               </View>
-              <View
-                className="border rounded bg-gray-100"
-                height="400px"
-                align="center"
-                justify="center"
-              >
-                <ImageIcon size={80} className="opacity-30" />
-              </View>
+              <Card padding={4}>
+                <View
+                  backgroundColor="neutral-faded"
+                  height="400px"
+                  align="center"
+                  justify="center"
+                >
+                  <Text color="neutral-faded">
+                    <ImageIcon size={80} />
+                  </Text>
+                </View>
+              </Card>
               <View direction="row" gap={2}>
                 <Button variant="outline" icon={Download} fullWidth>
                   Download
@@ -553,7 +576,7 @@ export function ModalPage() {
       </View>
 
       <View gap={3}>
-        <h2>Details Modal</h2>
+        <Text variant="title-2">Details Modal</Text>
         <Card padding={4}>
           <Button variant="outline" icon={FileText} onClick={detailsModal.activate}>
             View Details
@@ -564,41 +587,41 @@ export function ModalPage() {
               <Modal.Title>Item Details</Modal.Title>
               <View gap={3}>
                 <View gap={1}>
-                  <span className="text-xs font-semibold opacity-70 uppercase">
-                    Item ID
-                  </span>
-                  <span className="text-sm">ITM-2024-00123</span>
+                  <Text variant="caption-1" weight="medium" color="neutral-faded">
+                    ITEM ID
+                  </Text>
+                  <Text variant="body-2">ITM-2024-00123</Text>
                 </View>
                 <Divider />
                 <View gap={1}>
-                  <span className="text-xs font-semibold opacity-70 uppercase">
-                    Status
-                  </span>
+                  <Text variant="caption-1" weight="medium" color="neutral-faded">
+                    STATUS
+                  </Text>
                   <Badge color="positive">Active</Badge>
                 </View>
                 <Divider />
                 <View gap={1}>
-                  <span className="text-xs font-semibold opacity-70 uppercase">
-                    Created
-                  </span>
-                  <span className="text-sm">January 15, 2024 at 10:30 AM</span>
+                  <Text variant="caption-1" weight="medium" color="neutral-faded">
+                    CREATED
+                  </Text>
+                  <Text variant="body-2">January 15, 2024 at 10:30 AM</Text>
                 </View>
                 <Divider />
                 <View gap={1}>
-                  <span className="text-xs font-semibold opacity-70 uppercase">
-                    Last Modified
-                  </span>
-                  <span className="text-sm">January 20, 2024 at 2:45 PM</span>
+                  <Text variant="caption-1" weight="medium" color="neutral-faded">
+                    LAST MODIFIED
+                  </Text>
+                  <Text variant="body-2">January 20, 2024 at 2:45 PM</Text>
                 </View>
                 <Divider />
                 <View gap={1}>
-                  <span className="text-xs font-semibold opacity-70 uppercase">
-                    Description
-                  </span>
-                  <p className="text-sm">
+                  <Text variant="caption-1" weight="medium" color="neutral-faded">
+                    DESCRIPTION
+                  </Text>
+                  <Text variant="body-2">
                     This is a detailed description of the item with additional information
                     about its purpose and usage.
-                  </p>
+                  </Text>
                 </View>
               </View>
               <Button variant="solid" onClick={detailsModal.deactivate}>
