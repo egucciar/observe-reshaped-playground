@@ -1,6 +1,50 @@
 # Agents Guide
 
-This document provides guidelines for AI agents working on this codebase.
+This document provides guidelines for AI agents helping users **prototype and build pages** using existing components.
+
+**For creating or modifying wrapper components**, see [COMPONENT_CREATION.md](COMPONENT_CREATION.md) instead.
+
+## 🎯 Primary Purpose of This Repository
+
+**CRITICAL: This repository exists to document and showcase OUR CUSTOM enhancements to Reshaped components.**
+
+### Context: Multiple Documentation Sources
+
+Users have access to three other places for standard Reshaped documentation:
+1. **Reshaped official documentation** - Complete API reference
+2. **Reshaped Storybook** - Interactive component examples
+3. **Observe's Storybook** - Production component usage
+
+### Our Purpose: Custom-First Documentation
+
+This playground's PRIMARY PURPOSE is to:
+- **Document custom enhancements we've added** to Reshaped components
+- **Showcase combined examples** that demonstrate our customizations
+- **Promote customized functionality ABOVE default behavior**
+
+**Therefore: Custom enhancements must always come FIRST in component pages, before standard Reshaped examples.**
+
+### Documentation Hierarchy
+
+When creating or updating component pages:
+
+1. **START with custom enhancements** (if any exist)
+   - Show what we've added beyond Reshaped
+   - Demonstrate why these enhancements exist
+   - Provide interactive examples of custom features
+   - Use title-1 heading: "Custom Enhancements"
+
+2. **THEN show standard Reshaped props** (brief overview)
+   - Keep this section concise
+   - Reference external docs for complete API details
+   - Use title-1 heading: "Standard Reshaped Props"
+   - Add subtitle: "For complete Reshaped documentation, see Reshaped docs or Observe Storybook"
+   - Focus on most commonly used features only
+
+3. **Mark custom components with ✨ sparkles emoji** in navigation
+   - This signals to users: "We've enhanced this!"
+   - Draws attention to our custom work
+   - Update `app/navigationConfig.tsx` with Sparkles icon
 
 ## ⚠️ Tailwind CSS Usage Policy
 
@@ -206,68 +250,6 @@ All components should be imported from the `components/` directory, which re-exp
 import { ComponentName } from '../components/ComponentName'
 ```
 
-### Component Structure
-
-When creating a new component wrapper:
-
-1. Export the component from reshaped
-2. Export the component's TypeScript types
-
-```tsx
-// components/ComponentName.tsx
-export { ComponentName } from 'reshaped'
-export type { ComponentNameProps } from 'reshaped'
-```
-
-### CRITICAL: Wrapping Subcomponents - Avoid Infinite Recursion
-
-When wrapping a component's subcomponent (like `DropdownMenu.Item` or `Select.Custom`), you **MUST** store a reference to the original subcomponent **BEFORE** attaching the wrapped version. Otherwise, you'll create infinite recursion where the wrapped component calls itself.
-
-#### ❌ WRONG - Causes Infinite Recursion
-
-```tsx
-// DON'T DO THIS - DropdownMenuItem will call itself infinitely!
-const DropdownMenu = ReshapedDropdownMenu
-
-const DropdownMenuItem = ({ size = 'small', ...props }: DropdownMenuItemProps) => {
-  // This references DropdownMenu.Item, which will be DropdownMenuItem after line 8!
-  return <ReshapedDropdownMenu.Item size={size} {...props} />
-}
-
-// This replaces ReshapedDropdownMenu.Item with DropdownMenuItem
-DropdownMenu.Item = DropdownMenuItem
-```
-
-#### ✅ CORRECT - Store Reference First
-
-```tsx
-// Store reference to original subcomponent BEFORE attaching wrapped version
-const DropdownMenu = ReshapedDropdownMenu
-const ReshapedDropdownMenuItem = ReshapedDropdownMenu.Item  // ← Store reference first!
-
-// Now wrap it safely
-const DropdownMenuItem = ({ size = 'small', ...props }: DropdownMenuItemProps) => {
-  // This always references the original Reshaped component
-  return <ReshapedDropdownMenuItem size={size} {...props} />
-}
-
-// Safe to attach - DropdownMenuItem uses ReshapedDropdownMenuItem internally
-DropdownMenu.Item = DropdownMenuItem
-DropdownMenu.Trigger = ReshapedDropdownMenu.Trigger
-DropdownMenu.Content = ReshapedDropdownMenu.Content
-```
-
-**Why this matters:**
-- When you write `const DropdownMenu = ReshapedDropdownMenu`, both variables reference the same object
-- If you attach `DropdownMenuItem` to `DropdownMenu.Item`, it also modifies `ReshapedDropdownMenu.Item`
-- Without storing the original reference, `ReshapedDropdownMenu.Item` inside your wrapper will call itself
-- This causes infinite recursion and crashes the app
-
-**Always follow this pattern when wrapping subcomponents:**
-1. Store a reference to the original subcomponent
-2. Create your wrapper using that stored reference
-3. Attach your wrapper to the parent component
-
 ### Layout and Spacing
 
 Use the `View` component for all layout needs instead of plain `div` elements:
@@ -450,13 +432,12 @@ Component APIs in this codebase can be inconsistent. Before using any component:
   - Example: `Autocomplete.Item` vs `Select.Option` vs `RadioGroup` (separate import)
 - **Not all components follow the same pattern**: Always verify the actual API
 - **Some components need specific structure**: Check the page examples for required wrappers
-- **Render props pattern**: Some components like `Tooltip` and `DropdownMenu.Trigger` use render props with `attributes`
-  - Example: `<Tooltip text="...">{(attributes) => <Button attributes={attributes}>Text</Button>}</Tooltip>`
-  - Example: `<DropdownMenu.Trigger>{(attributes) => <Button attributes={attributes}>Menu</Button>}</DropdownMenu.Trigger>`
-- **Built-in tooltip support**: Some components automatically have the ability to work with tooltip without manually wiring the attributes and children render function
+- **Built-in tooltip support**: Some components have built-in tooltip support, making them easier to use
   - Example: `Button` has built-in tooltip support via the `tooltip` prop
-  - Instead of: `<Tooltip text="..."><Button>Text</Button></Tooltip>` (won't work for disabled buttons)
   - Use: `<Button tooltip="...">Text</Button>` (works for both enabled and disabled buttons)
+- **Render props pattern**: Some lower-level components like `DropdownMenu.Trigger` use render props with `attributes`
+  - Example: `<DropdownMenu.Trigger>{(attributes) => <Button attributes={attributes}>Menu</Button>}</DropdownMenu.Trigger>`
+  - However, prefer using built-in integrations when available instead of manually wiring render props
 
 ### When in Doubt
 

@@ -10,7 +10,6 @@ import { Button } from '../components/Button'
 import { Card } from '../components/Card'
 
 export function FieldGroupPage() {
-
   return (
     <View padding={4} gap={4}>
       <Text variant="title-1">FieldGroup Component</Text>
@@ -19,15 +18,17 @@ export function FieldGroupPage() {
         <View gap={2}>
           <Text variant="title-2">Overview</Text>
           <Text variant="body-2" color="neutral-faded">
-            FieldGroup demonstrates how to combine multiple form components into cohesive grouped
-            interfaces, similar to Datadog's DRUIDS Group component. The FieldGroup component joins
-            separate form components by removing border-radius where they touch, creating seamless
-            compound inputs.
+            FieldGroup demonstrates how to combine multiple form components into cohesive
+            grouped interfaces, similar to other design systems and component libraries.
+            The FieldGroup component joins separate form components by removing
+            border-radius where they touch, creating seamless compound inputs.
           </Text>
         </View>
 
         <View gap={3}>
-          <Text variant="body-2" weight="medium">Key Features</Text>
+          <Text variant="body-2" weight="medium">
+            Key Features
+          </Text>
           <View gap={2}>
             <View direction="row" gap={2} align="start">
               <Text variant="body-2">•</Text>
@@ -175,7 +176,8 @@ export function FieldGroupPage() {
           <View gap={4}>
             <Text variant="title-3">Size Variants</Text>
             <Text variant="body-2" color="neutral-faded">
-              FieldGroup automatically propagates size to all child components via Context.
+              FieldGroup automatically propagates size to all child components via
+              Context.
             </Text>
 
             {/* Small Size */}
@@ -297,36 +299,45 @@ export function FieldGroupPage() {
             <Text variant="title-3">Technical Details</Text>
 
             <View gap={2}>
-              <Text variant="body-2" weight="medium">Context-Based Size Inheritance</Text>
+              <Text variant="body-2" weight="medium">
+                Context-Based Size Inheritance
+              </Text>
               <Text variant="body-2" color="neutral-faded">
-                FieldGroup uses React Context to share the size prop with all child components.
-                TextField, Select, Button, and NumberField all consume this context and automatically
-                inherit the size if not explicitly set.
+                FieldGroup uses React Context to share the size prop with all child
+                components. TextField, Select, Button, and NumberField all consume this
+                context and automatically inherit the size if not explicitly set.
               </Text>
             </View>
 
             <View gap={2}>
-              <Text variant="body-2" weight="medium">Border Radius Management</Text>
+              <Text variant="body-2" weight="medium">
+                Border Radius Management
+              </Text>
               <Text variant="body-2" color="neutral-faded">
-                The FieldGroup CSS removes border-radius on adjacent sides where components touch,
-                creating a seamless joined appearance. First child keeps left radius, last child
-                keeps right radius.
+                The FieldGroup CSS removes border-radius on adjacent sides where
+                components touch, creating a seamless joined appearance. First child keeps
+                left radius, last child keeps right radius.
               </Text>
             </View>
 
             <View gap={2}>
-              <Text variant="body-2" weight="medium">Z-Index for Focus States</Text>
+              <Text variant="body-2" weight="medium">
+                Z-Index for Focus States
+              </Text>
               <Text variant="body-2" color="neutral-faded">
-                Children have z-index: 1 by default. On focus or hover, z-index increases to 2,
-                ensuring the focused element's border is always visible above adjacent elements.
+                Children have z-index: 1 by default. On focus or hover, z-index increases
+                to 2, ensuring the focused element's border is always visible above
+                adjacent elements.
               </Text>
             </View>
 
             <View gap={2}>
-              <Text variant="body-2" weight="medium">Collapsed Borders</Text>
+              <Text variant="body-2" weight="medium">
+                Collapsed Borders
+              </Text>
               <Text variant="body-2" color="neutral-faded">
-                Elements after the first use negative margin (-1px) to overlap borders, preventing
-                double-thickness borders where components meet.
+                Elements after the first use negative margin (-1px) to overlap borders,
+                preventing double-thickness borders where components meet.
               </Text>
             </View>
           </View>

@@ -98,7 +98,14 @@ export const reshapedComponents: NavItem[] = [
   { key: 'switch', label: 'Switch' },
   { key: 'table', label: 'Table' },
   { key: 'tabs', label: 'Tabs' },
-  { key: 'text', label: 'Text' },
+  {
+    key: 'text',
+    label: (
+      <span className="flex items-center gap-1">
+        Text <Sparkles size={14} />
+      </span>
+    ),
+  },
   {
     key: 'textarea',
     label: (

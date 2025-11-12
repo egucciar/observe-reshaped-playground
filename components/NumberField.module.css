@@ -49,9 +49,3 @@
     }
   }
 }
-
-.insideFieldGroup {
-  /* Additional styling when inside a FieldGroup */
-  /* The pseudo-element border is already properly configured above */
-  /* No additional changes needed - the existing structure works perfectly */
-}
