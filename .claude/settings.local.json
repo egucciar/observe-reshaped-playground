@@ -4,7 +4,11 @@
       "Bash(npx tsc:*)",
       "Bash(xargs:*)",
       "Bash(done)",
-      "Bash(npx prettier:*)"
+      "Bash(npx prettier:*)",
+      "Bash(npm install:*)",
+      "Bash(cat:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
