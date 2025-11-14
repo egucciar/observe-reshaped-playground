@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { View } from '../components/View'
 import { Text } from '../components/Text'
 import { Select } from '../components/Select'
+import { SearchableSelect } from '../components/SearchableSelect'
 import { Card } from '../components/Card'
 import { Badge } from '../components/Badge'
 import { Globe, MapPin, User, Palette, Settings } from 'lucide-react'
@@ -13,6 +14,8 @@ export function SelectPage() {
   const [size, setSize] = useState('')
   const [color, setColor] = useState('')
   const [priority, setPriority] = useState('')
+  const [searchableValue, setSearchableValue] = useState('')
+  const [customValue, setCustomValue] = useState('')
 
   return (
     <View padding={4} gap={4}>
@@ -402,6 +405,107 @@ export function SelectPage() {
                 </span>
               </View>
             )}
+          </View>
+        </Card>
+      </View>
+
+      <View gap={3}>
+        <Text variant="title-2">SearchableSelect Component</Text>
+        <Text variant="body-2" color="neutral-faded">
+          A simplified searchable select component with filtering and custom value support
+        </Text>
+      </View>
+
+      <View gap={3}>
+        <h2>Basic Searchable Select</h2>
+        <Card padding={4}>
+          <View maxWidth="400px" gap={3}>
+            <SearchableSelect
+              name="searchable-countries"
+              placeholder="Search countries..."
+              value={searchableValue}
+              onChange={({ value }) => setSearchableValue(value)}
+            >
+              <SearchableSelect.Option value="us">United States</SearchableSelect.Option>
+              <SearchableSelect.Option value="uk">United Kingdom</SearchableSelect.Option>
+              <SearchableSelect.Option value="ca">Canada</SearchableSelect.Option>
+              <SearchableSelect.Option value="au">Australia</SearchableSelect.Option>
+              <SearchableSelect.Option value="de">Germany</SearchableSelect.Option>
+              <SearchableSelect.Option value="fr">France</SearchableSelect.Option>
+              <SearchableSelect.Option value="jp">Japan</SearchableSelect.Option>
+              <SearchableSelect.Option value="br">Brazil</SearchableSelect.Option>
+              <SearchableSelect.Option value="in">India</SearchableSelect.Option>
+              <SearchableSelect.Option value="cn">China</SearchableSelect.Option>
+            </SearchableSelect>
+            {searchableValue && (
+              <Badge color="primary">Selected: {searchableValue}</Badge>
+            )}
+          </View>
+        </Card>
+      </View>
+
+      <View gap={3}>
+        <h2>With Custom Values</h2>
+        <Card padding={4}>
+          <View maxWidth="400px" gap={3}>
+            <SearchableSelect
+              name="custom-tags"
+              placeholder="Search or type custom value..."
+              value={customValue}
+              onChange={({ value, isCustom }) => {
+                setCustomValue(value)
+                console.log('Custom value:', isCustom)
+              }}
+              allowCustomValue
+              renderCustomValue={option => (
+                <View direction="row" gap={1}>
+                  <Text as="span">{option.value}</Text>
+                  <Text as="span" color="neutral-faded">
+                    (custom)
+                  </Text>
+                </View>
+              )}
+              startSlot={
+                customValue ? (
+                  <View direction="row" gap={2} align="center">
+                    <Text>Selected:</Text>
+                  </View>
+                ) : undefined
+              }
+            >
+              <SearchableSelect.Option value="option1">
+                <Text>Option 1 text</Text>
+              </SearchableSelect.Option>
+              <SearchableSelect.Option value="option2">
+                <Text>Option 2 text</Text>
+              </SearchableSelect.Option>
+              <SearchableSelect.Option value="option3">
+                <Text>Option 3 text</Text>
+              </SearchableSelect.Option>
+              <SearchableSelect.Option value="option4">No text</SearchableSelect.Option>
+            </SearchableSelect>
+            {customValue && (
+              <Badge color="primary">Selected: {customValue}</Badge>
+            )}
+            <Text variant="caption-1" color="neutral-faded">
+              Try typing a custom framework name that's not in the list
+            </Text>
+          </View>
+        </Card>
+      </View>
+
+      <View gap={3}>
+        <h2>Non-Searchable (Read-only)</h2>
+        <Card padding={4}>
+          <View maxWidth="400px" gap={2}>
+            <SearchableSelect name="read-only" placeholder="Select an option..." showSearch={false}>
+              <SearchableSelect.Option value="option1">Option 1</SearchableSelect.Option>
+              <SearchableSelect.Option value="option2">Option 2</SearchableSelect.Option>
+              <SearchableSelect.Option value="option3">Option 3</SearchableSelect.Option>
+            </SearchableSelect>
+            <Text variant="caption-1" color="neutral-faded">
+              Search is disabled, acts like a standard select
+            </Text>
           </View>
         </Card>
       </View>
