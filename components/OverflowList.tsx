@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useLayoutEffect, useState, useRef } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { View, Popover, Actionable } from 'reshaped'
 import { Badge } from './Badge'
 import { cn } from '@/lib/utils'
@@ -43,6 +43,26 @@ export interface OverflowListProps {
   size?: 'small' | 'medium' | 'large'
 }
 
+const useStatefulRef = <T extends HTMLElement>(initialVal: T | null = null) => {
+  const [currentVal, setCurrentVal] = useState(initialVal)
+
+  const statefulRef = React.useMemo(
+    () => ({
+      get current() {
+        return currentVal
+      },
+      set current(newValue: T | null) {
+        if (!Object.is(currentVal, newValue)) {
+          setCurrentVal(newValue)
+        }
+      },
+    }),
+    [currentVal]
+  )
+
+  return statefulRef as React.RefObject<T>
+}
+
 const useContainerWidth = (element: HTMLElement | null | undefined) => {
   const [containerWidth, setContainerWidth] = useState(0)
 
@@ -61,6 +81,7 @@ const useContainerWidth = (element: HTMLElement | null | undefined) => {
     const resizeObserver = new ResizeObserver(handleResize)
     if (element) {
       resizeObserver.observe(element)
+      handleResize()
     }
 
     return () => {
@@ -81,7 +102,7 @@ export function OverflowList({
   className,
   size = 'small',
 }: OverflowListProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useStatefulRef<HTMLDivElement>(null)
   const [maxCount, setMaxCount] = useState(0)
   const [latestContainerWidth, setLatestContainerWidth] = useState(0)
 
@@ -103,14 +124,14 @@ export function OverflowList({
     if (!isVisible) {
       return // Skip calculation if not visible
     }
-    setMaxCount(0)
+    setMaxCount(-1) // Use -1 to indicate "needs calculation"
     setLatestContainerWidth(containerWidth)
   }, [items.length, containerWidth, isVisible])
 
   // Second effect: calculate the max count based on the container width and height
   useLayoutEffect(() => {
-    if (!containerElement || maxCount > 0 || !isVisible) {
-      return // Skip if already calculated or not visible
+    if (!containerElement || maxCount >= 0 || !isVisible) {
+      return // Skip if already calculated (maxCount >= 0) or not visible
     }
 
     // For multi-line mode, check if content exceeds max height
@@ -144,7 +165,7 @@ export function OverflowList({
         // Fallback to default badge
         const temp = document.createElement('div')
         temp.style.display = 'inline-block'
-        temp.innerHTML = `<span style="opacity: 0.7; white-space: nowrap; font-size: 0.75rem; padding: 0.25rem 0.5rem;">+${count} more</span>`
+        temp.innerHTML = `<span style="opacity: 0.7; white-space: nowrap; font-size: 0.75rem; padding: 0.25rem 0.5rem;">+${count}</span>`
         return temp
       }
 
@@ -189,15 +210,16 @@ export function OverflowList({
 
     // Single-line mode: check horizontal overflow
     const computedStyle = window.getComputedStyle(containerElement)
-    const gapPx = parseInt(computedStyle.gap, 10)
+    const gapPx = parseInt(computedStyle.gap, 10) || 0
 
-    // Try to measure actual overflow trigger if it exists, otherwise use default
+    // Try to measure actual overflow trigger if it exists
     const overflowTrigger = containerElement.querySelector(
       '[data-overflow-trigger]'
     ) as HTMLElement
-    const overflowIndicatorWidth = overflowTrigger?.offsetWidth || 70
+    const overflowIndicatorWidth = overflowTrigger?.offsetWidth || 50
 
     const itemElements = containerElement.querySelectorAll('[data-overflow-item]')
+
     let itemIndex = 0
     let totalWidth = 0
 
@@ -208,10 +230,20 @@ export function OverflowList({
       }
 
       const itemWidth = currentItem.offsetWidth
-      const newContentsWidth = totalWidth + itemWidth + gapPx + overflowIndicatorWidth
+      // Check if adding this item + gap would overflow WITHOUT the badge
+      const newContentsWidthNoBadge = totalWidth + itemWidth + gapPx
 
-      if (newContentsWidth >= latestContainerWidth) {
-        break
+      // If this is the last item, don't reserve space for badge
+      if (itemIndex === itemElements.length - 1) {
+        if (newContentsWidthNoBadge > latestContainerWidth) {
+          break
+        }
+      } else {
+        // Not the last item, so reserve space for potential badge
+        const newContentsWidth = newContentsWidthNoBadge + overflowIndicatorWidth
+        if (newContentsWidth > latestContainerWidth) {
+          break
+        }
       }
 
       totalWidth += itemWidth + gapPx
@@ -219,21 +251,18 @@ export function OverflowList({
     }
 
     setMaxCount(itemIndex)
-  }, [
-    latestContainerWidth,
-    containerElement,
-    maxCount,
-    items.length,
-    maxLines,
-    isVisible,
-  ])
+  }, [latestContainerWidth, containerElement, maxCount, items.length, maxLines, isVisible])
 
   // Determine visible count based on mode and whether calculation is complete
-  const visibleCount = maxCount > 0 ? maxCount : items.length
+  // If maxCount is -1, we're still calculating, so show all items temporarily
+  const visibleCount = maxCount >= 0 ? maxCount : items.length
 
   // Always show at least one item, and never more than we have
   const effectiveVisibleCount = Math.max(1, Math.min(visibleCount, items.length))
   const hiddenCount = items.length - effectiveVisibleCount
+
+  // Check if space is too constrained - if maxCount is 0 after calculation completes, show only overflow badge
+  const showOnlyOverflow = maxCount === 0 && items.length > 0
 
   return (
     <View
@@ -249,15 +278,19 @@ export function OverflowList({
       className={cn('overflow-hidden', className)}
       wrap={maxLines !== 1}
     >
-      {items.slice(0, effectiveVisibleCount).map((child, index) => (
+      {!showOnlyOverflow && items.slice(0, effectiveVisibleCount).map((child, index) => (
         <div key={child.key ?? index} className="inline-block" data-overflow-item={true}>
           {child}
         </div>
       ))}
 
-      {hiddenCount > 0 &&
+      {(hiddenCount > 0 || showOnlyOverflow) &&
         (() => {
-          const hiddenItems = items.slice(effectiveVisibleCount) as React.ReactElement[]
+          // When showing only overflow, all items are hidden
+          const actualHiddenCount = showOnlyOverflow ? items.length : hiddenCount
+          const hiddenItems = showOnlyOverflow
+            ? (items as React.ReactElement[])
+            : (items.slice(effectiveVisibleCount) as React.ReactElement[])
 
           // If onOverflowClick is provided, render a clickable badge without popover
           if (onOverflowClick) {
@@ -269,7 +302,7 @@ export function OverflowList({
                 onClick={onOverflowClick}
               >
                 <Badge size={size} className="opacity-70 whitespace-nowrap">
-                  +{hiddenCount} more
+                  +{actualHiddenCount}
                 </Badge>
               </Actionable>
             )
@@ -287,7 +320,7 @@ export function OverflowList({
                     }}
                   >
                     <Badge size={size} variant="outline" className="whitespace-nowrap">
-                      +{hiddenCount} more
+                      +{actualHiddenCount}
                     </Badge>
                   </Actionable>
                 )}
@@ -295,7 +328,7 @@ export function OverflowList({
               <Popover.Content>
                 <View gap={1}>
                   {hiddenItems.map((child, index) => (
-                    <div key={child.key ?? effectiveVisibleCount + index}>
+                    <div key={child.key ?? (showOnlyOverflow ? index : effectiveVisibleCount + index)}>
                       {child}
                     </div>
                   ))}
@@ -306,7 +339,7 @@ export function OverflowList({
 
           if (renderOverflow) {
             const customHandle = renderOverflow(
-              hiddenCount,
+              actualHiddenCount,
               hiddenItems,
               items as React.ReactElement[]
             )

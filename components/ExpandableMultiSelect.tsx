@@ -21,6 +21,7 @@ import {
 import { View, Actionable } from 'reshaped'
 import { Badge } from './Badge'
 import { OverflowList } from './OverflowList'
+import { Text } from './Text'
 import {
   Command,
   CommandEmpty,
@@ -222,7 +223,7 @@ export const ExpandableMultiSelect = React.forwardRef<
                             }}
                             attributes={{ tabIndex: -1 }}
                           >
-                            +{count} more
+                            +{count}
                           </Badge>
                         )}
                       >
@@ -290,9 +291,9 @@ export const ExpandableMultiSelect = React.forwardRef<
                   </View>
                 )
               ) : (
-                <View direction="row" align="center" gap={2}>
-                  {startSlot && <View>{startSlot}</View>}
-                  <View className="text-neutral-faded">{placeholder}</View>
+                <View direction="row" align="center" gap={2} className="min-w-0 flex-1">
+                  {startSlot && <View className="shrink-0">{startSlot}</View>}
+                  <Text color="neutral-faded" maxLines={1}>{placeholder}</Text>
                 </View>
               )}
             </View>
@@ -315,9 +316,14 @@ export const ExpandableMultiSelect = React.forwardRef<
                       const triggerWidth =
                         (refs.reference.current as HTMLElement)?.offsetWidth || 0
                       // Only grow by 50% if trigger is smaller than 250px
-                      return triggerWidth > 0 && triggerWidth < 250
-                        ? `${triggerWidth * 1.5}px`
-                        : `${triggerWidth}px`
+                      if (triggerWidth > 0 && triggerWidth < 250) {
+                        const expandedWidth = triggerWidth * 1.5
+                        // Ensure minimum width of 250px if original is less than 167px
+                        return triggerWidth < 167
+                          ? `${Math.max(expandedWidth, 250)}px`
+                          : `${expandedWidth}px`
+                      }
+                      return `${triggerWidth}px`
                     })(),
                 }}
                 {...getFloatingProps()}
