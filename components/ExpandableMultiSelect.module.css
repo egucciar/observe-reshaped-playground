@@ -1,0 +1,31 @@
+.trigger {
+  border: 1px solid var(--rs-color-border-neutral);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.trigger:hover,
+.floatingTrigger {
+  /* background-color: var(--rs-color-background-neutral-faded); */
+  border-color: var(--rs-color-border-neutral-highlighted);
+}
+
+.trigger.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.trigger.disabled:hover {
+  background-color: transparent;
+  border-color: var(--rs-color-border-neutral);
+}
+
+.noTopRadius {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.noBottomRadius {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  margin-bottom: -1px;
+}
