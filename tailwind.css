@@ -1,2 +1,2 @@
 @import 'tailwindcss';
-@import 'reshaped/themes/reshaped/tailwind.css';
+@import './public/custom/tailwind.css';
